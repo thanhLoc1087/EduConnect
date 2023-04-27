@@ -30,7 +30,7 @@
                                 </Ellipse.Fill>
                             </Ellipse>
 
-                            <StackPanel Margin="10 10 10 10">
+                            <StackPanel Margin="10 10 10 0">
                                 <TextBlock
                                     Foreground="{StaticResource White}"
                                     TextAlignment="Center"
@@ -55,12 +55,200 @@
                 Height="202"
                 VerticalAlignment="Center">
 
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <DockPanel
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.RowSpan="8"
+                            Grid.ColumnSpan="5">
+                            <Ellipse
+                                Width="150"
+                                Height="150"
+                                VerticalAlignment="Center"
+                                Fill="#D9D9D9"
+                            >
+                                <!--<Ellipse.Fill>
+                                    <ImageBrush ImageSource="../imgs/Logo.png"/>
+
+                                </Ellipse.Fill>-->
+                            </Ellipse>
+                        </DockPanel>
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Họ và tên:"
+                            Foreground="{StaticResource Yale Blue}"
+                            FontSize="16"
+                            FontWeight="DemiBold">
+                        </TextBlock>
+
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Chức vụ:"
+                            Foreground="{StaticResource Yale Blue}"
+                            FontSize="16"
+                            FontWeight="DemiBold">
+                        </TextBlock>
+
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Tổ:"
+                            Foreground="{StaticResource Yale Blue}"
+                            FontSize="16"
+                            FontWeight="DemiBold">
+                        </TextBlock>
+
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Số điện thoại:"
+                            Foreground="{StaticResource Yale Blue}"
+                            FontSize="16"
+                            FontWeight="DemiBold">
+                        </TextBlock>
+
+
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Email:"
+                            Foreground="{StaticResource Yale Blue}"
+                            FontSize="16"
+                            FontWeight="DemiBold">
+                        </TextBlock>
+
+
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Địa chỉ:"
+                            Foreground="{StaticResource Yale Blue}"
+                            FontSize="16"
+                            FontWeight="DemiBold">
+                        </TextBlock>
+
+                        <!--Thong tin-->
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="Nguyễn Văn A"
+                            Foreground="{StaticResource Green Blue}"
+                            FontSize="16"
+                            FontWeight="Light">
+                        </TextBlock>
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="Tổ trưởng"
+                            Foreground="{StaticResource Green Blue}"
+                            FontSize="16"
+                            FontWeight="Light">
+                        </TextBlock>
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="Toán - Hóa - Sinh"
+                            Foreground="{StaticResource Green Blue}"
+                            FontSize="16"
+                            FontWeight="Light">
+                        </TextBlock>
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="0123456789"
+                            Foreground="{StaticResource Green Blue}"
+                            FontSize="16"
+                            FontWeight="Light">
+                        </TextBlock>
+
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="NguyenVanA@gmail.com"
+                            Foreground="{StaticResource Green Blue}"
+                            FontSize="16"
+                            FontWeight="Light">
+                        </TextBlock>
+
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Grid.RowSpan="2"
+                            Text="Khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh"
+                            Foreground="{StaticResource Green Blue}"
+                            FontSize="16"
+                            FontWeight="Light"
+                            TextWrapping="WrapWithOverflow">
+                        </TextBlock>
+                    </Grid>
+                
             </Border>
             <Border
                 CornerRadius="15 15 15 15"
                 Background="{StaticResource Green Blue}"
                 Height="31"
                 VerticalAlignment="Bottom">
+                    <TextBlock 
+                        Text="Đường Thanh Tâm, Khu 1, Phường 4, thị xã Cai Lậy, Tiền Giang"
+                        Foreground="{StaticResource White}"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        >
+                        
+                    </TextBlock>
             </Border>
         </StackPanel>
         </Border>
