@@ -3,10 +3,236 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:EduConnectApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1080" Width="1600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto">
+            </RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <!--App Name-->
+        <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="3"
+                VerticalAlignment="Center">
+            <TextBlock FontSize="50" HorizontalAlignment="Center" Text="EDU" Foreground="{StaticResource Yale Blue}"/>
+            <TextBlock FontSize="50" HorizontalAlignment="Center" Text="CONNECT" Foreground="{StaticResource Yale Blue}"/>
+        </StackPanel>
+
+        <!--Menu-->
+        <Border CornerRadius="0 100 0 0" Grid.Row="3"
+                Grid.Column="0"
+                Grid.RowSpan="10"
+                Grid.ColumnSpan="3"
+                Background="{StaticResource Yale Blue}">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel 
+                x:Name="MenuContainer" VerticalAlignment="Center"
+                    DockPanel.Dock="Top">
+
+                    <!--Trang chủ-->
+                    <RadioButton 
+                    Name="Home"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0 10 0 10"
+                             >
+                        <StackPanel 
+                        Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                            Kind="Cog"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            Width="40"
+                            Height="40"/>
+                            <TextBlock 
+                            Text=" Trang chủ"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            FontSize="40"
+                            />
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--Lớp-->
+                    <RadioButton 
+                    Name="Class"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0 10 0 10"
+                             >
+                        <StackPanel 
+                        Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                            Kind="Cog"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            Width="40"
+                            Height="40"/>
+                            <TextBlock 
+                            Text=" Lớp"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            FontSize="40"
+                            />
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--Điểm-->
+                    <RadioButton 
+                    Name="Score"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0 10 0 10"
+                             >
+                        <StackPanel 
+                        Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                            Kind="Cog"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            Width="40"
+                            Height="40"/>
+                            <TextBlock 
+                            Text=" Điểm"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            FontSize="40"
+                            />
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--Thống kê-->
+                    <RadioButton 
+                    Name="Statistic"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0 10 0 10"
+                             >
+                        <StackPanel 
+                        Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                            Kind="Cog"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            Width="40"
+                            Height="40"/>
+                            <TextBlock 
+                            Text=" Thống kê"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            FontSize="40"
+                            />
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--Liên hệ-->
+                    <RadioButton 
+                    Name="Contact"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                        Margin="0 10 0 10"
+                             >
+                        <StackPanel 
+                        Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                            Kind="Cog"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            Width="40"
+                            Height="40"/>
+                            <TextBlock 
+                            Text=" Liên hệ"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            FontSize="40"
+                            />
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--Cài đặt-->
+                    <RadioButton 
+                    Name="Setting"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                        Margin="0 10 0 10"
+                             >
+                        <StackPanel 
+                        Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                            Kind="Cog"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            Width="40"
+                            Height="40"/>
+                            <TextBlock 
+                            Text=" Cài đặt"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            FontSize="40"
+                            />
+                        </StackPanel>
+                    </RadioButton>
+
+                </StackPanel>
+
+                <StackPanel VerticalAlignment="Center" Grid.Row="1" Margin="10 10 10 25">
+                    <materialDesign:PackIcon 
+                            Kind="Cog"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Width="36"
+                            Height="36"/>
+                    <TextBlock 
+                            Text="Đăng xuất"
+                            Foreground="{StaticResource White}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="36"
+                            />
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
     </Grid>
 </Window>
