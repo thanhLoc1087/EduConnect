@@ -69,11 +69,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="InforWindow.xaml.cs">
-      <DependentUpon>InforWindow.xaml</DependentUpon>
+    <Compile Include="imgs\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoadingWindow.xaml.cs">
-      <DependentUpon>LoadingWindow.xaml</DependentUpon>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
@@ -81,19 +81,6 @@
     <Compile Include="src\UserControl2.xaml.cs">
       <DependentUpon>UserControl2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlCustom\DashBoardNotificationUC.xaml.cs">
-      <DependentUpon>DashBoardNotificationUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlCustom\DashBoardUC.xaml.cs">
-      <DependentUpon>DashBoardUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlCustom\LoginUC.xaml.cs">
-      <DependentUpon>LoginUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlCustom\ResetPasswordUC.xaml.cs">
-      <DependentUpon>ResetPasswordUC.xaml</DependentUpon>
-    </Compile>
-    <Page Include="InforWindow.xaml">
     <Compile Include="UserControlCustom\MemberCard.xaml.cs">
       <DependentUpon>MemberCard.xaml</DependentUpon>
     </Compile>
@@ -101,7 +88,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoadingWindow.xaml">
+    <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,19 +112,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlCustom\DashBoardNotificationUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControlCustom\DashBoardUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControlCustom\LoginUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControlCustom\ResetPasswordUC.xaml">
     <Page Include="UserControlCustom\MemberCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,15 +150,6 @@
     <Resource Include="imgs\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="imgs\BlueCircle.png" />
-    <Resource Include="imgs\BlurredBackground.png" />
-    <Resource Include="imgs\GreenBlueCircle.png" />
-    <Resource Include="imgs\RainIcon.png" />
-    <Resource Include="imgs\RainingImage.png" />
-    <Resource Include="imgs\SchoolImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="imgs\Graduation.png" />
     <Resource Include="imgs\LogoUIT.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
