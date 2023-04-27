@@ -69,11 +69,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="imgs\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
+    <Compile Include="InforWindow.xaml.cs">
+      <DependentUpon>InforWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    <Compile Include="LoadingWindow.xaml.cs">
+      <DependentUpon>LoadingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
@@ -81,14 +81,26 @@
     <Compile Include="src\UserControl2.xaml.cs">
       <DependentUpon>UserControl2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlCustom\DashBoardNotificationUC.xaml.cs">
+      <DependentUpon>DashBoardNotificationUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCustom\DashBoardUC.xaml.cs">
+      <DependentUpon>DashBoardUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCustom\LoginUC.xaml.cs">
+      <DependentUpon>LoginUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlCustom\MemberCard.xaml.cs">
       <DependentUpon>MemberCard.xaml</DependentUpon>
     </Compile>
-    <Page Include="imgs\UserControl1.xaml">
+    <Compile Include="UserControlCustom\ResetPasswordUC.xaml.cs">
+      <DependentUpon>ResetPasswordUC.xaml</DependentUpon>
+    </Compile>
+    <Page Include="InforWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="LoadingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,7 +124,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlCustom\DashBoardNotificationUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlCustom\DashBoardUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlCustom\LoginUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlCustom\MemberCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlCustom\ResetPasswordUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,6 +179,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="imgs\LogoUIT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\BlueCircle.png" />
+    <Resource Include="imgs\BlurredBackground.png" />
+    <Resource Include="imgs\Graduation.png" />
+    <Resource Include="imgs\GreenBlueCircle.png" />
+    <Resource Include="imgs\RainIcon.png" />
+    <Resource Include="imgs\RainingImage.png" />
+    <Resource Include="imgs\SchoolImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace EduConnectApp
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for InforWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class InforWindow : Window
     {
-        public LoginWindow()
+        public InforWindow()
         {
             InitializeComponent();
         }
