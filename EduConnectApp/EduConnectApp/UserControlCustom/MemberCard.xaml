@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="EduConnectApp.UserControlCustom.MemberCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EduConnectApp.UserControlCustom"
+             mc:Ignorable="d" 
+             d:DesignWidth="573">
+    <Grid>
+        <Border 
+            CornerRadius="15 15 15 15">
+            <StackPanel
+            Background="{StaticResource Light Blue}"
+            Height="291">
+            <Border
+                CornerRadius="15 15 15 15"
+                Background="{StaticResource Green Blue}"
+                Height="58"
+                VerticalAlignment="Top">
+                    <DockPanel
+                        >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                           <Ellipse
+                            Width="45"
+                            Height="45"
+                            >
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="../imgs/Logo.png"/>
+                                    
+                                </Ellipse.Fill>
+                            </Ellipse>
+
+                            <StackPanel Margin="10 10 10 10">
+                                <TextBlock
+                                    Foreground="{StaticResource White}"
+                                    TextAlignment="Center"
+                                    FontSize="16">
+                                    SỞ GIÁO DỤC VÀ ĐÀO TẠO TIỀN GIANG
+                                </TextBlock>
+                                <TextBlock
+                                    Foreground="{StaticResource White}"
+                                    TextAlignment="Center"
+                                    FontSize="16">
+                                    TRƯỜNG THPT ĐỐC BINH KIỀU
+                                </TextBlock>
+                            </StackPanel>
+                            
+                        </StackPanel>
+
+                    </DockPanel>
+
+            </Border>
+            <Border
+                Background="{StaticResource Light Blue}"
+                Height="202"
+                VerticalAlignment="Center">
+
+            </Border>
+            <Border
+                CornerRadius="15 15 15 15"
+                Background="{StaticResource Green Blue}"
+                Height="31"
+                VerticalAlignment="Bottom">
+            </Border>
+        </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
