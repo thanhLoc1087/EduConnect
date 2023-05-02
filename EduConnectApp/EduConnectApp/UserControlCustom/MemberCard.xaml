@@ -10,10 +10,10 @@
         <Border 
             CornerRadius="15 15 15 15">
             <StackPanel
-            Background="{StaticResource Light Blue}"
+            Background="#C5E9F8"
             Height="291">
             <Border
-                CornerRadius="15 15 15 15"
+                CornerRadius="0 0 15 15"
                 Background="{StaticResource Green Blue}"
                 Height="58"
                 VerticalAlignment="Top">
@@ -51,7 +51,7 @@
 
             </Border>
             <Border
-                Background="{StaticResource Light Blue}"
+                Background="#C5E9F8"
                 Height="202"
                 VerticalAlignment="Center">
 
@@ -236,7 +236,7 @@
                 
             </Border>
             <Border
-                CornerRadius="15 15 15 15"
+                CornerRadius="15 15 0 0"
                 Background="{StaticResource Green Blue}"
                 Height="31"
                 VerticalAlignment="Bottom">
