@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm ="clr-namespace:EduConnectApp.ViewModel"
+                    xmlns:local="clr-namespace:EduConnectApp.ResourceXAML">
+    <vm:MainViewModel x:Key="MainVM"></vm:MainViewModel>
+    <vm:HomeViewModel x:Key="HomeVM"></vm:HomeViewModel>
+    <vm:ClassViewModel x:Key="ClassVM"></vm:ClassViewModel>
+    <vm:GradeViewModel x:Key="Grade"></vm:GradeViewModel>
+    <vm:StatisticViewModel x:Key="StatisticVM"></vm:StatisticViewModel>
+    <vm:ContactViewModel x:Key="ContactVM"></vm:ContactViewModel>
+    <vm:SettingViewModel x:Key="SettingVM"></vm:SettingViewModel>
+</ResourceDictionary>

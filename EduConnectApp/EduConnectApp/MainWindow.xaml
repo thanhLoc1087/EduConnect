@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:uc="clr-namespace:EduConnectApp.UserControlCustom"
+        xmlns:viewuc ="clr-namespace:EduConnectApp.ViewUCs"
         xmlns:local="clr-namespace:EduConnectApp"
+        xmlns:vm="clr-namespace:EduConnectApp.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1600">
+        Title="MainWindow" Height="720" Width="1280"
+        WindowStartupLocation="CenterScreen"
+        DataContext="MainViewModel">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto">
@@ -49,8 +55,8 @@
                 Grid.RowSpan="2"
                 Grid.ColumnSpan="3"
                 VerticalAlignment="Center">
-            <TextBlock FontSize="50" HorizontalAlignment="Center" Text="EDU" Foreground="{StaticResource Yale Blue}"/>
-            <TextBlock FontSize="50" HorizontalAlignment="Center" Text="CONNECT" Foreground="{StaticResource Yale Blue}"/>
+            <TextBlock FontSize="24" HorizontalAlignment="Center" Text="EDU" Foreground="{StaticResource Yale Blue}"/>
+            <TextBlock FontSize="24" HorizontalAlignment="Center" Text="CONNECT" Foreground="{StaticResource Yale Blue}"/>
         </StackPanel>
 
         <!--Menu-->
@@ -64,16 +70,19 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
+
+                <!--Menu-->
                 <StackPanel 
                 x:Name="MenuContainer" VerticalAlignment="Center"
-                    DockPanel.Dock="Top">
+                     IsEnabled="{Binding IsChecked, ElementName=EnableListBox}">
+                    <!--DockPanel.Dock="Top">-->
 
                     <!--Trang chủ-->
                     <RadioButton 
                     Name="Home"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Margin="0 10 0 10"
+                    Margin="0 10 0 10" IsChecked="True"
                              >
                         <StackPanel 
                         Orientation="Horizontal">
@@ -83,13 +92,19 @@
                             VerticalAlignment="Center"
                             Width="40"
                             Height="40"/>
-                            <TextBlock 
+                            <TextBlock  x:Name="text1"
                             Text=" Trang chủ"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
                             FontSize="40"
                             />
                         </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding navHome}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </RadioButton>
 
                     <!--Lớp-->
@@ -107,13 +122,19 @@
                             VerticalAlignment="Center"
                             Width="40"
                             Height="40"/>
-                            <TextBlock 
+                            <TextBlock x:Name="text2"
                             Text=" Lớp"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
                             FontSize="40"
                             />
                         </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </RadioButton>
 
                     <!--Điểm-->
@@ -138,6 +159,12 @@
                             FontSize="40"
                             />
                         </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding navGrade}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </RadioButton>
 
                     <!--Thống kê-->
@@ -162,6 +189,12 @@
                             FontSize="40"
                             />
                         </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding navStatistic}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </RadioButton>
 
                     <!--Liên hệ-->
@@ -186,6 +219,12 @@
                             FontSize="40"
                             />
                         </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding navContact}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </RadioButton>
 
                     <!--Cài đặt-->
@@ -210,6 +249,12 @@
                             FontSize="40"
                             />
                         </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding navSetting}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </RadioButton>
 
                 </StackPanel>
@@ -233,6 +278,31 @@
 
             </Grid>
         </Border>
+
+        <ContentControl Content="{Binding CurrentViewModel}" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="10" Grid.RowSpan="10"  Background="SeaGreen" Width="1026">
+            <ContentControl.Resources>
+                <!--<DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">-->
+                <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+                    <viewuc:HomeUC></viewuc:HomeUC>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:ClassViewModel}">
+                    <viewuc:ClassUC></viewuc:ClassUC>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:GradeViewModel}">
+                    <viewuc:GradeUC></viewuc:GradeUC>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:StatisticViewModel}">
+                    <viewuc:StatisticUC></viewuc:StatisticUC>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:ContactViewModel}">
+                    <viewuc:ContactUC></viewuc:ContactUC>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:SettingViewModel}">
+                    <viewuc:SettingUC></viewuc:SettingUC>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+
 
     </Grid>
 </Window>
