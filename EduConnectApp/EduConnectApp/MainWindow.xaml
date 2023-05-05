@@ -75,30 +75,14 @@
                 <StackPanel 
                 x:Name="MenuContainer" VerticalAlignment="Center"
                      IsEnabled="{Binding IsChecked, ElementName=EnableListBox}">
-                    <!--DockPanel.Dock="Top">-->
 
                     <!--Trang chủ-->
-                    <RadioButton 
-                    Name="Home"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="0 10 0 10" IsChecked="True"
-                             >
-                        <StackPanel 
-                        Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                            Kind="Cog"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            Width="40"
-                            Height="40"/>
-                            <TextBlock  x:Name="text1"
-                            Text=" Trang chủ"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            FontSize="40"
-                            />
+                    <RadioButton x:Name="rdbtn_Home" Style="{StaticResource BtnStyle}">
+                        <StackPanel  Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Home" Style="{StaticResource ic_MenuStyle}"/>
+                            <TextBlock Text=" Trang chủ" Style="{StaticResource txtbl_MenuStyle}"/>
                         </StackPanel>
+                        
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding navHome}"></i:InvokeCommandAction>
@@ -108,27 +92,12 @@
                     </RadioButton>
 
                     <!--Lớp-->
-                    <RadioButton 
-                    Name="Class"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="0 10 0 10"
-                             >
-                        <StackPanel 
-                        Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                            Kind="Cog"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            Width="40"
-                            Height="40"/>
-                            <TextBlock x:Name="text2"
-                            Text=" Lớp"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            FontSize="40"
-                            />
+                    <RadioButton x:Name="rdBtn_Class" Style="{StaticResource rdbtn_MenuStyle}"  >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  Kind="Class" Style="{StaticResource ic_MenuStyle}"/>
+                            <TextBlock Text="Lớp" Style="{StaticResource txtbl_MenuStyle}" />
                         </StackPanel>
+                        
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
@@ -138,12 +107,7 @@
                     </RadioButton>
 
                     <!--Điểm-->
-                    <RadioButton 
-                    Name="Score"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="0 10 0 10"
-                             >
+                    <RadioButton x:Name="Grade" Style="{StaticResource rdbtn_MenuStyle}">
                         <StackPanel 
                         Orientation="Horizontal">
                             <materialDesign:PackIcon 
