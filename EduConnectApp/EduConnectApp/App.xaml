@@ -6,7 +6,7 @@
              >
     <Application.Resources>
         <ResourceDictionary>
-
+            <SolidColorBrush x:Key="Background" Color="#edf1f5"/>
             <SolidColorBrush x:Key="Yale Blue" Color="#033270"/>
             <SolidColorBrush x:Key="Green Blue" Color="#1368AA"/>
             <SolidColorBrush x:Key="Celestial Blue" Color="#4091C9"/>

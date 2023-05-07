@@ -7,7 +7,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:EduConnectApp"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="1080" Width="1920">
+        Title="LoginWindow" Height="720" Width="1280">
     <Grid>
         <Image Source="./imgs/Loading.png" Stretch="Fill"></Image>
         <Grid>

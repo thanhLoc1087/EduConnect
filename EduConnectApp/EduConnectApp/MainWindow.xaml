@@ -13,24 +13,21 @@
         Title="MainWindow" Height="720" Width="1280"
         WindowStartupLocation="CenterScreen"
         DataContext="MainViewModel">
-    <Grid>
+    <Grid Background="{StaticResource Background}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto">
-            </RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="78.227"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -50,7 +47,7 @@
 
         <!--App Name-->
         <StackPanel
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.Column="0"
                 Grid.RowSpan="2"
                 Grid.ColumnSpan="3"
@@ -60,9 +57,9 @@
         </StackPanel>
 
         <!--Menu-->
-        <Border CornerRadius="0 100 0 0" Grid.Row="3"
+        <Border CornerRadius="0 100 0 0" Grid.Row="2"
                 Grid.Column="0"
-                Grid.RowSpan="10"
+                Grid.RowSpan="7"
                 Grid.ColumnSpan="3"
                 Background="{StaticResource Yale Blue}">
             <Grid >
@@ -78,25 +75,29 @@
                     <!--DockPanel.Dock="Top">-->
 
                     <!--Trang chủ-->
-                    <RadioButton 
+                    <Button 
                     Name="Home"
+                    Background="Transparent"
+                    Padding="0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Margin="0 10 0 10" IsChecked="True"
+                    Margin="20 10 0 10"
+                    BorderBrush="Transparent"
+                   
                              >
                         <StackPanel 
                         Orientation="Horizontal">
                             <materialDesign:PackIcon 
-                            Kind="Cog"
+                            Kind="Home"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            Width="40"
+                            Width="25"
                             Height="40"/>
                             <TextBlock  x:Name="text1"
                             Text=" Trang chủ"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            FontSize="40"
+                            FontSize="25"
                             />
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -105,28 +106,31 @@
                                 <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </RadioButton>
+                    </Button>
 
                     <!--Lớp-->
-                    <RadioButton 
+                    <Button 
                     Name="Class"
+                    Background="Transparent"
+                    Padding="0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Margin="0 10 0 10"
+                    Margin="20 10 0 10"
+                    BorderBrush="Transparent"
                              >
                         <StackPanel 
                         Orientation="Horizontal">
                             <materialDesign:PackIcon 
-                            Kind="Cog"
+                            Kind="DotsHorizontalCircle"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            Width="40"
+                            Width="25"
                             Height="40"/>
                             <TextBlock x:Name="text2"
                             Text=" Lớp"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            FontSize="40"
+                            FontSize="25"
                             />
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -135,28 +139,31 @@
                                 <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </RadioButton>
+                    </Button>
 
                     <!--Điểm-->
-                    <RadioButton 
+                    <Button 
                     Name="Score"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="0 10 0 10"
+                    Background="Transparent"
+                    Padding="0"
+                    HorizontalAlignment="Left"                    
+                    VerticalAlignment="Center" 
+                    Margin="20 10 0 10"
+                    BorderBrush="Transparent"
                              >
                         <StackPanel 
                         Orientation="Horizontal">
                             <materialDesign:PackIcon 
-                            Kind="Cog"
+                            Kind="ClipboardCheck"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            Width="40"
+                            Width="25"
                             Height="40"/>
                             <TextBlock 
                             Text=" Điểm"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            FontSize="40"
+                            FontSize="25"
                             />
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -165,28 +172,31 @@
                                 <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </RadioButton>
+                    </Button>
 
                     <!--Thống kê-->
-                    <RadioButton 
+                    <Button 
                     Name="Statistic"
+                    Background="Transparent"
+                    Padding="0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Margin="0 10 0 10"
+                    Margin="20 10 0 10"
+                    BorderBrush="Transparent"
                              >
                         <StackPanel 
                         Orientation="Horizontal">
                             <materialDesign:PackIcon 
-                            Kind="Cog"
+                            Kind="ChartBar"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            Width="40"
+                            Width="25"
                             Height="40"/>
                             <TextBlock 
                             Text=" Thống kê"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            FontSize="40"
+                            FontSize="25"
                             />
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -195,28 +205,31 @@
                                 <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </RadioButton>
+                    </Button>
 
                     <!--Liên hệ-->
-                    <RadioButton 
+                    <Button 
                     Name="Contact"
+                    Background="Transparent"
+                    Padding="0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                        Margin="0 10 0 10"
+                        Margin="20 10 0 10"
+                        BorderBrush="Transparent"
                              >
                         <StackPanel 
                         Orientation="Horizontal">
                             <materialDesign:PackIcon 
-                            Kind="Cog"
+                            Kind="Email"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            Width="40"
+                            Width="25"
                             Height="40"/>
                             <TextBlock 
                             Text=" Liên hệ"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            FontSize="40"
+                            FontSize="25"
                             />
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -225,14 +238,17 @@
                                 <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </RadioButton>
+                    </Button>
 
                     <!--Cài đặt-->
-                    <RadioButton 
+                    <Button 
                     Name="Setting"
+                    Background="Transparent"
+                    Padding="0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                        Margin="0 10 0 10"
+                        Margin="20 10 0 10"
+                        BorderBrush="Transparent"
                              >
                         <StackPanel 
                         Orientation="Horizontal">
@@ -240,13 +256,13 @@
                             Kind="Cog"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            Width="40"
+                            Width="25"
                             Height="40"/>
                             <TextBlock 
                             Text=" Cài đặt"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
-                            FontSize="40"
+                            FontSize="25"
                             />
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -255,31 +271,33 @@
                                 <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </RadioButton>
+                    </Button>
 
                 </StackPanel>
 
-                <StackPanel VerticalAlignment="Center" Grid.Row="1" Margin="10 10 10 25">
-                    <materialDesign:PackIcon 
-                            Kind="Cog"
+                <Button VerticalAlignment="Center" Grid.Row="1" Grid.RowSpan="2" Padding="0" Margin="10 10 10 25" Background="Transparent" Height="100" BorderBrush="Transparent">
+                    <StackPanel >
+                        <materialDesign:PackIcon 
+                            Kind="Logout"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
-                            Width="36"
+                            Width="25"
                             Height="36"/>
-                    <TextBlock 
+                        <TextBlock 
                             Text="Đăng xuất"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
-                            FontSize="36"
+                            FontSize="25"
                             />
-                </StackPanel>
+                    </StackPanel>
+                </Button>
 
             </Grid>
         </Border>
 
-        <ContentControl Content="{Binding CurrentViewModel}" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="10" Grid.RowSpan="10"  Background="SeaGreen" Width="1026">
+        <ContentControl Content="{Binding CurrentViewModel}" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="13" Grid.RowSpan="7"  Background="DarkGray">
             <ContentControl.Resources>
                 <!--<DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">-->
                 <DataTemplate DataType="{x:Type vm:HomeViewModel}">
