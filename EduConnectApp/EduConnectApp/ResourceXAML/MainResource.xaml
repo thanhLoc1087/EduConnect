@@ -9,4 +9,5 @@
     <vm:StatisticViewModel x:Key="StatisticVM"></vm:StatisticViewModel>
     <vm:ContactViewModel x:Key="ContactVM"></vm:ContactViewModel>
     <vm:SettingViewModel x:Key="SettingVM"></vm:SettingViewModel>
+    <SolidColorBrush x:Key="YaleBlue" Color="#033270"/>
 </ResourceDictionary>
