@@ -46,6 +46,8 @@
 
 
         <!--App Name-->
+       
+        
         <StackPanel
                 Grid.Row="0"
                 Grid.Column="0"

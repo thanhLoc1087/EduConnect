@@ -157,6 +157,110 @@
                 </Setter>
             </Style>
 
+
+            <Style x:Key="LoginBtn" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{StaticResource Celestial Blue}" CornerRadius="15">
+                                <TextBlock Text="Đăng nhập" Foreground="{StaticResource White}" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <Style x:Key="ResetPWBtn" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{StaticResource Celestial Blue}" CornerRadius="15">
+                                <TextBlock Text="Cập nhật mật khẩu" Foreground="{StaticResource White}" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <Style x:Key="GetScoreBtn" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border Background="{StaticResource Celestial Blue}" CornerRadius="15">
+                                    <Grid>
+                                        <TextBlock Text="NHẬP ĐIỂM" Foreground="{StaticResource White}" FontSize="24" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <Image Source="./imgs/getScoreIcon.png" Width="20" Height="20" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="SaveBtn" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{StaticResource Celestial Blue}" CornerRadius="15">
+                                <TextBlock Text="Lưu" Foreground="{StaticResource White}" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="BackBtn" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{StaticResource Tomato}" CornerRadius="15">
+                                <TextBlock Text="Quay lại" Foreground="{StaticResource White}" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="EditBtn" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{StaticResource Green Blue}" CornerRadius="15">
+                                <Image Source="./imgs/editIcon.png" Margin="20 20 20 20"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="DeleteBtn" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{StaticResource Tomato}" CornerRadius="15">
+                                <Image Source="./imgs/trash.png" Margin="15 15 15 15"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="PrintBtn" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="#40C9C9" CornerRadius="15">
+                                <Image Source="./imgs/printer.png" Margin="12 12 12 12"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary x:Name="CustomStyles" Source="ResourceXAML/Styles.xaml"/>
                 <ResourceDictionary x:Name="CustomColors" Source="ResourceXAML/Colors.xaml"/>
