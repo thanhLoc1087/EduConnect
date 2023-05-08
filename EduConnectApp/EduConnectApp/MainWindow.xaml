@@ -72,67 +72,15 @@
                 <StackPanel 
                 x:Name="MenuContainer" VerticalAlignment="Center"
                      IsEnabled="{Binding IsChecked, ElementName=EnableListBox}">
-                    <!--DockPanel.Dock="Top">-->
 
                     <!--Trang chủ-->
-                    <Button 
-                    Name="Home"
-                    Background="Transparent"
-                    Padding="0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="20 10 0 10"
-                    BorderBrush="Transparent"
-                   
-                             >
-                        <StackPanel 
-                        Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                            Kind="Home"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            Width="25"
-                            Height="40"/>
-                            <TextBlock  x:Name="text1"
-                            Text=" Trang chủ"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            FontSize="25"
-                            />
-                        </StackPanel>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding navHome}"></i:InvokeCommandAction>
-                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </Button>
 
-                    <!--Lớp-->
-                    <Button 
-                    Name="Class"
-                    Background="Transparent"
-                    Padding="0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="20 10 0 10"
-                    BorderBrush="Transparent"
-                             >
-                        <StackPanel 
-                        Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                            Kind="DotsHorizontalCircle"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            Width="25"
-                            Height="40"/>
-                            <TextBlock x:Name="text2"
-                            Text=" Lớp"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            FontSize="25"
-                            />
+                    <RadioButton x:Name="rdBtn_Class" Style="{StaticResource rdbtn_MenuStyle}"  >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  Kind="Class" Style="{StaticResource ic_MenuStyle}"/>
+                            <TextBlock Text="Lớp" Style="{StaticResource txtbl_MenuStyle}" />
                         </StackPanel>
+                        
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
@@ -142,15 +90,9 @@
                     </Button>
 
                     <!--Điểm-->
-                    <Button 
-                    Name="Score"
-                    Background="Transparent"
-                    Padding="0"
-                    HorizontalAlignment="Left"                    
-                    VerticalAlignment="Center" 
-                    Margin="20 10 0 10"
-                    BorderBrush="Transparent"
-                             >
+
+                    <RadioButton x:Name="Grade" Style="{StaticResource rdbtn_MenuStyle}">
+
                         <StackPanel 
                         Orientation="Horizontal">
                             <materialDesign:PackIcon 

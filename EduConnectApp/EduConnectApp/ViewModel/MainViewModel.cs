@@ -47,7 +47,7 @@ namespace EduConnectApp.ViewModel
 
        void _Update (TextBlock p)
         {
-            p.Background= Brushes.Red;
+            //p.Background= Brushes.Red;
         }
 
     }

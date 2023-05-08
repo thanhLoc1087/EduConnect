@@ -6,6 +6,7 @@
              >
     <Application.Resources>
         <ResourceDictionary>
+
             <SolidColorBrush x:Key="Background" Color="#edf1f5"/>
             <SolidColorBrush x:Key="Yale Blue" Color="#033270"/>
             <SolidColorBrush x:Key="Green Blue" Color="#1368AA"/>
@@ -157,10 +158,8 @@
             </Style>
 
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <ResourceDictionary x:Name="CustomStyles" Source="ResourceXAML/Styles.xaml"/>
+                <ResourceDictionary x:Name="CustomColors" Source="ResourceXAML/Colors.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
