@@ -256,7 +256,18 @@
     <Resource Include="imgs\RainingImage.png" />
     <Resource Include="imgs\SchoolImage.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="imgs\getScoreIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\editIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\printer.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

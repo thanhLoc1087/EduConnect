@@ -46,15 +46,7 @@
 
 
         <!--App Name-->
-        <Button
-            Style="{StaticResource LoginBtn}"
-            Grid.Row="0"
-            Grid.Column="4"
-            Grid.RowSpan="1"
-            Grid.ColumnSpan="3"
-            >
-            
-        </Button>
+       
         
         <StackPanel
                 Grid.Row="0"
