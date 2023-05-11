@@ -77,6 +77,7 @@
     <Compile Include="LoadingWindow.xaml.cs">
       <DependentUpon>LoadingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\const.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="src\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
