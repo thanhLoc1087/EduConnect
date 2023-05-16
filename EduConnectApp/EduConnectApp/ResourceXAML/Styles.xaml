@@ -138,60 +138,65 @@
         </Setter>
     </Style>
 
-    <Style x:Key="rdbtn_MenuStyle" TargetType="RadioButton">
+    <Style x:Key="rdbtn_MenuStyle2" TargetType="RadioButton">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="0 10 0 10"/>
     </Style>
-    
+
     <Style x:Key="ic_MenuStyle" TargetType="materialDesign:PackIcon">
         <Setter Property="Foreground" Value="{DynamicResource White}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Width" Value="26"/>
         <Setter Property="Height" Value="26"/>
     </Style>
-    
+
     <Style x:Key="txtbl_MenuStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource White}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="24"/>
     </Style>
 
-    <Style x:Key="BtnStyle"
+    <Style x:Key="rdbtn_MenuStyle"
            TargetType="RadioButton">
 
         <Setter Property="HorizontalAlignment"
-                Value="Left" />
+                Value="Center" />
         <Setter Property="VerticalAlignment"
                 Value="Center" />
-
+        <Setter Property="Height"
+                Value="65" />
+        <Setter Property="IsChecked"
+                Value="False" />
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
 
                     <Border x:Name="border"
-                            Height="32"
-                            Width="133.3"
-                            BorderThickness="0">
+                            Height="60"
+                            Width="200"
+                            BorderThickness="0"
+                            CornerRadius="27" 
+                            >
 
                         <Border.Background>
                             <SolidColorBrush x:Name="BorderBackground"
                                              Color="Transparent" />
                         </Border.Background>
 
-                        <Grid>
+                        <Grid Name="content_rd">
 
-                            <Border x:Name="Indicator"
+                            <!--<Border x:Name="Indicator"
                                     Height="35"
                                     Width="4"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Background="#FFFFFF"
                                     Visibility="Collapsed"
-                                    CornerRadius="2" />
+                                    CornerRadius="2" />-->
 
-                            <ContentPresenter />
+                            <ContentPresenter Margin="10 0 0 0"/>
 
                         </Grid>
 
@@ -199,14 +204,14 @@
 
                     <ControlTemplate.Triggers>
 
-                        <Trigger Property="IsMouseOver"
+                        <!--<Trigger Property="IsMouseOver"
                                  Value="True">
 
                             <Setter Property="Visibility"
                                     TargetName="Indicator"
                                     Value="Visible" />
 
-                        </Trigger>
+                        </Trigger>-->
 
                         <EventTrigger RoutedEvent="Border.MouseEnter"
                                       SourceName="border">
@@ -235,19 +240,38 @@
                                                     Duration="0:0:0.3" />
                                 </Storyboard>
                             </BeginStoryboard>
-
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="BorderBackground"
+                                                    Storyboard.TargetProperty="Color"
+                                                    From="#033270"
+                                                    To="Transparent"
+                                                    Duration="0:0:0.0" />
+                                </Storyboard>
+                            </BeginStoryboard>
                         </EventTrigger>
 
                         <Trigger Property="IsChecked"
                                  Value="True">
-
+                            
                             <Setter Property="Background"
                                     TargetName="border"
-                                    Value="#044396" />
+                                    Value="{DynamicResource Green Blue}"
+                                    />
+                            
+                            <Setter Property="Margin"
+                                    TargetName="content_rd"
+                                    Value="20 0 0 0"
+                                    />
 
-                            <Setter Property="Visibility"
+                            <Setter Property="Margin"
+                                    TargetName="border"
+                                    Value="20 0 0 0"
+                                    />
+
+                            <!--<Setter Property="Visibility"
                                     TargetName="Indicator"
-                                    Value="Visible" />
+                                    Value="Visible" />-->
 
                         </Trigger>
 
