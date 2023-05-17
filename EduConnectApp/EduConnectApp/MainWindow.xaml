@@ -15,15 +15,15 @@
         DataContext="MainViewModel">
     <Grid Background="{StaticResource Background}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition/>
-            <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="78.227"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -59,189 +59,146 @@
         </StackPanel>
 
         <!--Menu-->
-        <Border CornerRadius="0 100 0 0" Grid.Row="2"
-                Grid.Column="0"
+        <Border CornerRadius="0 55 0 0" Grid.Row="2"
+                Grid.Column="0" Width="200" HorizontalAlignment="Left"
                 Grid.RowSpan="7"
                 Grid.ColumnSpan="3"
                 Background="{StaticResource Yale Blue}">
-            <Grid >
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                </Grid.RowDefinitions>
+        </Border>
 
-                <!--Menu-->
-                <StackPanel 
+        <!--Menu Text-->
+        <Grid  Grid.Row="2" 
+                Grid.Column="0" HorizontalAlignment="Left"
+                Grid.RowSpan="7"
+                Grid.ColumnSpan="4"
+                >
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--Menu-->
+            <StackPanel  
                 x:Name="MenuContainer" VerticalAlignment="Center"
                      IsEnabled="{Binding IsChecked, ElementName=EnableListBox}">
 
-                    <!--Trang chủ-->
+                <!--Trang chủ-->
 
-                    <RadioButton x:Name="rdBtn_Class" Style="{StaticResource rdbtn_MenuStyle}"  >
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  Kind="Class" Style="{StaticResource ic_MenuStyle}"/>
-                            <TextBlock Text="Lớp" Style="{StaticResource txtbl_MenuStyle}" />
-                        </StackPanel>
-                        
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
-                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </RadioButton>
+                <RadioButton  x:Name="rdBtn_Home" Style="{StaticResource rdbtn_MenuStyle}"  >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon  Kind="Home" Style="{StaticResource ic_MenuStyle}"/>
+                        <TextBlock Text="Trang chủ" Style="{StaticResource txtbl_MenuStyle}" />
+                    </StackPanel>
 
-                    <!--Điểm-->
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
 
-                    <RadioButton x:Name="Grade" Style="{StaticResource rdbtn_MenuStyle}">
+                <!--Lớp-->
+                <RadioButton x:Name="rdBtn_Class" Style="{StaticResource rdbtn_MenuStyle}"  >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon  Kind="Class" Style="{StaticResource ic_MenuStyle}"/>
+                        <TextBlock Text="Lớp" Style="{StaticResource txtbl_MenuStyle}" />
+                    </StackPanel>
 
-                        <StackPanel 
-                        Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                            Kind="ClipboardCheck"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            Width="25"
-                            Height="40"/>
-                            <TextBlock 
-                            Text=" Điểm"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            FontSize="25"
-                            />
-                        </StackPanel>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding navGrade}"></i:InvokeCommandAction>
-                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </RadioButton>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
 
-                    <!--Thống kê-->
-                    <Button 
-                    Name="Statistic"
-                    Background="Transparent"
-                    Padding="0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="20 10 0 10"
-                    BorderBrush="Transparent"
-                             >
-                        <StackPanel 
-                        Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                            Kind="ChartBar"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            Width="25"
-                            Height="40"/>
-                            <TextBlock 
-                            Text=" Thống kê"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            FontSize="25"
-                            />
-                        </StackPanel>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding navStatistic}"></i:InvokeCommandAction>
-                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </Button>
+                <!--Điểm-->
 
-                    <!--Liên hệ-->
-                    <Button 
-                    Name="Contact"
-                    Background="Transparent"
-                    Padding="0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                        Margin="20 10 0 10"
-                        BorderBrush="Transparent"
-                             >
-                        <StackPanel 
-                        Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                            Kind="Email"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            Width="25"
-                            Height="40"/>
-                            <TextBlock 
-                            Text=" Liên hệ"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            FontSize="25"
-                            />
-                        </StackPanel>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding navContact}"></i:InvokeCommandAction>
-                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </Button>
+                <RadioButton x:Name="rdBtn_Grade" Style="{StaticResource rdbtn_MenuStyle}"  >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon  Kind="ClipboardCheck" Style="{StaticResource ic_MenuStyle}"/>
+                        <TextBlock Text="Điểm" Style="{StaticResource txtbl_MenuStyle}" />
+                    </StackPanel>
 
-                    <!--Cài đặt-->
-                    <Button 
-                    Name="Setting"
-                    Background="Transparent"
-                    Padding="0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                        Margin="20 10 0 10"
-                        BorderBrush="Transparent"
-                             >
-                        <StackPanel 
-                        Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                            Kind="Cog"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            Width="25"
-                            Height="40"/>
-                            <TextBlock 
-                            Text=" Cài đặt"
-                            Foreground="{StaticResource White}"
-                            VerticalAlignment="Center"
-                            FontSize="25"
-                            />
-                        </StackPanel>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding navSetting}"></i:InvokeCommandAction>
-                                <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text1}"></i:InvokeCommandAction>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </Button>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
 
-                </StackPanel>
+                <!--Thống kê-->
+                <RadioButton x:Name="rdBtn_Statistic" Style="{StaticResource rdbtn_MenuStyle}"  >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon  Kind="ChartBar" Style="{StaticResource ic_MenuStyle}"/>
+                        <TextBlock Text="Thống kê" Style="{StaticResource txtbl_MenuStyle}" />
+                    </StackPanel>
 
-                <Button VerticalAlignment="Center" Grid.Row="1" Grid.RowSpan="2" Padding="0" Margin="10 10 10 25" Background="Transparent" Height="100" BorderBrush="Transparent">
-                    <StackPanel >
-                        <materialDesign:PackIcon 
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+
+                <!--Liên hệ-->
+                <RadioButton x:Name="rdBtn_Contact" Style="{StaticResource rdbtn_MenuStyle}"  >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon  Kind="Email" Style="{StaticResource ic_MenuStyle}"/>
+                        <TextBlock Text="Contact" Style="{StaticResource txtbl_MenuStyle}" />
+                    </StackPanel>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+
+                <!--Cài đặt-->
+                <RadioButton x:Name="rdBtn_Setting" Style="{StaticResource rdbtn_MenuStyle}"  >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon  Kind="Cog" Style="{StaticResource ic_MenuStyle}"/>
+                        <TextBlock Text="Setting" Style="{StaticResource txtbl_MenuStyle}" />
+                    </StackPanel>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+            </StackPanel>
+
+            <Button VerticalAlignment="Center" Grid.Row="1" Grid.RowSpan="2" Padding="0" Background="Transparent" Height="100" BorderBrush="Transparent">
+                <StackPanel >
+                    <materialDesign:PackIcon 
                             Kind="Logout"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             Width="25"
                             Height="36"/>
-                        <TextBlock 
+                    <TextBlock 
                             Text="Đăng xuất"
                             Foreground="{StaticResource White}"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             FontSize="25"
                             />
-                    </StackPanel>
-                </Button>
+                </StackPanel>
+            </Button>
 
-            </Grid>
-        </Border>
+        </Grid>
 
-        <ContentControl Content="{Binding CurrentViewModel}" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="13" Grid.RowSpan="7"  Background="DarkGray">
+
+        <!--Content-->
+        <ContentControl Panel.ZIndex="4" Content="{Binding CurrentViewModel}" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="13" Grid.RowSpan="7"  Background="DarkGray">
             <ContentControl.Resources>
                 <!--<DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">-->
                 <DataTemplate DataType="{x:Type vm:HomeViewModel}">
