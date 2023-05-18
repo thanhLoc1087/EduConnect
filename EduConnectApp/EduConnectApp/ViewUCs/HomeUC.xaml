@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EduConnectApp.ViewUCs"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1040">
-    <Grid>
+             d:DesignHeight="576" d:DesignWidth="1054">
+    <Grid Margin="0 10 10 10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -23,23 +23,23 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Margin="30 30 0 0">
+            <StackPanel Margin="10 30 0 0">
                 <TextBlock Foreground="{StaticResource Yale Blue}" FontSize="53" FontWeight="Bold">XIN CHÀO!</TextBlock>
                 <TextBlock Margin="0 10 0 0" Foreground="{StaticResource Yale Blue}" FontSize="24" TextWrapping="WrapWithOverflow">Nghề giáo là nghề cao quý nhất trong các nghề cao quý.</TextBlock>
                 <TextBlock Margin="0 5 0 0" HorizontalAlignment="Right" Foreground="{StaticResource Yale Blue}" FontSize="24">-Comenxki-</TextBlock>
             </StackPanel>
 
-            <Image Grid.Column="1" Source="../imgs/BlueCircle.png" Height="220"></Image>
+            <Image Grid.Column="1" Source="../imgs/BlueCircle.png" Height="180"></Image>
             <Image Grid.Column="1" Source="../imgs/Graduation.png"></Image>
 
         </Grid>
 
-        <Image Margin="0 10 5 10" Grid.Row="1" Source="../imgs/SchoolImage.png" ></Image>
-        <Image Margin="0 10 5 10" Grid.Row="1" Source="../imgs/BlurredBackground.png"></Image>
-        <StackPanel Grid.Row="1" Margin="70 35 0 0">
+        <Image  Grid.Row="1" Source="../imgs/SchoolImage.png" HorizontalAlignment="Left" ></Image>
+        <Image  Grid.Row="1" Source="../imgs/BlurredBackground.png" HorizontalAlignment="Left"></Image>
+        <StackPanel Grid.Row="1" Margin="10 35 0 0">
             <TextBlock Foreground="{StaticResource White}" FontSize="32" FontWeight="Bold">TRƯỜNG THPT</TextBlock>
             <TextBlock Foreground="{StaticResource White}" FontSize="32" FontWeight="Bold">ĐỐC BINH KIỀU</TextBlock>
-            <TextBlock Margin="20 10 0 0" Foreground="{StaticResource White}" FontSize="11" Width="186" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow">Đường Thanh Tâm, Khu 1, Phường 4, Thị xã Cai Lậy, Tỉnh Tiền Giang</TextBlock>
+            <TextBlock Foreground="{StaticResource White}" FontSize="11" Width="186" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow">Đường Thanh Tâm, Khu 1, Phường 4, Thị xã Cai Lậy, Tỉnh Tiền Giang</TextBlock>
         </StackPanel>
 
         <Viewbox Grid.Column="1" Grid.Row="1" Stretch="Fill" Margin="0 10 5 10 ">
@@ -54,18 +54,18 @@
 
             <DockPanel Grid.Row="1">
                 <Image Source="../imgs/GreenBlueCircle.png"></Image>
-                <TextBlock Margin="10 0 10 0" FontSize="53" Foreground="{StaticResource Yale Blue}">:</TextBlock>
+                <TextBlock Margin="10 0 10 0" FontSize="50" Foreground="{StaticResource Yale Blue}" VerticalAlignment="Center">:</TextBlock>
                 <Image Source="../imgs/GreenBlueCircle.png"></Image>
-                <TextBlock Margin="10 0 10 0" FontSize="53" Foreground="{StaticResource Yale Blue}">:</TextBlock>
+                <TextBlock Margin="10 0 10 0" FontSize="53" Foreground="{StaticResource Yale Blue}" VerticalAlignment="Center">:</TextBlock>
                 <Image Source="../imgs/GreenBlueCircle.png"></Image>
                 <Image Source="../imgs/GreenBlueCircle.png"></Image>
             </DockPanel>
 
             <DockPanel Grid.Row="1">
-                <TextBlock Margin="18 10 0 0" FontSize="27" FontWeight="Bold" Foreground="{StaticResource White}">11</TextBlock>
-                <TextBlock Margin="65 10 0 0" FontSize="27" FontWeight="Bold" Foreground="{StaticResource White}" >11</TextBlock>
-                <TextBlock Margin="65 10 0 0" FontSize="27" FontWeight="Bold" Foreground="{StaticResource White}">11</TextBlock>
-                <TextBlock Margin="35 10 0 0" FontSize="27" FontWeight="Bold" Foreground="{StaticResource White}">AM</TextBlock>
+                <TextBlock Margin="18 15 0 0" FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}">11</TextBlock>
+                <TextBlock Margin="72 15 0 0" FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}" >11</TextBlock>
+                <TextBlock Margin="72 15 0 0" FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}">11</TextBlock>
+                <TextBlock Margin="55 15 0 0" FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}">AM</TextBlock>
             </DockPanel>
 
             <Border Margin="0 0 33 13" Background="{StaticResource White}" CornerRadius="20">
@@ -77,12 +77,12 @@
 
                     <StackPanel Orientation="Horizontal">
                         <Image Margin="10 7 0 0" Source="../imgs/RainIcon.png"></Image>
-                        <TextBlock Margin="10 0 0 0" Text="26&#186;C" Foreground="{StaticResource Green Blue}" FontSize="50" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Margin="10 0 0 0" Text="26&#186;C" Foreground="{StaticResource Green Blue}" FontSize="36" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1">
-                        <TextBlock Margin="25 5 0 0" Foreground="{StaticResource Green Blue}" FontSize="30" FontWeight="Medium">Mưa to</TextBlock>
-                        <TextBlock Margin="25 5 0 0" Foreground="{StaticResource Green Blue}" FontSize="13" >Thị xã Cai Lậy, Tỉnh Tiền Giang</TextBlock>
+                        <TextBlock Margin="25 5 0 0" Foreground="{StaticResource Green Blue}" FontSize="25" FontWeight="Medium">Mưa to</TextBlock>
+                        <TextBlock Margin="25 5 0 0" Foreground="{StaticResource Green Blue}" FontSize="10" >Thị xã Cai Lậy, Tỉnh Tiền Giang</TextBlock>
                     </StackPanel>
                 </Grid>
             </Border>
