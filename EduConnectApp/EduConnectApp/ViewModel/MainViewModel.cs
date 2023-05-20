@@ -24,9 +24,14 @@ namespace EduConnectApp.ViewModel
         public ICommand navSetting { get; }
         public ICommand update { get; }
         public ICommand update2 { get; }
+        public ICommand selected { get; }
+        public ICommand unSelected { get; }
 
         public MainViewModel(NavigationStore navigationStore)
         {
+            selected = new RelayCommand<StackPanel>((p) => { return true; }, (p) => _UpdateSpn(p));
+            unSelected = new RelayCommand<StackPanel>((p) => { return true; }, (p) => _UpdateSpn2(p));
+
             update = new RelayCommand<TextBlock>((p) => { return true; }, (p) => _Update(p));
 
             navHome = new NavigationCommand<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore));
@@ -48,6 +53,15 @@ namespace EduConnectApp.ViewModel
        void _Update (TextBlock p)
         {
             //p.Background= Brushes.Red;
+        }
+
+        void _UpdateSpn(StackPanel p)
+        {
+            p.Margin = new Thickness(20, 0, 0, 0);
+        }
+        void _UpdateSpn2(StackPanel p)
+        {
+            p.Margin = new Thickness(0, 0, 0, 0);
         }
 
     }

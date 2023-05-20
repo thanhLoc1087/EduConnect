@@ -23,5 +23,10 @@ namespace EduConnectApp
         {
             InitializeComponent();
         }
+
+        private void ControlBarUC_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+
+        }
     }
 }
