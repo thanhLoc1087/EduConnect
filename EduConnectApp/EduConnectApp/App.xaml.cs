@@ -18,7 +18,7 @@ namespace EduConnectApp
         protected override void OnStartup(StartupEventArgs e)
         {
             NavigationStore navigationStore = new NavigationStore();
-            navigationStore.CurrentViewModel = new HomeViewModel(navigationStore);
+            navigationStore.CurrentViewModel = new ClassListViewModel(navigationStore);
             MainWindow MainWd = new MainWindow()
             {
                 DataContext= new MainViewModel(navigationStore)

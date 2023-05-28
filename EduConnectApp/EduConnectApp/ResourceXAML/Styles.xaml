@@ -19,7 +19,9 @@
                                   BorderBrush="{StaticResource Yale Blue}"
                                       Foreground="{StaticResource Yale Blue}"                   
                                   Style="{StaticResource MaterialDesignOutlinedComboBox}" 
-                                Padding="5,0,5,0" VerticalContentAlignment="Center"></ComboBox>
+                                Padding="5,0,5,0" VerticalContentAlignment="Center">
+
+                    </ComboBox>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -29,13 +31,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <ComboBox   Width="208" 
-                                    Height="53"
-                                     FontSize="20"
-                                  BorderBrush="{StaticResource Yale Blue}"
-                                        Foreground="{StaticResource Yale Blue}"                            
+                    <ComboBox SelectedIndex="0"  HorizontalAlignment="Left"
+                        Width="139" Margin="10 0" Height="39" Padding="15 0"
+                                     FontSize="16"
+                                  BorderBrush="{DynamicResource Yale Blue}"
+                                        Foreground="{DynamicResource Yale Blue}"                            
                                   Style="{StaticResource MaterialDesignOutlinedComboBox}" 
-                                Padding="5,0,5,0" VerticalContentAlignment="Center"></ComboBox>
+                                VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="Tất cả"/>
+                        <ComboBoxItem Content="Nam"/>
+                        <ComboBoxItem Content="Nữ"/>
+                    </ComboBox>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -44,12 +50,12 @@
     <Style x:Key="SearchBox" TargetType="TextBox">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate>
-                    <StackPanel
+                <ControlTemplate TargetType="TextBox">
+                    <StackPanel Margin="10 0" 
                               Orientation="Horizontal"
                               materialDesign:RippleAssist.IsCentered="True">
 
-                        <Border Width="443" Height="59" BorderThickness="1" BorderBrush="{StaticResource Yale Blue}">
+                        <Border CornerRadius="5" Width="295" Height="39" BorderThickness="1" BorderBrush="{DynamicResource Yale Blue}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition
@@ -57,9 +63,9 @@
                                     <ColumnDefinition
                                       Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBox
-                                                    Foreground="{StaticResource Yale Blue}"
-                                                    FontSize="20"
+                                <TextBox            Padding="15 0"
+                                                    Foreground="{DynamicResource Yale Blue}"
+                                                    FontSize="16" materialDesign:HintAssist.Hint="Tìm kiếm tên"
                                     Grid.Column="0"
                                     Margin="8 0 0 0"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -72,10 +78,10 @@
                                     <materialDesign:PackIcon
                                                         Width="50"
                                                         Height="30"
-                                                        Foreground="{StaticResource Yale Blue}"
+                                                        Foreground="{DynamicResource Yale Blue}"
                                       Kind="Search"
                                       Opacity=".56"
-                                      Margin="0 0 15 0" />
+                                       />
                                 </Button>
                             </Grid>
                         </Border>
@@ -137,6 +143,108 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="LoginBtn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="15">
+                        <TextBlock Text="Đăng nhập" Foreground="{DynamicResource White}" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ResetPWBtn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="15">
+                        <TextBlock Text="Cập nhật mật khẩu" Foreground="{DynamicResource White}" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="GetScoreBtn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border Background="{DynamicResource Celestial Blue}" CornerRadius="15">
+                            <Grid>
+                                <TextBlock Text="NHẬP ĐIỂM" Foreground="{DynamicResource White}" FontSize="24" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Image Source="./imgs/getScoreIcon.png" Width="20" Height="20" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SaveBtn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="15">
+                        <TextBlock Text="Lưu" Foreground="{DynamicResource White}" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BackBtn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{DynamicResource Tomato}" CornerRadius="15">
+                        <TextBlock Text="Quay lại" Foreground="{DynamicResource White}" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="EditBtn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{DynamicResource Green Blue}" CornerRadius="15">
+                        <Image Source="./imgs/editIcon.png" Margin="20 20 20 20"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DeleteBtn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{DynamicResource Tomato}" CornerRadius="15">
+                        <Image Source="./imgs/trash.png" Margin="15 15 15 15"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PrintBtn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="#40C9C9" CornerRadius="15">
+                        <Image Source="./imgs/printer.png" Margin="12 12 12 12"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
     <Style x:Key="rdbtn_MenuStyle2" TargetType="RadioButton">
         <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -285,8 +393,83 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
     </Style>
 
+    <Style x:Key="txtbl_TilleTab" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Yale Blue}"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="txtbl_SchoolYear" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Yale Blue}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextDecorations" Value="Underline"/>
+        <Setter Property="Margin" Value="10 0 0 0"/>
+    </Style>
+
+    <Style x:Key="txtbl_Infovalue" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Yale Blue}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="txtbl_Infovalue2" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Yale Blue}"/>
+        <Setter Property="FontSize" Value="19"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="dtg_Header" TargetType="DataGridColumnHeader">
+        <Setter Property="Foreground" Value="{DynamicResource Yale Blue}"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="itm_Container" TargetType="DataGridColumnHeader">
+        <Setter Property="Foreground" Value="{DynamicResource Yale Blue}"/>
+        <Setter Property="FontSize" Value="100"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="txt_value" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="txt_value2" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="btn_edit" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="btn_delete" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource Engineering Orange}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value=" 5 0"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    
 
 </ResourceDictionary>

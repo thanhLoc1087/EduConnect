@@ -53,7 +53,7 @@
             <uc:ControlBarUC Height="45" VerticalAlignment="Top"/>
 
             <!--Profile Usr-->
-            <StackPanel x:Name="gr_profile" HorizontalAlignment="Right" Orientation="Horizontal" Height="60" >
+            <StackPanel x:Name="gr_profile" HorizontalAlignment="Right" Orientation="Horizontal" Height="60" Margin="0 0 10 0">
                 <Button x:Name="btn_Profile" Background="Transparent" BorderThickness="0" Height="{Binding ActualHeight, ElementName=gr_profile}">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -158,7 +158,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navHome}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                         <i:EventTrigger EventName="UnChecked">
@@ -192,7 +192,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navGrade}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -207,7 +207,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navStatistic}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -222,7 +222,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navContact}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -237,7 +237,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navSetting}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -248,7 +248,7 @@
         </Grid>
 
         <!--Content-->
-        <ContentControl Panel.ZIndex="4" Content="{Binding CurrentViewModel}" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="14" Grid.RowSpan="8"  Background="DarkGray">
+        <ContentControl  Content="{Binding CurrentViewModel}" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="14" Grid.RowSpan="8"  Background="DarkGray">
             <ContentControl.Resources>
                 <!--<DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">-->
                 <DataTemplate DataType="{x:Type vm:HomeViewModel}">
@@ -256,6 +256,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:ClassViewModel}">
                     <viewuc:ClassUC></viewuc:ClassUC>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:ClassListViewModel}">
+                    <viewuc:ClassListUC></viewuc:ClassListUC>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:GradeViewModel}">
                     <viewuc:GradeUC></viewuc:GradeUC>
