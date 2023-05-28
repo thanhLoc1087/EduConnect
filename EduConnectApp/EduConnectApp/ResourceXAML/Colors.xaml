@@ -10,4 +10,6 @@
     <SolidColorBrush x:Key="Vermilion" Color="#EF3C2D"/>
     <SolidColorBrush x:Key="Engineering Orange" Color="#CB1B16"/>
     <SolidColorBrush x:Key="Rosewood" Color="#65010C"/>
+    <SolidColorBrush x:Key="Background" Color="#edf1f5"/>
+
 </ResourceDictionary>

@@ -5,9 +5,9 @@
     <vm:MainViewModel x:Key="MainVM"></vm:MainViewModel>
     <vm:HomeViewModel x:Key="HomeVM"></vm:HomeViewModel>
     <vm:ClassViewModel x:Key="ClassVM"></vm:ClassViewModel>
+    <vm:ClassListViewModel x:Key="ClassListVM"></vm:ClassListViewModel>
     <vm:GradeViewModel x:Key="Grade"></vm:GradeViewModel>
     <vm:StatisticViewModel x:Key="StatisticVM"></vm:StatisticViewModel>
     <vm:ContactViewModel x:Key="ContactVM"></vm:ContactViewModel>
     <vm:SettingViewModel x:Key="SettingVM"></vm:SettingViewModel>
-    <SolidColorBrush x:Key="YaleBlue" Color="#033270"/>
 </ResourceDictionary>

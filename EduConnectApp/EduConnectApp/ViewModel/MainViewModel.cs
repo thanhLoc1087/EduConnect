@@ -35,7 +35,7 @@ namespace EduConnectApp.ViewModel
             update = new RelayCommand<TextBlock>((p) => { return true; }, (p) => _Update(p));
 
             navHome = new NavigationCommand<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore));
-            navClass = new NavigationCommand<ClassViewModel>(navigationStore, () => new ClassViewModel(navigationStore));
+            navClass = new NavigationCommand<ClassListViewModel>(navigationStore, () => new ClassListViewModel(navigationStore));
             navGrade = new NavigationCommand<GradeViewModel>(navigationStore, () => new GradeViewModel(navigationStore));
             navStatistic = new NavigationCommand<StatisticViewModel>(navigationStore, () => new StatisticViewModel(navigationStore));
             navContact = new NavigationCommand<ContactViewModel>(navigationStore, () => new ContactViewModel(navigationStore));

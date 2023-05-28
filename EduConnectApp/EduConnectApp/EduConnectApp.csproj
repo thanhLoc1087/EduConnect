@@ -106,6 +106,7 @@
       <DependentUpon>ResetPasswordUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\ClassListViewModel.cs" />
     <Compile Include="ViewModel\ClassViewModel.cs" />
     <Compile Include="ViewModel\ContactViewModel.cs" />
     <Compile Include="ViewModel\GradeViewModel.cs" />
@@ -114,6 +115,9 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\StatisticViewModel.cs" />
+    <Compile Include="ViewUCs\ClassListUC.xaml.cs">
+      <DependentUpon>ClassListUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewUCs\ClassUC.xaml.cs">
       <DependentUpon>ClassUC.xaml</DependentUpon>
     </Compile>
@@ -193,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlCustom\ResetPasswordUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewUCs\ClassListUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -280,6 +288,7 @@
   <ItemGroup>
     <Resource Include="imgs\avtusr.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
