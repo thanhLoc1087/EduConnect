@@ -59,20 +59,19 @@
                         Margin="0 -40 0 0"/>
 
                     <StackPanel
+                        HorizontalAlignment="Center"
                         Grid.Column="0"
                         Grid.Row="2">
                             <TextBlock
-
+                            FontWeight="SemiBold"
                             Text="Mã GV"
                             Style="{DynamicResource txtbl_Infovalue}"
-                            Margin="30 0 0 0"
                             FontSize="18"/>
 
                             <TextBlock
 
                                 Text="xxxxxxxx"
                                 Style="{DynamicResource txt_value2}"
-                                Margin="30 0 0 0"
                                 FontSize="18"/>
 
                     </StackPanel>
@@ -278,7 +277,8 @@
                             Style="{DynamicResource txtbl_Infovalue}"
                             FontSize="18"
                             FontWeight="SemiBold"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Left"
+                            Margin="20 0 0 0"/>
 
                         <TextBlock
                             Grid.Row="0"
@@ -294,7 +294,8 @@
                             Style="{DynamicResource txtbl_Infovalue}"
                             FontSize="18"
                             FontWeight="SemiBold"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Left"
+                            Margin="20 0 0 0"/>
 
                         <TextBlock
                             Grid.Row="1"
@@ -326,7 +327,8 @@
                             Style="{DynamicResource txtbl_Infovalue}"
                             FontSize="18"
                             FontWeight="SemiBold"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Left"
+                            Margin="20 0 0 0"/>
 
                         <TextBlock
                             Grid.Row="0"
@@ -342,7 +344,8 @@
                             Style="{DynamicResource txtbl_Infovalue}"
                             FontSize="18"
                             FontWeight="SemiBold"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Left"
+                            Margin="20 0 0 0"/>
 
                         <TextBlock
                             Grid.Row="1"
@@ -355,13 +358,9 @@
                     </Grid>
 
                 </Grid>
-                
+
             </Border>
-            
+
         </Grid>
-
-
-
-
     </Grid>
 </UserControl>
