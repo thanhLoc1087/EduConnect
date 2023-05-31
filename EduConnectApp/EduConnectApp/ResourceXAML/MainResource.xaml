@@ -10,4 +10,5 @@
     <vm:StatisticViewModel x:Key="StatisticVM"></vm:StatisticViewModel>
     <vm:ContactViewModel x:Key="ContactVM"></vm:ContactViewModel>
     <vm:SettingViewModel x:Key="SettingVM"></vm:SettingViewModel>
+    <vm:TeacherPro5ViewModel x:Key="TeacherVM"></vm:TeacherPro5ViewModel>
 </ResourceDictionary>

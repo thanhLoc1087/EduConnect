@@ -3,12 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:EduConnectApp.ViewUCs"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="PowderBlue">
-        
-        
+
+        <Button VerticalAlignment="Top" Content="SemesterScore">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding navSemesterScore}"></i:InvokeCommandAction>
+                    <!--<i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>-->
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
         <TextBlock  Text="Grade UC" FontSize="50" TextAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

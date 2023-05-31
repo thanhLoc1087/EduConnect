@@ -113,8 +113,10 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\SemesterScoreViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\StatisticViewModel.cs" />
+    <Compile Include="ViewModel\TeacherPro5ViewModel.cs" />
     <Compile Include="ViewUCs\ClassListUC.xaml.cs">
       <DependentUpon>ClassListUC.xaml</DependentUpon>
     </Compile>
@@ -129,6 +131,9 @@
     </Compile>
     <Compile Include="ViewUCs\HomeUC.xaml.cs">
       <DependentUpon>HomeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUCs\SemesterScoreUC.xaml.cs">
+      <DependentUpon>SemesterScoreUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewUCs\SettingUC.xaml.cs">
       <DependentUpon>SettingUC.xaml</DependentUpon>
@@ -220,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewUCs\HomeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewUCs\SemesterScoreUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
