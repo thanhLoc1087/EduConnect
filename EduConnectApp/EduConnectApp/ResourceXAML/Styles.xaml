@@ -296,6 +296,68 @@
     </Style>
 
 
+    <Style x:Key="CustomizeDtg" TargetType="{x:Type DataGrid}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGrid">
+                    <DataGrid Margin="0 10 0 0" IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn CanUserReorder="False" CanUserResize="False" Width="1*" ElementStyle="{DynamicResource txtbl_ClassValue}" Header="Khối" Binding="{Binding Grade}"></DataGridTextColumn>
+
+                            <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <GridSplitter BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn CanUserReorder="False" CanUserResize="False" Width="1*" ElementStyle="{DynamicResource txtbl_ClassValue}" Header="Lớp"  Binding="{Binding Class}"></DataGridTextColumn>
+
+                            <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False"  Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <GridSplitter BorderThickness="1" BorderBrush="{DynamicResource Green Blue}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="1.5*" Header="Sỉ số">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding NumofAttendants}"></TextBlock>
+                                            <TextBlock Style="{DynamicResource txtbl_ClassValue1}" VerticalAlignment="Center" Margin="10 0 0 0">học sinh</TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <GridSplitter BorderThickness="1" BorderBrush="{DynamicResource Green Blue}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn CanUserReorder="False" CanUserResize="False" Width="2.5*" ElementStyle="{DynamicResource txtbl_ClassValue}" Header="GVCN"  Binding="{Binding Teacher}"></DataGridTextColumn>
+
+                            <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content=">" Foreground="{DynamicResource Green Blue}" FontSize="25" Background="Transparent" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
     <Style x:Key="rdbtn_MenuStyle2" TargetType="RadioButton">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -519,5 +581,23 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 
+
+    <Style x:Key="txtbl_ClassValue" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="FontSize" Value="25"/>
+    </Style>
+
+    <Style x:Key="txtbl_ClassValue1" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style x:Key="dtg_Header1" TargetType="DataGridColumnHeader">
+        <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="auto"/>
+    </Style>
 
 </ResourceDictionary>

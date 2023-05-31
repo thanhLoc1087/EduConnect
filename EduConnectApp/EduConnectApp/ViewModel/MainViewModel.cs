@@ -29,6 +29,8 @@ namespace EduConnectApp.ViewModel
         public ICommand selected { get; }
         public ICommand unSelected { get; }
 
+        public ICommand navClass1 { get; }
+
         public MainViewModel(NavigationStore navigationStore)
         {
             selected = new RelayCommand<StackPanel>((p) => { return true; }, (p) => _UpdateSpn(p));
@@ -45,6 +47,7 @@ namespace EduConnectApp.ViewModel
             navSetting = new NavigationCommand<SettingViewModel>(navigationStore, () => new SettingViewModel(navigationStore));
             navProfile = new NavigationCommand<TeacherPro5ViewModel>(navigationStore, () => new TeacherPro5ViewModel(navigationStore));
 
+            navClass1 = new NavigationCommand<ClassViewModel>(navigationStore, () => new ClassViewModel(navigationStore));
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
