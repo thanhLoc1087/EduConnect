@@ -144,6 +144,9 @@
     <Compile Include="ViewUCs\TeacherPro5.xaml.cs">
       <DependentUpon>TeacherPro5.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewUCs\TeacherPro5Edit.xaml.cs">
+      <DependentUpon>TeacherPro5Edit.xaml</DependentUpon>
+    </Compile>
     <Page Include="InforWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,6 +244,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewUCs\TeacherPro5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewUCs\TeacherPro5Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
