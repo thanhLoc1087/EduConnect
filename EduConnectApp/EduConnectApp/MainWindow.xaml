@@ -192,7 +192,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navGrade}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navClass1}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
