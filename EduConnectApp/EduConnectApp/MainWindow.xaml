@@ -14,6 +14,7 @@
         WindowStartupLocation="CenterScreen"
         DataContext="MainViewModel"
         WindowStyle="None"
+        x:Name="mainWd"
         >
     <Grid Background="{StaticResource Background}">
         <Grid.RowDefinitions>
@@ -76,7 +77,7 @@
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding navProfile}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWindow}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding updateTabPro5}" CommandParameter="{Binding ElementName=mainWd}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
@@ -150,19 +151,16 @@
 
                 <!--Trang chủ-->
 
-                <RadioButton  x:Name="rdBtn_Home" Style="{StaticResource rdbtn_MenuStyle}" >
+                <RadioButton IsChecked="True" x:Name="rdBtn_Home" Style="{StaticResource rdbtn_MenuStyle}" >
                     <StackPanel x:Name="spn_Home" Orientation="Horizontal">
                         <materialDesign:PackIcon  Kind="Home" Style="{StaticResource ic_MenuStyle}"/>
-                        <TextBlock Text="Trang chủ" Style="{StaticResource txtbl_MenuStyle}" />
+                        <TextBlock  Text="Trang chủ" Style="{StaticResource txtbl_MenuStyle}" />
                     </StackPanel>
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding navHome}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
-                        </i:EventTrigger>
-                        <i:EventTrigger EventName="UnChecked">
-                            <i:InvokeCommandAction Command="{Binding unSelected}" CommandParameter="{Binding ElementName=spn_Home}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </RadioButton>
@@ -177,7 +175,7 @@
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding navClass}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </RadioButton>
@@ -193,7 +191,7 @@
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding navGrade}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </RadioButton>
@@ -208,7 +206,7 @@
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding navStatistic}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </RadioButton>
@@ -217,13 +215,13 @@
                 <RadioButton x:Name="rdBtn_Contact" Style="{StaticResource rdbtn_MenuStyle}"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  Kind="Email" Style="{StaticResource ic_MenuStyle}"/>
-                        <TextBlock Text="Contact" Style="{StaticResource txtbl_MenuStyle}" />
+                        <TextBlock Text="Liên lạc" Style="{StaticResource txtbl_MenuStyle}" />
                     </StackPanel>
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding navContact}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </RadioButton>
@@ -232,13 +230,13 @@
                 <RadioButton x:Name="rdBtn_Setting" Style="{StaticResource rdbtn_MenuStyle}"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  Kind="Cog" Style="{StaticResource ic_MenuStyle}"/>
-                        <TextBlock Text="Setting" Style="{StaticResource txtbl_MenuStyle}" />
+                        <TextBlock Text="Cài đặt" Style="{StaticResource txtbl_MenuStyle}" />
                     </StackPanel>
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding navSetting}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding update}" CommandParameter="{Binding ElementName=text2}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </RadioButton>
@@ -263,6 +261,9 @@
                 <DataTemplate DataType="{x:Type vm:GradeViewModel}">
                     <viewuc:GradeUC></viewuc:GradeUC>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:SemesterScoreViewModel}">
+                    <viewuc:SemesterScore></viewuc:SemesterScore>
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:StatisticViewModel}">
                     <viewuc:StatisticUC></viewuc:StatisticUC>
                 </DataTemplate>
@@ -271,6 +272,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:SettingViewModel}">
                     <viewuc:SettingUC></viewuc:SettingUC>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:TeacherPro5ViewModel}">
+                    <viewuc:TeacherPro5></viewuc:TeacherPro5>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

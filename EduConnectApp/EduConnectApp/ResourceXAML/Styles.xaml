@@ -27,7 +27,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CbxShort" TargetType="ComboBox">
+    <Style x:Key="CbxGender" TargetType="ComboBox">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -41,6 +41,56 @@
                         <ComboBoxItem Content="Tất cả"/>
                         <ComboBoxItem Content="Nam"/>
                         <ComboBoxItem Content="Nữ"/>
+                    </ComboBox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CbxSemester" TargetType="ComboBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <ComboBox x:Name="cbb_Semester" SelectedIndex="0"  HorizontalAlignment="Left"
+                        Width="139" Margin="10 0" Height="39" Padding="15 0"
+                                     FontSize="16"
+                                  BorderBrush="{DynamicResource Yale Blue}"
+                                        Foreground="{DynamicResource Yale Blue}"                            
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}" 
+                                VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="Cả năm"/>
+                        <ComboBoxItem Content="Học kì 1"/>
+                        <ComboBoxItem Content="Học kì 2"/>
+                    </ComboBox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CbxSubject" TargetType="ComboBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <ComboBox SelectedIndex="0"  HorizontalAlignment="Left"
+                        Width="139" Margin="10 0" Height="39" Padding="15 0"
+                                     FontSize="16"
+                                  BorderBrush="{DynamicResource Yale Blue}"
+                                        Foreground="{DynamicResource Yale Blue}"                            
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}" 
+                                VerticalContentAlignment="Center">
+
+                        <ComboBoxItem Content="Toán"/>
+                        <ComboBoxItem Content="Vật lý"/>
+                        <ComboBoxItem Content="Hóa học"/>
+                        <ComboBoxItem Content="Sinh học"/>
+                        <ComboBoxItem Content="Tiếng Anh"/>
+                        <ComboBoxItem Content="Lịch sử"/>
+                        <ComboBoxItem Content="Địa lý"/>
+                        <ComboBoxItem Content="Ngữ văn"/>
+                        <ComboBoxItem Content="Công nghệ"/>
+                        <ComboBoxItem Content="GDCD"/>
+                        <ComboBoxItem Content="Tin học"/>
+                        <ComboBoxItem Content="GDQP"/>
                     </ComboBox>
                 </ControlTemplate>
             </Setter.Value>
@@ -274,8 +324,6 @@
                 Value="Center" />
         <Setter Property="Height"
                 Value="65" />
-        <Setter Property="IsChecked"
-                Value="False" />
 
         <Setter Property="Template">
             <Setter.Value>
@@ -422,7 +470,7 @@
     <Style x:Key="txtbl_Infovalue2" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource Yale Blue}"/>
         <Setter Property="FontSize" Value="19"/>
-        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
@@ -453,7 +501,7 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
-    
+
     <Style x:Key="btn_edit" TargetType="Button">
         <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -461,7 +509,7 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
-    
+
     <Style x:Key="btn_delete" TargetType="Button">
         <Setter Property="Foreground" Value="{DynamicResource Engineering Orange}"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -470,6 +518,6 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
-    
+
 
 </ResourceDictionary>
