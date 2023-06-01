@@ -114,6 +114,7 @@
                         <ComboBoxItem Content="GDCD"/>
                         <ComboBoxItem Content="Tin học"/>
                         <ComboBoxItem Content="GDQP"/>
+                        <ComboBoxItem Content="Thể dục"/>
                     </ComboBox>
                 </ControlTemplate>
             </Setter.Value>
@@ -262,8 +263,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="7">
-                        <TextBlock Text="Lưu" Foreground="{DynamicResource White}" FontSize="18" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="7" Height="30" Width="100" Padding="0">
+                        <Button Content="Lưu" Foreground="{DynamicResource White}" FontSize="18" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -274,8 +275,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{DynamicResource Tomato}" CornerRadius="7">
-                        <TextBlock Text="Quay lại" Foreground="{DynamicResource White}" FontSize="18" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <Border Background="{DynamicResource Tomato}" CornerRadius="7" Height="30" Width="100" Padding="0">
+                        <Button Content="Quay lại" Foreground="{DynamicResource White}" FontSize="18" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -317,6 +318,33 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <Style x:Key="tbx_InputScore" TargetType="{x:Type TextBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border BorderBrush="{DynamicResource Green Blue}" Height="25" Width="25" BorderThickness="1" CornerRadius="2" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBox materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" Foreground="{DynamicResource Green Blue}" CaretBrush="{DynamicResource Green Blue}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="tbx_Achievement" TargetType="{x:Type TextBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border BorderBrush="{DynamicResource Green Blue}" BorderThickness="1"  Margin="10 5 0 0" CornerRadius="10" Padding="0" >
+                        <TextBox Height="80"  materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" CaretBrush="{DynamicResource Green Blue}" FontSize="14" Foreground="{DynamicResource Green Blue}" TextWrapping="WrapWithOverflow"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
 
 
     <Style x:Key="CustomizeDtg" TargetType="{x:Type DataGrid}">

@@ -190,7 +190,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navGrade}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navInputScore}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -205,7 +205,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navStatistic}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navEditScore}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -275,6 +275,12 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:TeacherPro5ViewModel}">
                     <viewuc:TeacherPro5></viewuc:TeacherPro5>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:InputScoreViewModel}">
+                    <viewuc:InputScore></viewuc:InputScore>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:EditScoreViewModel}">
+                    <viewuc:EditScore></viewuc:EditScore>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
