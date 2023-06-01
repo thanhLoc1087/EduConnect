@@ -11,4 +11,6 @@
     <vm:ContactViewModel x:Key="ContactVM"></vm:ContactViewModel>
     <vm:SettingViewModel x:Key="SettingVM"></vm:SettingViewModel>
     <vm:TeacherPro5ViewModel x:Key="TeacherVM"></vm:TeacherPro5ViewModel>
+    <vm:InputScoreViewModel x:Key="InputScoreVM"></vm:InputScoreViewModel>
+    <vm:EditScoreViewModel x:Key="EditScoreVM"></vm:EditScoreViewModel>
 </ResourceDictionary>

@@ -109,8 +109,10 @@
     <Compile Include="ViewModel\ClassListViewModel.cs" />
     <Compile Include="ViewModel\ClassViewModel.cs" />
     <Compile Include="ViewModel\ContactViewModel.cs" />
+    <Compile Include="ViewModel\EditScoreViewModel.cs" />
     <Compile Include="ViewModel\GradeViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\InputScoreViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SemesterScoreViewModel.cs" />
@@ -126,11 +128,17 @@
     <Compile Include="ViewUCs\ContactUC.xaml.cs">
       <DependentUpon>ContactUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewUCs\EditScore.xaml.cs">
+      <DependentUpon>EditScore.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewUCs\GradeUC.xaml.cs">
       <DependentUpon>GradeUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewUCs\HomeUC.xaml.cs">
       <DependentUpon>HomeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUCs\InputScore.xaml.cs">
+      <DependentUpon>InputScore.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewUCs\SemesterScoreUC.xaml.cs">
       <DependentUpon>SemesterScoreUC.xaml</DependentUpon>
@@ -223,11 +231,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewUCs\EditScore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewUCs\GradeUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewUCs\HomeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewUCs\InputScore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
