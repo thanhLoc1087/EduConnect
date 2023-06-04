@@ -25,7 +25,7 @@
                             Height="45"
                             >
                                 <Ellipse.Fill>
-                                    <ImageBrush ImageSource="../imgs/Logo.png"/>
+                                    <ImageBrush ImageSource="../imgs/LogoUIT_Whitebg.png"/>
                                     
                                 </Ellipse.Fill>
                             </Ellipse>

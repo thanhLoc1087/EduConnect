@@ -153,6 +153,12 @@
     <Compile Include="ViewUCs\StatisticUC.xaml.cs">
       <DependentUpon>StatisticUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewUCs\StudentPro5.xaml.cs">
+      <DependentUpon>StudentPro5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUCs\StudentPro5Edit.xaml.cs">
+      <DependentUpon>StudentPro5Edit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewUCs\TeacherPro5.xaml.cs">
       <DependentUpon>TeacherPro5.xaml</DependentUpon>
     </Compile>
@@ -267,6 +273,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewUCs\StudentPro5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewUCs\StudentPro5Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewUCs\TeacherPro5.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -349,6 +363,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="imgs\iconInputScore.png" />
+    <Resource Include="imgs\LogoUIT_Whitebg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\Pro5Title.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />

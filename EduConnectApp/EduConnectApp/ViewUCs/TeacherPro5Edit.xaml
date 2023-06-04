@@ -159,6 +159,7 @@
                             FontSize="18" 
                             FirstDayOfWeek="Monday"
                             SelectedDateFormat="Short"
+                            Text="{Binding Date, StringFormat='dd/MM/yyyy'}"
                             />
                     </Border>
 

@@ -1,0 +1,605 @@
+﻿<UserControl x:Class="EduConnectApp.ViewUCs.StudentPro5Edit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EduConnectApp.ViewUCs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6.5*"></ColumnDefinition>
+            <ColumnDefinition Width="3.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <!--Học sinh-->
+        <Grid
+            Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"></RowDefinition>
+                <RowDefinition Height="8.8*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <DockPanel
+                Grid.Row="0">
+                <TextBlock
+                    Margin="10 0 0 0"
+                    Text="CHỈNH SỬA THÔNG TIN"
+                    Style="{DynamicResource txtbl_TilleTab}"
+                />
+
+
+               
+
+
+
+            </DockPanel>
+
+            <Border
+                Grid.Row="1"
+                CornerRadius="10"
+                Margin="10"
+                Background="{DynamicResource White}">
+                <Border
+                    Grid.Row="1"
+                    CornerRadius="10">
+                    <Border.Background>
+                        <ImageBrush ImageSource="../imgs/LogoUIT_Whitebg.png" Opacity="0.2" Stretch="Uniform" >
+                            <ImageBrush.Transform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="99"/>
+                                </TransformGroup>
+                            </ImageBrush.Transform>
+                        </ImageBrush>
+
+                    </Border.Background>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                            <RowDefinition Height="8.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Image Source="../imgs/Pro5Title.png" Grid.Row="0" Stretch="UniformToFill"/>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Image
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Grid.RowSpan="4"
+                                Source="../imgs/avtusr.jpg"
+                                Margin="15"/>
+
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                Grid.Column="0"
+                                Grid.Row="4"
+                                Grid.RowSpan="2">
+                                <TextBlock
+                                    Text="Số hiệu:"
+                                    Style="{DynamicResource txtbl_Infovalue}"
+                                    FontSize="18"
+                                    FontWeight="SemiBold"/>
+
+                                <TextBlock
+                                    Text="xxxxxxxx"
+                                    Style="{DynamicResource txt_value2}"
+                                    FontSize="18"/>
+
+                            </StackPanel>
+
+                            <StackPanel
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Grid.Column="0"
+                                Grid.Row="6">
+                                <TextBlock
+                                    Text="Lớp:"
+                                    Style="{DynamicResource txtbl_Infovalue}"
+                                    FontSize="18"
+                                    FontWeight="SemiBold"/>
+                                <Border
+                                    Margin="5 0 0 0"
+                                    VerticalAlignment="Center"
+                                    BorderThickness="1"
+                                    BorderBrush="{DynamicResource Yale Blue}"
+                                    CornerRadius="10">
+                                    <TextBox 
+                                        Background="Transparent" 
+                                        BorderThickness="0"
+                                        Text="9A1"
+                                        Foreground="{DynamicResource Green Blue}"
+                                        FontSize="18"
+                                        Padding="2"
+                                    />
+                                </Border>
+                            </StackPanel>
+
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Grid.Column="0"
+                                Grid.Row="7"
+                                Grid.RowSpan="2">
+                                <TextBlock
+                                    Text="Chính sách:"
+                                    Style="{DynamicResource txtbl_Infovalue}"
+                                    FontSize="18"
+                                    FontWeight="SemiBold"/>
+                                <Border
+                                        VerticalAlignment="Center"
+                                        BorderThickness="1"
+                                        BorderBrush="{DynamicResource Yale Blue}"
+                                        CornerRadius="10">
+                                    <ComboBox 
+                                    Margin="10 5 10 5"
+                                    Style="{DynamicResource MaterialDesignComboBox}"
+                                    BorderBrush="{DynamicResource Yale Blue}"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="10">
+                                        <ComboBoxItem Content="Có"/>
+                                        <ComboBoxItem Content="Không"/>
+                                    </ComboBox>
+                                </Border>
+
+                            </StackPanel>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                VerticalAlignment="Center"
+                                Text="Họ và tên:"/>
+                            <Border
+                                Grid.Column="2"
+                                Margin="0 0 5 0"
+                                Grid.Row="0"
+                                VerticalAlignment="Center"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="Huỳnh Văn Ci"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                VerticalAlignment="Center"
+                                Text="Ngày sinh:"/>
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Margin="0 2 5 2"
+                                BorderThickness="1"
+                                VerticalAlignment="Center"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">  
+                                <DatePicker 
+                                    Margin="10 5 10 5"
+                                    BorderBrush="{DynamicResource Yale Blue}"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18" 
+                                    FirstDayOfWeek="Monday"
+                                    SelectedDateFormat="Short"
+                                    Text="{Binding Date, StringFormat='dd/MM/yyyy'}"
+                                    />
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                Grid.Row="2"
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                VerticalAlignment="Center"
+                                Text="Giới tính:"/>
+                            <Border
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Margin="0 2 5 2"
+                                VerticalAlignment="Center"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <ComboBox 
+                                    Margin="10 5 10 5"
+                                    Style="{DynamicResource MaterialDesignComboBox}"
+                                    BorderBrush="{DynamicResource Yale Blue}"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18">  
+                                    <ComboBoxItem Content="Nam"/>
+                                    <ComboBoxItem Content="Nữ"/>
+                                </ComboBox>
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                Grid.Row="3"
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                VerticalAlignment="Center"
+                                Text="Nơi  sinh:"/>
+                            <Border
+                                Grid.Column="2"
+                                Margin="0 0 5 0"
+                                Grid.Row="3"
+                                VerticalAlignment="Center"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="Thành phố Hồ Chí Minh"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                Grid.Row="4"
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                VerticalAlignment="Center"
+                                Text="Dân tộc:"/>
+                            <Border
+                                Grid.Column="2"
+                                Margin="0 0 5 0"
+                                Grid.Row="4"
+                                VerticalAlignment="Center"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="Kinh"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                Grid.Row="5"
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                VerticalAlignment="Center"
+                                Text="Tôn giáo: "/>
+                            <Border
+                                Grid.Column="2"
+                                Margin="0 0 5 0"
+                                Grid.Row="5"
+                                VerticalAlignment="Center"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="Không"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                Grid.Row="6"
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                VerticalAlignment="Center"
+                                Text="Số điện thoại:"/>
+                            <Border
+                                Grid.Column="2"
+                                Margin="0 0 5 0"
+                                Grid.Row="6"
+                                VerticalAlignment="Center"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="0123456789"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                Grid.Row="7"
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                VerticalAlignment="Center"
+                                Text="Địa chỉ:"/>
+                            <Border
+                                Grid.Column="2"
+                                Grid.RowSpan="2"
+                                Margin="0 0 5 0"
+                                Grid.Row="7"
+                                VerticalAlignment="Center"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="200 Pasteur, Quận 3, Tp Hồ Chí Minh"
+                                    TextWrapping="WrapWithOverflow"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+            </Border>
+
+        </Grid>
+
+        <!--Phụ huynh-->
+        <Grid
+            Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"></RowDefinition>
+                <RowDefinition Height="8.8*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid
+                Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Margin="10 20 10 0" Grid.Column="0" Style="{DynamicResource SaveBtn}"/>
+                <Button Margin="10 20 10 0" Grid.Column="1" Style="{DynamicResource BackBtn}"/>
+
+            </Grid>
+
+            <Border
+                Background="{DynamicResource White}"
+                Grid.Row="1"
+                Margin="10"
+                CornerRadius="10">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="1"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+                    <Grid
+                    Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel
+                            Grid.Row="0">
+                            <BulletDecorator Margin="10 5 0 0">
+                                <BulletDecorator.Bullet>
+                                    <Ellipse Height="5" Width="5" Fill="{DynamicResource Yale Blue}"/>
+                                </BulletDecorator.Bullet>
+                                <TextBlock 
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                Text="   Họ và tên mẹ: "/>
+                            </BulletDecorator>
+
+                            <Border
+                                Margin="10 0 10 0"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="Huỳnh Thị  Ly"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="1">
+                            <BulletDecorator Margin="10 5 0 0">
+                                <BulletDecorator.Bullet>
+                                    <Ellipse Height="5" Width="5" Fill="{DynamicResource Yale Blue}"/>
+                                </BulletDecorator.Bullet>
+                                <TextBlock 
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                Text="   Nghề nghiệp: "/>
+                            </BulletDecorator>
+
+                            <Border
+                                Margin="10 0 10 0"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="Buôn bán"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="2">
+                            <BulletDecorator Margin="10 5 0 0">
+                                <BulletDecorator.Bullet>
+                                    <Ellipse Height="5" Width="5" Fill="{DynamicResource Yale Blue}"/>
+                                </BulletDecorator.Bullet>
+                                <TextBlock 
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                Text="   Số điện thoại: "/>
+                            </BulletDecorator>
+
+                            <Border
+                                Margin="10 0 10 0"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="01234567910"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+                        </StackPanel>
+
+
+                    </Grid>
+
+                    <GridSplitter IsEnabled="False" HorizontalAlignment="Stretch" Grid.Row="1" Height="1" Background="{DynamicResource Green Blue}" />
+
+                    <Grid
+                    Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel
+                            Grid.Row="0">
+                            <BulletDecorator Margin="10 5 0 0">
+                                <BulletDecorator.Bullet>
+                                    <Ellipse Height="5" Width="5" Fill="{DynamicResource Yale Blue}"/>
+                                </BulletDecorator.Bullet>
+                                <TextBlock 
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                Text="   Họ và tên cha: "/>
+                            </BulletDecorator>
+
+                            <Border
+                                Margin="10 0 10 0"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="Huỳnh Thị  Ly"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="1">
+                            <BulletDecorator Margin="10 5 0 0">
+                                <BulletDecorator.Bullet>
+                                    <Ellipse Height="5" Width="5" Fill="{DynamicResource Yale Blue}"/>
+                                </BulletDecorator.Bullet>
+                                <TextBlock 
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                Text="   Nghề nghiệp: "/>
+                            </BulletDecorator>
+
+                            <Border
+                                Margin="10 0 10 0"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="Buôn bán"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="2">
+                            <BulletDecorator Margin="10 5 0 0">
+                                <BulletDecorator.Bullet>
+                                    <Ellipse Height="5" Width="5" Fill="{DynamicResource Yale Blue}"/>
+                                </BulletDecorator.Bullet>
+                                <TextBlock 
+                                Style="{DynamicResource txtbl_Infovalue2}"
+                                Text="   Số điện thoại: "/>
+                            </BulletDecorator>
+
+                            <Border
+                                Margin="10 0 10 0"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource Yale Blue}"
+                                CornerRadius="10">
+                                <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="01234567910"
+                                    Foreground="{DynamicResource Green Blue}"
+                                    FontSize="18"
+                                    Padding="10 2 0 2"
+                                    />
+                            </Border>
+                        </StackPanel>
+
+
+                    </Grid>
+                </Grid>
+
+            </Border>
+
+
+
+
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>
