@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:EduConnectApp.ViewUCs"
              mc:Ignorable="d" 
              d:DesignHeight="576" d:DesignWidth="1054">
@@ -26,7 +27,7 @@
         </StackPanel>
 
         <!--Info Card-->
-        <Border Grid.Column="1" Background="White" CornerRadius="15" >
+        <Border Margin="10 0 0 0" Grid.Column="1" Background="White" CornerRadius="15" >
             <Border.Effect>
                 <DropShadowEffect Opacity="0.25"/>
             </Border.Effect>
@@ -45,124 +46,157 @@
         <!--Homeroom Class-->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="4*"></RowDefinition>
-                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="3.5*"></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
             </Grid.RowDefinitions>
 
             <StackPanel>
-                <TextBlock  Style="{StaticResource txtbl_ClassValue }" Text="LỚP CHỦ NHIỆM" Margin="30 10 0 0"></TextBlock>
-                <DataGrid Margin="0 10 0 0" IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding HomeroomList}">
+                <TextBlock  Style="{StaticResource txtbl_DtgTitle }" Text="LỚP CHỦ NHIỆM" Margin="30 10 10 0"></TextBlock>
+                <DataGrid  HeadersVisibility="None"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                          IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding HomeroomList}" Background="Transparent">
                     <DataGrid.Columns>
-                        <DataGridTextColumn CanUserReorder="False" CanUserResize="False" Width="1*" ElementStyle="{DynamicResource txtbl_ClassValue}" Header="Khối" Binding="{Binding Grade}"></DataGridTextColumn>
-
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="Auto">
+                        <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <GridSplitter BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" />
+                                    <Border x:Name="borderDtg"
+                            BorderThickness="0" HorizontalAlignment="Left"
+                            CornerRadius="10" Height="84" Width="{Binding ElementName=grid_Scale,Path=ActualWidth}" Margin="0 5" 
+                            >
+                                        <Border.Background>
+                                            <SolidColorBrush x:Name="BorderDtgBackground"
+                                             Color="White" />
+                                        </Border.Background>
+
+
+                                        <!--<Button x:Name="btn_Dtg" Height="84" Background="Transparent" BorderThickness="0">-->
+                                        <Grid x:Name="gridDTG" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="0.5*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel>
+                                                <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="KHỐI"></TextBlock>
+                                                <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding Grade}"></TextBlock>
+                                            </StackPanel>
+                                            <GridSplitter IsEnabled="False" Grid.Column="0" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
+                                            <StackPanel Grid.Column="1">
+                                                <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="LỚP"></TextBlock>
+                                                <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding Class}"></TextBlock>
+                                            </StackPanel>
+                                            <GridSplitter IsEnabled="False" Grid.Column="1" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
+                                            <StackPanel Grid.Column="2">
+                                                <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="SỈ SỐ"></TextBlock>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding NumofAttendants}" ></TextBlock>
+                                                    <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="học sinh" ></TextBlock>
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <GridSplitter IsEnabled="False" Grid.Column="2" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
+
+                                            <StackPanel Grid.Column="3">
+                                                <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="GNCN"></TextBlock>
+                                                <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding Teacher}"></TextBlock>
+                                            </StackPanel>
+                                            <Image Grid.Column="4" Height="16" Width="9" Source="D:\UIT\HK4\NMCNPM\DoAn\EduConnectApp\EduConnectApp\imgs\arrowright.png"></Image>
+                                        </Grid>
+                                        <!--</Button>-->
+                                    </Border>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
+                            
                         </DataGridTemplateColumn>
-
-                        <DataGridTextColumn CanUserReorder="False" CanUserResize="False" Width="1*" ElementStyle="{DynamicResource txtbl_ClassValue}" Header="Lớp"  Binding="{Binding Class}"></DataGridTextColumn>
-
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False"  Width="Auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <GridSplitter BorderThickness="1" BorderBrush="{DynamicResource Green Blue}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="1.5*" Header="Sỉ số">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding NumofAttendants}"></TextBlock>
-                                        <TextBlock Style="{DynamicResource txtbl_ClassValue1}" VerticalAlignment="Center" Margin="10 0 0 0">học sinh</TextBlock>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="Auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <GridSplitter BorderThickness="1" BorderBrush="{DynamicResource Green Blue}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTextColumn CanUserReorder="False" CanUserResize="False" Width="2.5*" ElementStyle="{DynamicResource txtbl_ClassValue}" Header="GVCN"  Binding="{Binding Teacher}"></DataGridTextColumn>
-
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="Auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content=">" Foreground="{DynamicResource Green Blue}" FontSize="25" Background="Transparent" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent"></Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        
                     </DataGrid.Columns>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding navClassListUC}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                 </DataGrid>
             </StackPanel>
-            
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width=".6*"/>
+                </Grid.ColumnDefinitions>
+                <Grid  x:Name="grid_Scale"></Grid>
+            </Grid>
+
             <!--Class-->
             <StackPanel Grid.Row="1">
-                <TextBlock  Style="{StaticResource txtbl_ClassValue }" Text="LỚP GIẢNG DẠY" Margin="30 10 0 0"></TextBlock>
-                <DataGrid Height="224" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="0 10 0 0" IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding ClassList}">
+                <TextBlock  Style="{StaticResource txtbl_DtgTitle }" Text="LỚP GIẢNG DẠY" Margin="30 5 0 0"></TextBlock>
+                <DataGrid x:Name="dtg_Class" HeadersVisibility="None"  Height="350" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                          IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding ClassList}" Background="Transparent" >
                     <DataGrid.Columns>
-                        <DataGridTextColumn CanUserReorder="False" CanUserResize="False" Width="1*" ElementStyle="{DynamicResource txtbl_ClassValue}" Header="Khối" Binding="{Binding Grade}"></DataGridTextColumn>
-
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="Auto">
+                        <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <GridSplitter BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                                    <Border x:Name="borderDtg"
+                            BorderThickness="0" HorizontalAlignment="Left"
+                            CornerRadius="10" Height="84" Width="{Binding ElementName=grid_Scale,Path=ActualWidth}" Margin="0 5 " 
+                            >
+                                        <Border.Background>
+                                            <SolidColorBrush x:Name="BorderDtgBackground"
+                                             Color="White" />
+                                        </Border.Background>
 
-                        <DataGridTextColumn CanUserReorder="False" CanUserResize="False" Width="1*" ElementStyle="{DynamicResource txtbl_ClassValue}" Header="Lớp"  Binding="{Binding Class}"></DataGridTextColumn>
 
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False"  Width="Auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <GridSplitter BorderThickness="1" BorderBrush="{DynamicResource Green Blue}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                                        <!--<Button x:Name="btn_Dtg" Height="84" Background="Transparent" BorderThickness="0">-->
+                                        <Grid x:Name="gridDTG" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="0.5*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel>
+                                                <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="KHỐI"></TextBlock>
+                                                <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding Grade}"></TextBlock>
+                                            </StackPanel>
+                                            <GridSplitter IsEnabled="False" Grid.Column="0" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
+                                            <StackPanel Grid.Column="1">
+                                                <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="LỚP"></TextBlock>
+                                                <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding Class}"></TextBlock>
+                                            </StackPanel>
+                                            <GridSplitter IsEnabled="False" Grid.Column="1" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
+                                            <StackPanel Grid.Column="2">
+                                                <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="SỈ SỐ"></TextBlock>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding NumofAttendants}" ></TextBlock>
+                                                    <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="học sinh" ></TextBlock>
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <GridSplitter IsEnabled="False" Grid.Column="2" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
 
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="1.5*" Header="Sỉ số">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding NumofAttendants}"></TextBlock>
-                                        <TextBlock Style="{DynamicResource txtbl_ClassValue1}" VerticalAlignment="Center" Margin="10 0 0 0">học sinh</TextBlock>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="Auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <GridSplitter BorderThickness="1" BorderBrush="{DynamicResource Green Blue}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTextColumn CanUserReorder="False" CanUserResize="False" Width="2.5*" ElementStyle="{DynamicResource txtbl_ClassValue}" Header="GVCN"  Binding="{Binding Teacher}"></DataGridTextColumn>
-
-                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" Width="Auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content=">" Foreground="{DynamicResource Green Blue}" FontSize="25" Background="Transparent" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent"></Button>
+                                            <StackPanel Grid.Column="3">
+                                                <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="GNCN"></TextBlock>
+                                                <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding Teacher}"></TextBlock>
+                                            </StackPanel>
+                                            <Image Grid.Column="4" Height="16" Width="9" Source="D:\UIT\HK4\NMCNPM\DoAn\EduConnectApp\EduConnectApp\imgs\arrowright.png"></Image>
+                                        </Grid>
+                                        <!--</Button>-->
+                                    </Border>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding navClassListUC}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
                 </DataGrid>
             </StackPanel>
         </Grid>
-        
+
 
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -171,39 +205,39 @@
             </Grid.RowDefinitions>
 
             <!--Subject Card-->
-            <Border Margin="15" Background="White" CornerRadius="15" Height="105">
+            <Border Margin="10" Background="White" CornerRadius="15" Height="105">
                 <Border.Effect>
                     <DropShadowEffect Opacity="0.25"/>
                 </Border.Effect>
-                <StackPanel>
-                    <TextBlock Margin="30 0 0 0" Style="{StaticResource txtbl_Infovalue2}">Các môn giảng dạy </TextBlock>
+                <StackPanel Margin="0 5">
+                    <TextBlock Margin="30 0 0 0" Style="{StaticResource txtbl_Infovalue2}">Các môn giảng dạy</TextBlock>
                     <TextBlock Margin="30 0 0 0" Style="{StaticResource txtbl_Infovalue}">NIÊN KHÓA 2022 - 2023</TextBlock>
                     <StackPanel Orientation="Horizontal" Margin="10 10 10 0" HorizontalAlignment="Center" >
-                        <Border Width="76" Height="45"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
+                        <Border Width="76" Height="42"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
                             <Border.Effect>
                                 <DropShadowEffect Opacity="0.1"/>
                             </Border.Effect>
-                            <TextBlock Foreground="{StaticResource White}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center">HÓA</TextBlock>
+                            <TextBlock Foreground="{StaticResource White}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center">HÓA</TextBlock>
                         </Border>
 
-                        <Border Margin="10 0 0 0" Width="76" Height="45"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
+                        <Border Margin="10 0 0 0" Width="76" Height="42"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
                             <Border.Effect>
                                 <DropShadowEffect Opacity="0.1"/>
                             </Border.Effect>
-                            <TextBlock Foreground="{StaticResource White}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center">SINH</TextBlock>
+                            <TextBlock Foreground="{StaticResource White}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center">SINH</TextBlock>
                         </Border>
 
-                        <Border Margin="10 0 0 0" Width="76" Height="45"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
+                        <Border Margin="10 0 0 0" Width="76" Height="42"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
                             <Border.Effect>
                                 <DropShadowEffect Opacity="0.1"/>
                             </Border.Effect>
-                            <TextBlock Foreground="{StaticResource White}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow">CÔNG NGHỆ</TextBlock>
+                            <TextBlock Foreground="{StaticResource White}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow">CÔNG NGHỆ</TextBlock>
                         </Border>
                     </StackPanel>
                 </StackPanel>
             </Border>
 
-            <Image Grid.Row="1" Source="../imgs/ClassImage.png"></Image>
+            <Image Margin="5" Grid.Row="1" Source="../imgs/ClassImage.png"></Image>
         </Grid>
 
     </Grid>
