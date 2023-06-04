@@ -32,7 +32,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.9*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -139,7 +139,7 @@
         </Border>
 
         <!--Menu Text-->
-        <Grid  Grid.Row="2" 
+        <Grid  Grid.Row="2"  Panel.ZIndex="5"
                 Grid.Column="0" HorizontalAlignment="Left"
                 Grid.RowSpan="6"
                 Grid.ColumnSpan="4"
@@ -190,7 +190,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navInputScore}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navGrade}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -263,6 +263,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:SemesterScoreViewModel}">
                     <viewuc:SemesterScore></viewuc:SemesterScore>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:ScoreDetailViewModel}">
+                    <viewuc:ScoreDetail></viewuc:ScoreDetail>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:StatisticViewModel}">
                     <viewuc:StatisticUC></viewuc:StatisticUC>

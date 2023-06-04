@@ -1,10 +1,14 @@
-﻿using EduConnectApp.Store;
+﻿using EduConnectApp.Commands;
+using EduConnectApp.Store;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace EduConnectApp.ViewModel
@@ -21,12 +25,21 @@ namespace EduConnectApp.ViewModel
             public string Address { get; set; }
 
         }
+        public ICommand navClassListUC { get; }
+        public ICommand navClassList { get; }
+        public ICommand navMouse { get; }
+
 
         private List<Student> _StudentList = new List<Student>();
         public List<Student> StudentList { get => _StudentList; set { _StudentList = value; OnPropertyChanged(); } }
 
 
         public ClassListViewModel(NavigationStore navigationStore) {
+
+            navClassListUC = new NavigationCommand<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore));
+            navClassList = new NavigationCommand<StatisticViewModel>(navigationStore, () => new StatisticViewModel(navigationStore));
+            //navMouse = new RelayCommand<DataGrid>((p) => { return true; }, (p) => _UpdateSpn(p));
+
 
             StudentList.Add(new Student { number = 1, Name = "Nguyễn Bình An", DOB = "5/10/2007", Gender = "Nữ", Phone = "415-954-1475", Address="TP HCM" });
             StudentList.Add(new Student { number = 2, Name = "Đỗ Duy Dũng", DOB = "5/10/2007", Gender = "Nữ", Phone = "254-451-7893", Address="Đồng Nai" });

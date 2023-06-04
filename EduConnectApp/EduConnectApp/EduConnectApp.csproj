@@ -115,6 +115,7 @@
     <Compile Include="ViewModel\InputScoreViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ScoreDetailViewModel.cs" />
     <Compile Include="ViewModel\SemesterScoreViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\StatisticViewModel.cs" />
@@ -139,6 +140,9 @@
     </Compile>
     <Compile Include="ViewUCs\InputScore.xaml.cs">
       <DependentUpon>InputScore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUCs\ScoreDetail.xaml.cs">
+      <DependentUpon>ScoreDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewUCs\SemesterScoreUC.xaml.cs">
       <DependentUpon>SemesterScoreUC.xaml</DependentUpon>
@@ -247,6 +251,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewUCs\ScoreDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewUCs\SemesterScoreUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -332,6 +340,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="imgs\ClassImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\arrowright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\imgScreenScore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\iconInputScore.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />

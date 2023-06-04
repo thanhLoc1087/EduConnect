@@ -1,9 +1,15 @@
-﻿using EduConnectApp.Store;
+﻿using EduConnectApp.Commands;
+using EduConnectApp.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
+using System.Windows.Input;
+using EduConnectApp.ViewUCs;
+using System.Windows.Media;
 
 namespace EduConnectApp.ViewModel
 {
@@ -17,6 +23,8 @@ namespace EduConnectApp.ViewModel
             public string Teacher { get; set; }
         }
 
+        public ICommand navClassListUC { get; }
+        public ICommand navCchangeColorlassListUC { get; }
 
         private List<AvailableClass> _HomeroomList = new List<AvailableClass>();
         public List<AvailableClass> HomeroomList { get => _HomeroomList; set { _HomeroomList = value; OnPropertyChanged(); } }
@@ -26,6 +34,9 @@ namespace EduConnectApp.ViewModel
 
         public ClassViewModel(NavigationStore navigationStore)
         {
+            navClassListUC = new NavigationCommand<ClassListViewModel>(navigationStore, () => new ClassListViewModel(navigationStore));
+
+
             HomeroomList.Add(new AvailableClass { Grade = 10, Class = "10A1", NumofAttendants = 45, Teacher="Nguyễn Văn A" });
 
 
