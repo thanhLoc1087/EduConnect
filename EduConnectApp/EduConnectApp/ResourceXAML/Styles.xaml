@@ -14,8 +14,6 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Border
-                        Grid.Row="0"
-                        Grid.Column="2"
                         BorderThickness="1"
                         BorderBrush="{DynamicResource Yale Blue}"
                         CornerRadius="10">
@@ -299,8 +297,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{DynamicResource Tomato}" CornerRadius="15">
-                        <Image Source="../imgs/trash.png" Margin="15 15 15 15"/>
+                    <Border Background="{DynamicResource Tomato}" CornerRadius="7">
+                        <Image Source="../imgs/trash.png" Margin="8"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -311,8 +309,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="#40C9C9" CornerRadius="15">
-                        <Image Source="../imgs/printer.png" Margin="12 12 12 12"/>
+                    <Border Background="#40C9C9" CornerRadius="7">
+                        <Image Source="../imgs/printer.png" Margin="8"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
