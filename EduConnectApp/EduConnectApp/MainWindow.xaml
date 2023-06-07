@@ -205,7 +205,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding navEditScore}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navStatistic}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>

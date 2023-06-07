@@ -97,6 +97,7 @@
                         Width="139" Margin="10 0" Height="39" Padding="15 0"
                                      FontSize="16"
                                   BorderBrush="{DynamicResource Yale Blue}"
+                              Background="{DynamicResource White}"
                                         Foreground="{DynamicResource Yale Blue}"                            
                                   Style="{StaticResource MaterialDesignOutlinedComboBox}" 
                                 VerticalContentAlignment="Center">
