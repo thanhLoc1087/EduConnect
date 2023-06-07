@@ -47,7 +47,8 @@
                         Width="139" Margin="10 0" Height="39" Padding="15 0"
                                      FontSize="16"
                                   BorderBrush="{DynamicResource Yale Blue}"
-                                        Foreground="{DynamicResource Yale Blue}"                            
+                                        Foreground="{DynamicResource Yale Blue}" 
+                              Background="{StaticResource White}"
                                   Style="{StaticResource MaterialDesignOutlinedComboBox}" 
                                 VerticalContentAlignment="Center">
                         <ComboBoxItem Content="Cả năm"/>

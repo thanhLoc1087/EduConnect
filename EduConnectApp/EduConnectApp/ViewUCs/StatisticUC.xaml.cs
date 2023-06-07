@@ -24,5 +24,10 @@ namespace EduConnectApp.ViewUCs
         {
             InitializeComponent();
         }
+
+        private void liveChart_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
