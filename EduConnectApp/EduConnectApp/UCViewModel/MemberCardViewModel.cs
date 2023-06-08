@@ -1,4 +1,4 @@
-﻿using EduConnectApp.Store;
+﻿using EduConnectApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace EduConnectApp.ViewModel
+namespace EduConnectApp.UCViewModel
 {
-    public class ContactViewModel : BaseViewModel
+    public class MemberCardViewModel: BaseViewModel
     {
         public struct Student
         {
@@ -28,7 +28,7 @@ namespace EduConnectApp.ViewModel
         private List<Student> _StudentList = new List<Student>();
         public List<Student> StudentList { get => _StudentList; set { _StudentList = value; OnPropertyChanged(); } }
 
-        public ContactViewModel(NavigationStore navigationStore)
+        public MemberCardViewModel()
         {
             StudentList.Add(new Student { number = 1, Name = "Nguyễn Bình An", DOB = "5/10/2007", Gender = "Nữ", Phone = "415-954-1475", Address="TP HCM" });
             StudentList.Add(new Student { number = 2, Name = "Đỗ Duy Dũng", DOB = "5/10/2007", Gender = "Nữ", Phone = "254-451-7893", Address="Đồng Nai" });

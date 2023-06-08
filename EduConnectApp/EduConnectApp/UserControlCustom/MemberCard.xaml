@@ -5,24 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EduConnectApp.UserControlCustom"
              mc:Ignorable="d" 
-             d:DesignWidth="573">
+             d:DesignWidth="286"
+             DataContext="{DynamicResource MemberCardVM}">
     <Grid>
         <Border 
-            CornerRadius="15 15 15 15">
+            CornerRadius="7">
             <StackPanel
             Background="#C5E9F8"
-            Height="291">
+            Height="145">
             <Border
-                CornerRadius="0 0 15 15"
+                CornerRadius="0 0 7 7"
                 Background="{StaticResource Green Blue}"
-                Height="58"
+                Height="29"
                 VerticalAlignment="Top">
                     <DockPanel
                         >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                            <Ellipse
-                            Width="45"
-                            Height="45"
+                            Width="22"
+                            Height="22"
                             >
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="../imgs/LogoUIT_Whitebg.png"/>
@@ -30,17 +31,17 @@
                                 </Ellipse.Fill>
                             </Ellipse>
 
-                            <StackPanel Margin="10 10 10 0">
+                            <StackPanel Margin="5 5 5 0">
                                 <TextBlock
                                     Foreground="{StaticResource White}"
                                     TextAlignment="Center"
-                                    FontSize="16">
+                                    FontSize="8">
                                     SỞ GIÁO DỤC VÀ ĐÀO TẠO TIỀN GIANG
                                 </TextBlock>
                                 <TextBlock
                                     Foreground="{StaticResource White}"
                                     TextAlignment="Center"
-                                    FontSize="16">
+                                    FontSize="8">
                                     TRƯỜNG THPT ĐỐC BINH KIỀU
                                 </TextBlock>
                             </StackPanel>
@@ -52,7 +53,7 @@
             </Border>
             <Border
                 Background="#C5E9F8"
-                Height="202"
+                Height="101"
                 VerticalAlignment="Center">
 
                     <Grid>
@@ -76,7 +77,7 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="33.706"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -92,8 +93,8 @@
                             Grid.RowSpan="8"
                             Grid.ColumnSpan="5">
                             <Ellipse
-                                Width="150"
-                                Height="150"
+                                Width="75"
+                                Height="75"
                                 VerticalAlignment="Center"
                                 Fill="#D9D9D9"
                             >
@@ -110,7 +111,7 @@
                             Grid.ColumnSpan="4"
                             Text="Họ và tên:"
                             Foreground="{StaticResource Yale Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="DemiBold">
                         </TextBlock>
 
@@ -121,7 +122,7 @@
                             Grid.ColumnSpan="4"
                             Text="Chức vụ:"
                             Foreground="{StaticResource Yale Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="DemiBold">
                         </TextBlock>
 
@@ -132,7 +133,7 @@
                             Grid.ColumnSpan="4"
                             Text="Tổ:"
                             Foreground="{StaticResource Yale Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="DemiBold">
                         </TextBlock>
 
@@ -143,7 +144,7 @@
                             Grid.ColumnSpan="4"
                             Text="Số điện thoại:"
                             Foreground="{StaticResource Yale Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="DemiBold">
                         </TextBlock>
 
@@ -154,7 +155,7 @@
                             Grid.ColumnSpan="4"
                             Text="Email:"
                             Foreground="{StaticResource Yale Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="DemiBold">
                         </TextBlock>
 
@@ -165,7 +166,7 @@
                             Grid.ColumnSpan="4"
                             Text="Địa chỉ:"
                             Foreground="{StaticResource Yale Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="DemiBold">
                         </TextBlock>
 
@@ -177,7 +178,7 @@
                             Grid.ColumnSpan="7"
                             Text="Nguyễn Văn A"
                             Foreground="{StaticResource Green Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="Light">
                         </TextBlock>
 
@@ -187,7 +188,7 @@
                             Grid.ColumnSpan="7"
                             Text="Tổ trưởng"
                             Foreground="{StaticResource Green Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="Light">
                         </TextBlock>
 
@@ -197,7 +198,7 @@
                             Grid.ColumnSpan="7"
                             Text="Toán - Hóa - Sinh"
                             Foreground="{StaticResource Green Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="Light">
                         </TextBlock>
 
@@ -207,7 +208,7 @@
                             Grid.ColumnSpan="7"
                             Text="0123456789"
                             Foreground="{StaticResource Green Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="Light">
                         </TextBlock>
 
@@ -217,7 +218,7 @@
                             Grid.ColumnSpan="7"
                             Text="NguyenVanA@gmail.com"
                             Foreground="{StaticResource Green Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="Light">
                         </TextBlock>
 
@@ -228,7 +229,7 @@
                             Grid.RowSpan="2"
                             Text="Khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh"
                             Foreground="{StaticResource Green Blue}"
-                            FontSize="16"
+                            FontSize="8"
                             FontWeight="Light"
                             TextWrapping="WrapWithOverflow">
                         </TextBlock>
@@ -236,16 +237,16 @@
                 
             </Border>
             <Border
-                CornerRadius="15 15 0 0"
+                CornerRadius="7 7 0 0"
                 Background="{StaticResource Green Blue}"
-                Height="31"
+                Height="15"
                 VerticalAlignment="Bottom">
                     <TextBlock 
                         Text="Đường Thanh Tâm, Khu 1, Phường 4, thị xã Cai Lậy, Tiền Giang"
                         Foreground="{StaticResource White}"
                         TextAlignment="Center"
                         VerticalAlignment="Center"
-                        FontSize="15"
+                        FontSize="7"
                         >
                         
                     </TextBlock>

@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm ="clr-namespace:EduConnectApp.ViewModel"
+                    xmlns:ucvm ="clr-namespace:EduConnectApp.UCViewModel"
                     xmlns:local="clr-namespace:EduConnectApp.ResourceXAML">
     <vm:MainViewModel x:Key="MainVM"></vm:MainViewModel>
     <vm:HomeViewModel x:Key="HomeVM"></vm:HomeViewModel>
@@ -13,4 +14,5 @@
     <vm:TeacherPro5ViewModel x:Key="TeacherVM"></vm:TeacherPro5ViewModel>
     <vm:InputScoreViewModel x:Key="InputScoreVM"></vm:InputScoreViewModel>
     <vm:EditScoreViewModel x:Key="EditScoreVM"></vm:EditScoreViewModel>
+    <ucvm:MemberCardViewModel x:Key="MemberCardVM"></ucvm:MemberCardViewModel>
 </ResourceDictionary>

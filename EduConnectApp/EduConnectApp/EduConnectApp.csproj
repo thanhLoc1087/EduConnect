@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Store\NavigationStore.cs" />
     <Compile Include="UCViewModel\ControlBarViewModel.cs" />
+    <Compile Include="UCViewModel\MemberCardViewModel.cs" />
     <Compile Include="UserControlCustom\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
