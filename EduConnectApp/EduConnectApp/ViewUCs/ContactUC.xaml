@@ -3,10 +3,102 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:uc="clr-namespace:EduConnectApp.UserControlCustom"
              xmlns:local="clr-namespace:EduConnectApp.ViewUCs"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="PowderBlue">
-        <TextBlock  Text="Contact UC" FontSize="50" TextAlignment="Center" VerticalAlignment="Center"/>
+             d:DesignHeight="576" d:DesignWidth="1054">
+    <Grid Background="Transparent" Margin="0 10 10 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <!--Title-->
+        <StackPanel>
+            <TextBlock Style="{DynamicResource txtbl_TilleTab}" Text="THÔNG TIN LIÊN HỆ NỘI BỘ"/>
+            <DockPanel Grid.Row="1">
+                <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="Bao gồm thông tin liên hệ của các cán bộ, giáo viên, công nhân viên chức "/>
+                <TextBox HorizontalAlignment="Right"  Style="{DynamicResource SearchBox}" materialDesign:HintAssist.Hint="Tìm kiếm tên/chức vụ" ></TextBox>
+            </DockPanel>
+        </StackPanel>
+
+        <!--Ban Giam Hieu-->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <TextBlock  Style="{StaticResource txtbl_DtgTitle }" Text="BAN GIÁM HIỆU" Margin="30 0 10 0" FontSize="16" FontWeight="Bold"></TextBlock>
+                <DataGrid  HeadersVisibility="None"  Height="190" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                          IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding StudentList}" Background="Transparent" >
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid Height="145" Width="auto" >
+                                        <TextBlock Text="{Binding Name}"/>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <uc:MemberCard/>
+                                            <Grid Width="70" Background="Transparent"></Grid>
+                                            <uc:MemberCard DockPanel.Dock="Right"/>
+                                            <Grid Width="70" Background="Transparent"></Grid>
+                                            <uc:MemberCard DockPanel.Dock="Right"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding navClassListUC}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </DataGrid>
+            </StackPanel>
+
+            <!--Class-->
+            <StackPanel Grid.Row="1">
+                <TextBlock  Style="{StaticResource txtbl_DtgTitle }" FontWeight="Bold" Text="GIÁO VIÊN" Margin="30 5 0 0" FontSize="16"></TextBlock>
+                <DataGrid x:Name="dtg_Class" HeadersVisibility="None"  Height="190" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                          IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding StudentList}" Background="Transparent" >
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid Height="145" Width="auto" >
+                                        <TextBlock Text="{Binding Name}"/>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <uc:MemberCard/>
+                                            <Grid Width="70" Background="Transparent"></Grid>
+                                            <uc:MemberCard DockPanel.Dock="Right"/>
+                                            <Grid Width="70" Background="Transparent"></Grid>
+                                            <uc:MemberCard DockPanel.Dock="Right"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding navClassListUC}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </DataGrid>
+            </StackPanel>
+        </Grid>
+
+
+
     </Grid>
 </UserControl>
