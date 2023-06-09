@@ -55,6 +55,9 @@ namespace EduConnectApp.ViewModel
             navEditScore = new NavigationCommand<EditScoreViewModel>(navigationStore, () => new EditScoreViewModel(navigationStore));
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+
+
+
         }
 
         private void OnCurrentViewModelChanged()
