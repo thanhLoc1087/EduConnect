@@ -4,9 +4,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EduConnectApp.UserControlCustom"
-             mc:Ignorable="d" 
-        d:DesignHeight="720" d:DesignWidth="560">
+             xmlns:local="clr-namespace:EduConnectApp.UserControlCustom" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+             mc:Ignorable="d"   
+        d:DesignHeight="720" d:DesignWidth="560"
+             Name="ucLogin"
+             DataContext="{StaticResource LoginVM}">
+    
+    
+    
     <Grid Background="{StaticResource White}">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
@@ -29,10 +35,12 @@
             <TextBox
                   Margin="50 10"
                 FontSize="35"
+                Text="{Binding UserName}"
                   Style="{StaticResource MaterialDesignOutlinedTextBox}"
                   VerticalAlignment="Center"
                   materialDesign:HintAssist.Hint="" 
-                  BorderBrush="{StaticResource Yale Blue}" Opacity="0.75" />
+                  BorderBrush="{StaticResource Yale Blue}" Opacity="0.75" 
+                />
         </StackPanel>
 
         <StackPanel Grid.Row="3">
@@ -50,6 +58,11 @@
                 materialDesign:HintAssist.Hint=""
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 BorderBrush="{StaticResource Yale Blue}" Opacity="0.75">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PasswordChanged">
+                        <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" CommandParameter="{Binding ElementName=FloatingPasswordBox}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
             </PasswordBox>
         </StackPanel>
 
@@ -57,11 +70,16 @@
         </CheckBox>
 
         <DockPanel Grid.Row="5" >
-            <Button DockPanel.Dock="Top" Background="{StaticResource Yale Blue}" Opacity="0.75" Margin="50 0 50 0" Padding="0" Height="80" VerticalAlignment="Top" BorderBrush="Transparent">
+            <Button
+                IsDefault="True"
+                Command="{Binding LoginCommand}"
+                CommandParameter="{Binding ElementName=ucLogin}"
+                DockPanel.Dock="Top" Background="{StaticResource Yale Blue}" Opacity="0.75" Margin="50 0 50 0" Padding="0" Height="80" VerticalAlignment="Top" BorderBrush="Transparent">
                 <TextBlock Foreground="{StaticResource White}" FontSize="25">ĐĂNG NHẬP</TextBlock>
             </Button>
 
-            <Button DockPanel.Dock="Bottom"  Background="Transparent" Padding="0" HorizontalAlignment="Right" Margin="0 0 25 0" BorderBrush="Transparent">
+            <Button
+                DockPanel.Dock="Bottom"  Background="Transparent" Padding="0" HorizontalAlignment="Right" Margin="0 0 25 0" BorderBrush="Transparent">
                 <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" >Giúp đỡ</TextBlock>
             </Button>
         </DockPanel>

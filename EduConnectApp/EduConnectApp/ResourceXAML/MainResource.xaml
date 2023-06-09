@@ -4,6 +4,7 @@
                     xmlns:ucvm ="clr-namespace:EduConnectApp.UCViewModel"
                     xmlns:local="clr-namespace:EduConnectApp.ResourceXAML">
     <vm:MainViewModel x:Key="MainVM"></vm:MainViewModel>
+    <vm:LoginViewModel x:Key="LoginVM"></vm:LoginViewModel>
     <vm:HomeViewModel x:Key="HomeVM"></vm:HomeViewModel>
     <vm:ClassViewModel x:Key="ClassVM"></vm:ClassViewModel>
     <vm:ClassListViewModel x:Key="ClassListVM"></vm:ClassListViewModel>
