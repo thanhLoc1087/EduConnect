@@ -7,8 +7,9 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary x:Name="CustomStyles" Source="ResourceXAML/Styles.xaml"/>
-                <ResourceDictionary x:Name="CustomColors" Source="ResourceXAML/Colors.xaml"/>
+                <ResourceDictionary x:Name="CustomStyles" Source="/ResourceXAML/Styles.xaml"/>
+                <ResourceDictionary x:Name="CustomColors" Source="/ResourceXAML/Colors.xaml"/>
+                <ResourceDictionary Source="/ResourceXAML/MainResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

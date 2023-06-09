@@ -14,8 +14,10 @@ namespace EduConnectApp.ViewModel
 {
     public class MainViewModel: BaseViewModel
     {
+        public bool IsLoaded = false;
         private readonly NavigationStore _navigationStore;
         public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
+        public ICommand LoadedMainWd { get; set; }
         public ICommand navHome { get; }
         public ICommand navClass { get; }
         public ICommand navGrade { get; }
@@ -36,6 +38,29 @@ namespace EduConnectApp.ViewModel
 
         public MainViewModel(NavigationStore navigationStore)
         {
+            LoadedMainWd = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
+            {
+                if (p == null)
+                    return;
+                p.Hide();
+
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+
+                if (loginWindow.DataContext == null)
+                    return;
+                var loginVM = loginWindow.DataContext as LoginViewModel;
+                if (loginVM.IsLogin)
+                {
+                    
+                    p.Show();
+                }
+                else 
+                {
+                    p.Close();
+                }
+            });
+
             selected = new RelayCommand<StackPanel>((p) => { return true; }, (p) => _UpdateSpn(p));
             unSelected = new RelayCommand<StackPanel>((p) => { return true; }, (p) => _UpdateSpn2(p));
 
