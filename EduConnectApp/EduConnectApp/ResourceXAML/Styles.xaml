@@ -808,6 +808,536 @@
     </Style>
 
 
-    
-    
+    <Style x:Key="MemberCard1" TargetType="ListBoxItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid Height="190" Width="Auto" >
+                        <!--<TextBlock Text="{Binding Name}"/>-->
+                        <StackPanel Orientation="Horizontal" >
+                            <Grid>
+                                <Border 
+            CornerRadius="7">
+                                    <StackPanel
+            Background="#C5E9F8"
+            Height="145">
+                                        <Border
+                CornerRadius="0 0 7 7"
+                Background="{DynamicResource Green Blue}"
+                Height="29"
+                VerticalAlignment="Top">
+                                            <DockPanel
+                        >
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <Ellipse
+                            Width="22"
+                            Height="22"
+                            >
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush ImageSource="../imgs/LogoUIT_Whitebg.png"/>
+
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+
+                                                    <StackPanel Margin="5 5 5 0">
+                                                        <TextBlock
+                                    Foreground="{DynamicResource White}"
+                                    TextAlignment="Center"
+                                    FontSize="8">
+                                    SỞ GIÁO DỤC VÀ ĐÀO TẠO TIỀN GIANG
+                                                        </TextBlock>
+                                                        <TextBlock
+                                    Foreground="{DynamicResource White}"
+                                    TextAlignment="Center"
+                                    FontSize="8">
+                                    TRƯỜNG THPT ĐỐC BINH KIỀU
+                                                        </TextBlock>
+                                                    </StackPanel>
+
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+                                        </Border>
+                                        <Border
+                Background="#C5E9F8"
+                Height="101"
+                VerticalAlignment="Center">
+
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="33.706"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <DockPanel
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.RowSpan="8"
+                            Grid.ColumnSpan="5">
+                                                    <Ellipse
+                                Width="75"
+                                Height="75"
+                                VerticalAlignment="Center"
+                                Fill="#D9D9D9"
+                            >
+                                                        <!--<Ellipse.Fill>
+                                    <ImageBrush ImageSource="../imgs/Logo.png"/>
+
+                                </Ellipse.Fill>-->
+                                                    </Ellipse>
+                                                </DockPanel>
+
+                                                <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Họ và tên:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Chức vụ:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Tổ:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Số điện thoại:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Email:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Địa chỉ:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+                                                <!--Thong tin-->
+
+                                                <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding Name}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding Role}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding Department}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding PhoneNum}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding Email}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Grid.RowSpan="2"
+                            Text="{Binding Address}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light"
+                            TextWrapping="WrapWithOverflow">
+                                                </TextBlock>
+                                            </Grid>
+
+                                        </Border>
+                                        <Border
+                CornerRadius="7 7 0 0"
+                Background="{DynamicResource Green Blue}"
+                Height="15"
+                VerticalAlignment="Bottom">
+                                            <TextBlock 
+                        Text="Đường Thanh Tâm, Khu 1, Phường 4, thị xã Cai Lậy, Tiền Giang"
+                        Foreground="{DynamicResource White}"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="7"
+                        >
+
+                                            </TextBlock>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                            <Grid Width="70" Background="Transparent"></Grid>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="MemberCard" TargetType="DataGridCell">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid Height="190" Width="400" >
+                        <!--<TextBlock Text="{Binding Name}"/>-->
+                        <StackPanel Orientation="Horizontal" >
+                            <Grid>
+                                <Border 
+            CornerRadius="7">
+                                    <StackPanel
+            Background="#C5E9F8"
+            Height="145">
+                                        <Border
+                CornerRadius="0 0 7 7"
+                Background="{DynamicResource Green Blue}"
+                Height="29"
+                VerticalAlignment="Top">
+                                            <DockPanel
+                        >
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <Ellipse
+                            Width="22"
+                            Height="22"
+                            >
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush ImageSource="../imgs/LogoUIT_Whitebg.png"/>
+
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+
+                                                    <StackPanel Margin="5 5 5 0">
+                                                        <TextBlock
+                                    Foreground="{DynamicResource White}"
+                                    TextAlignment="Center"
+                                    FontSize="8">
+                                    SỞ GIÁO DỤC VÀ ĐÀO TẠO TIỀN GIANG
+                                                        </TextBlock>
+                                                        <TextBlock
+                                    Foreground="{DynamicResource White}"
+                                    TextAlignment="Center"
+                                    FontSize="8">
+                                    TRƯỜNG THPT ĐỐC BINH KIỀU
+                                                        </TextBlock>
+                                                    </StackPanel>
+
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+                                        </Border>
+                                        <Border
+                Background="#C5E9F8"
+                Height="101"
+                VerticalAlignment="Center">
+
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="33.706"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <DockPanel
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.RowSpan="8"
+                            Grid.ColumnSpan="5">
+                                                    <Ellipse
+                                Width="75"
+                                Height="75"
+                                VerticalAlignment="Center"
+                                Fill="#D9D9D9"
+                            >
+                                                        <!--<Ellipse.Fill>
+                                    <ImageBrush ImageSource="../imgs/Logo.png"/>
+
+                                </Ellipse.Fill>-->
+                                                    </Ellipse>
+                                                </DockPanel>
+
+                                                <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Họ và tên:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Chức vụ:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Tổ:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Số điện thoại:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Email:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+
+                                                <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="4"
+                            Text="Địa chỉ:"
+                            Foreground="{DynamicResource Yale Blue}"
+                            FontSize="8"
+                            FontWeight="DemiBold">
+                                                </TextBlock>
+
+                                                <!--Thong tin-->
+
+                                                <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding Name}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding Role}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding Department}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding PhoneNum}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Text="{Binding Email}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light">
+                                                </TextBlock>
+
+                                                <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="10"
+                            Grid.ColumnSpan="7"
+                            Grid.RowSpan="2"
+                            Text="{Binding Address}"
+                            Foreground="{DynamicResource Green Blue}"
+                            FontSize="8"
+                            FontWeight="Light"
+                            TextWrapping="WrapWithOverflow">
+                                                </TextBlock>
+                                            </Grid>
+
+                                        </Border>
+                                        <Border
+                CornerRadius="7 7 0 0"
+                Background="{DynamicResource Green Blue}"
+                Height="15"
+                VerticalAlignment="Bottom">
+                                            <TextBlock 
+                        Text="Đường Thanh Tâm, Khu 1, Phường 4, thị xã Cai Lậy, Tiền Giang"
+                        Foreground="{DynamicResource White}"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="7"
+                        >
+
+                                            </TextBlock>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                            <Grid Width="70" Background="Transparent"></Grid>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
 </ResourceDictionary>
+
+
+
+

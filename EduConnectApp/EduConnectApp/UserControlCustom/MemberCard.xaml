@@ -176,7 +176,7 @@
                             Grid.Row="1"
                             Grid.Column="10"
                             Grid.ColumnSpan="7"
-                            Text="Nguyễn Văn A"
+                            Text="{Binding Name}"
                             Foreground="{StaticResource Green Blue}"
                             FontSize="8"
                             FontWeight="Light">
@@ -186,7 +186,7 @@
                             Grid.Row="2"
                             Grid.Column="10"
                             Grid.ColumnSpan="7"
-                            Text="Tổ trưởng"
+                            Text="{Binding Role}"
                             Foreground="{StaticResource Green Blue}"
                             FontSize="8"
                             FontWeight="Light">
@@ -196,7 +196,7 @@
                             Grid.Row="3"
                             Grid.Column="10"
                             Grid.ColumnSpan="7"
-                            Text="Toán - Hóa - Sinh"
+                            Text="{Binding Department}"
                             Foreground="{StaticResource Green Blue}"
                             FontSize="8"
                             FontWeight="Light">
@@ -206,7 +206,7 @@
                             Grid.Row="4"
                             Grid.Column="10"
                             Grid.ColumnSpan="7"
-                            Text="0123456789"
+                            Text="{Binding PhoneNum}"
                             Foreground="{StaticResource Green Blue}"
                             FontSize="8"
                             FontWeight="Light">
@@ -216,7 +216,7 @@
                             Grid.Row="5"
                             Grid.Column="10"
                             Grid.ColumnSpan="7"
-                            Text="NguyenVanA@gmail.com"
+                            Text="{Binding Email}"
                             Foreground="{StaticResource Green Blue}"
                             FontSize="8"
                             FontWeight="Light">
@@ -227,7 +227,7 @@
                             Grid.Column="10"
                             Grid.ColumnSpan="7"
                             Grid.RowSpan="2"
-                            Text="Khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh"
+                            Text="{Binding Address}"
                             Foreground="{StaticResource Green Blue}"
                             FontSize="8"
                             FontWeight="Light"

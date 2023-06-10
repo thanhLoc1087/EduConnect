@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EduConnectApp.UCViewModel;
+using EduConnectApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,31 @@ namespace EduConnectApp.UserControlCustom
     /// </summary>
     public partial class MemberCard : UserControl
     {
+        //public static readonly DependencyProperty TeacherProperty = DependencyProperty.Register(nameof(MemberCard.teacher), typeof(string),
+        //   typeof(MemberCardViewModel),
+        //   new FrameworkPropertyMetadata(default(MemberCardViewModel.Teacher), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
         public MemberCard()
         {
             InitializeComponent();
+            //this.DataContext = this;
         }
+
+
+
+        public MemberCardViewModel.Teacher MyProperty
+        {
+            get { return (MemberCardViewModel.Teacher)GetValue(MyPropertyProperty); }
+            set { SetValue(MyPropertyProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MyPropertyProperty =
+            DependencyProperty.Register("MyProperty", typeof(MemberCardViewModel.Teacher), typeof(MemberCard), new PropertyMetadata("TestValue"));
+
+
+
+        //public MemberCardViewModel.Teacher teacher { 
+        //    get => (MemberCardViewModel.Teacher)GetValue(TeacherProperty); 
+        //    set => SetValue(TeacherProperty, value); }
     }
 }
