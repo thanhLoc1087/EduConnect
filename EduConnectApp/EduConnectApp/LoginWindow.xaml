@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:uc="clr-namespace:EduConnectApp.UserControlCustom"
         xmlns:local="clr-namespace:EduConnectApp"
+        WindowStyle="None"
         mc:Ignorable="d"
         Title="LoginWindow" 
         WindowStartupLocation="CenterScreen"
@@ -14,11 +15,14 @@
         DataContext="{StaticResource LoginVM}">
     
     
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="9*"></ColumnDefinition>
             <ColumnDefinition Width="7*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
+        <uc:ControlBarUC Panel.ZIndex="5" Grid.ColumnSpan="2" Height="45" VerticalAlignment="Top"/>
 
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
@@ -50,6 +54,7 @@
         </Grid>
 
         <uc:LoginUC
+            Margin="0 10"
             x:Name="LoginModel"
             Grid.Column="1"/>
 

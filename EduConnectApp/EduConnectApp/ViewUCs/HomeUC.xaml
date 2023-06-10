@@ -52,21 +52,54 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <DockPanel Grid.Row="1">
-                <Image Source="../imgs/GreenBlueCircle.png"></Image>
+            <!--<DockPanel Grid.Row="1">
+                <Image Source="../imgs/GreenBlueCircle.png">
+                </Image>
                 <TextBlock Margin="10 0 10 0" FontSize="50" Foreground="{StaticResource Yale Blue}" VerticalAlignment="Center">:</TextBlock>
                 <Image Source="../imgs/GreenBlueCircle.png"></Image>
                 <TextBlock Margin="10 0 10 0" FontSize="53" Foreground="{StaticResource Yale Blue}" VerticalAlignment="Center">:</TextBlock>
                 <Image Source="../imgs/GreenBlueCircle.png"></Image>
                 <Image Source="../imgs/GreenBlueCircle.png"></Image>
-            </DockPanel>
+            </DockPanel>-->
 
-            <DockPanel Grid.Row="1">
-                <TextBlock Margin="18 15 0 0" FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}">11</TextBlock>
-                <TextBlock Margin="72 15 0 0" FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}" >11</TextBlock>
-                <TextBlock Margin="72 15 0 0" FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}">11</TextBlock>
-                <TextBlock Margin="55 15 0 0" FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}">AM</TextBlock>
-            </DockPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width=".1*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width=".1*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width=".1*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="grscale" ></Grid>
+                <Border  Width="{Binding ElementName=grscale, Path=ActualHeight}" CornerRadius="{Binding ElementName=grscale, Path=ActualHeight}"  Background="{DynamicResource Celestial Blue}" >
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}" Text="{Binding hour}"></TextBlock>
+                </Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <Ellipse Margin="0 0 0 3"  HorizontalAlignment="Right" Fill="{DynamicResource Celestial Blue}" Height="8" Width="8"/>
+                    <Ellipse Margin="0 3 0 0" HorizontalAlignment="Right" Fill="{DynamicResource Celestial Blue}" Height="8" Width="8"/>
+                </StackPanel>
+                <Border Grid.Column="2"  Width="{Binding ElementName=grscale, Path=ActualHeight}" CornerRadius="{Binding ElementName=grscale, Path=ActualHeight}"  Background="{DynamicResource Celestial Blue}" >
+                    <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}" Text="{Binding min}"></TextBlock>
+                </Border>
+                <StackPanel Grid.Column="3" VerticalAlignment="Center">
+                    <Ellipse Margin="0 0 0 3"  HorizontalAlignment="Right" Fill="{DynamicResource Celestial Blue}" Height="8" Width="8"/>
+                    <Ellipse Margin="0 3 0 0" HorizontalAlignment="Right" Fill="{DynamicResource Celestial Blue}" Height="8" Width="8"/>
+                </StackPanel>
+
+                <Border  Grid.Column="4"   Width="{Binding ElementName=grscale, Path=ActualHeight}" CornerRadius="{Binding ElementName=grscale, Path=ActualHeight}"  Background="{DynamicResource Celestial Blue}" >
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}" Text="{Binding sec}"></TextBlock>
+                </Border>
+                <StackPanel Grid.Column="5" VerticalAlignment="Center">
+                    <Ellipse Margin="0 0 0 3"  HorizontalAlignment="Right" Fill="{DynamicResource Celestial Blue}" Height="8" Width="8"/>
+                    <Ellipse Margin="0 3 0 0" HorizontalAlignment="Right" Fill="{DynamicResource Celestial Blue}" Height="8" Width="8"/>
+                </StackPanel>
+
+                <Border  Grid.Column="6"   Width="{Binding ElementName=grscale, Path=ActualHeight}" CornerRadius="{Binding ElementName=grscale, Path=ActualHeight}"  Background="{DynamicResource Celestial Blue}" >
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="20" FontWeight="Bold" Foreground="{StaticResource White}" Text="{Binding mer}"></TextBlock>
+                </Border>
+            </Grid>
 
             <Border Margin="0 0 33 13" Background="{StaticResource White}" CornerRadius="20">
                 <Grid>

@@ -113,6 +113,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction     Command="{Binding Detail}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding navClassListUC}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -131,7 +132,7 @@
             <StackPanel Grid.Row="1">
                 <TextBlock  Style="{StaticResource txtbl_DtgTitle }" Text="LỚP GIẢNG DẠY" Margin="30 5 0 0"></TextBlock>
                 <DataGrid x:Name="dtg_Class" HeadersVisibility="None"  Height="350" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
-                          IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding ClassList}" Background="Transparent" >
+                          IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding TeachingList}" Background="Transparent" >
                     <DataGrid.Columns>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
@@ -151,8 +152,8 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="1*"/>
                                                 <ColumnDefinition Width="1*"/>
-                                                <ColumnDefinition Width="2*"/>
-                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="1.5*"/>
+                                                <ColumnDefinition Width="3.5*"/>
                                                 <ColumnDefinition Width="0.5*"/>
                                             </Grid.ColumnDefinitions>
                                             <StackPanel>
