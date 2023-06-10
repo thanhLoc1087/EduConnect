@@ -36,13 +36,23 @@ namespace EduConnectApp.ViewModel
         void Login(Object p)
         {
             if (p == null) return;
-            var accCount = DataProvider.Ins.DB.LOGINs.Where(x => x.USERNAME == UserName && x.USERPASS == Password).Count();
+            var accCount = DataProvider.Ins.DB.LOGINs.Where(x => x.USERNAME == UserName && x.USERPASS == Password && x.DELETED == false).Count();
 
             if (accCount > 0)
             {
                 IsLogin = true;
                 var user = DataProvider.Ins.DB.LOGINs.Where(x => x.USERNAME == UserName && x.USERPASS == Password).ToList();
                 ID = user[0].ID;
+                Const.ID = ID;
+                Const.USERNAME = UserName;
+                
+                if(DataProvider.Ins.DB.ADMINs.Where(x => x.MALOGIN == ID && x.DELETED == false && x.DELETED == false).Count() > 0)
+                {
+                    Const.IsAdmin = true;
+                    Const.KeyID = DataProvider.Ins.DB.ADMINs.Where(x => x.MALOGIN == ID && x.DELETED == false).ToList()[0].MAAD;
+                }
+                else { Const.KeyID = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MALOGIN == ID && x.DELETED == false).ToList()[0].MAGV; }
+
                 FrameworkElement window = GetWindowParent(p);
                 var w = (window as Window);
                 if (w != null)

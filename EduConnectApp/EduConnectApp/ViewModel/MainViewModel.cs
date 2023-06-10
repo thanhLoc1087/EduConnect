@@ -9,11 +9,16 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Controls;
+using EduConnectApp.Model;
 
 namespace EduConnectApp.ViewModel
 {
     public class MainViewModel: BaseViewModel
     {
+        private string _NameUsr;
+        public string NameUsr { get => _NameUsr; set { _NameUsr = value; OnPropertyChanged(); } }
+        private string _Role;
+        public string Role { get => _Role; set { _Role = value; OnPropertyChanged(); } }
         public bool IsLoaded = false;
         private readonly NavigationStore _navigationStore;
         public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
@@ -52,7 +57,16 @@ namespace EduConnectApp.ViewModel
                 var loginVM = loginWindow.DataContext as LoginViewModel;
                 if (loginVM.IsLogin)
                 {
-                    
+                    if (Const.IsAdmin)
+                    {
+                        NameUsr = DataProvider.Ins.DB.ADMINs.Where(x => x.MAAD == Const.KeyID && x.DELETED != true).ToList()[0].TENAD.ToString();
+                        Role = "ADMIN";
+                    }
+                    else
+                    {
+                        NameUsr = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MAGV == Const.KeyID && x.DELETED != true).ToList()[0].HOTEN.ToString();
+                        Role = "GIÁO VIÊN";
+                    }
                     p.Show();
                 }
                 else 

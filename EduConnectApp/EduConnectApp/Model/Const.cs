@@ -1,0 +1,18 @@
+﻿using EduConnectApp.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.IO.Packaging;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EduConnectApp.Model
+{
+    public class Const : BaseViewModel
+    {
+        public static int ID { get; set; }
+        public static string USERNAME { get; set; }
+        public static int KeyID { get; set; }
+        public static bool IsAdmin { get; set; } = false;
+    }
+}

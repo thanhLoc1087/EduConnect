@@ -64,13 +64,13 @@
                         Grid.Row="2">
                             <TextBlock
                             FontWeight="SemiBold"
-                            Text="Mã GV"
+                            Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Style="{DynamicResource txtbl_Infovalue}"
                             FontSize="18"/>
 
                             <TextBlock
-
-                                Text="xxxxxxxx"
+                                HorizontalAlignment="Center"
+                                Text="{Binding ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 Style="{DynamicResource txt_value2}"
                                 FontSize="18"/>
 
@@ -94,7 +94,7 @@
                             Style="{DynamicResource txt_value2}"
                             VerticalAlignment="Center"
                             FontSize="18"
-                            Text="Nguyễn Văn A"/>
+                            Text="{Binding HoTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
 
                     <Grid
@@ -114,7 +114,8 @@
                             Style="{DynamicResource txt_value2}"
                             VerticalAlignment="Center"
                             FontSize="18"
-                            Text="15/12/2005"/>
+                            Text="{Binding NgaySinh, StringFormat='dd/MM/yyyy', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            />
                     </Grid>
 
                     <Grid
@@ -134,7 +135,7 @@
                             Style="{DynamicResource txt_value2}"
                             VerticalAlignment="Center"
                             FontSize="18"
-                            Text="0123456789"/>
+                            Text="{Binding SDT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
 
 
@@ -155,7 +156,7 @@
                             Style="{DynamicResource txt_value2}"
                             VerticalAlignment="Center"
                             FontSize="18"
-                            Text="Nam"/>
+                            Text="{Binding GioiTinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
 
                     <Grid
@@ -175,7 +176,7 @@
                             Style="{DynamicResource txt_value2}"
                             VerticalAlignment="Center"
                             FontSize="18"
-                            Text="CiVH@gmail.com"/>
+                            Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
 
                     <Grid
@@ -199,7 +200,7 @@
                             Style="{DynamicResource txt_value2}"
                             VerticalAlignment="Center"
                             FontSize="18"
-                            Text="200 Pasteur, Quận 3, Tp Hồ Chí MIinh"/>
+                            Text="{Binding DiaChi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
 
                     <Grid
@@ -283,7 +284,7 @@
                         <TextBlock
                             Grid.Row="0"
                             Grid.Column="1"
-                            Text="Toán - Lý - Hóa - Sinh"
+                            Text="{Binding To, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Style="{DynamicResource txt_value2}"
                             FontSize="18"/>
 
@@ -300,7 +301,7 @@
                         <TextBlock
                             Grid.Row="1"
                             Grid.Column="1"
-                            Text="Toán - Lý"
+                            Text="{Binding MonGD, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Style="{DynamicResource txt_value2}"
                             FontSize="18"/>
 
@@ -333,7 +334,7 @@
                         <TextBlock
                             Grid.Row="0"
                             Grid.Column="1"
-                            Text="9A1"
+                            Text="{Binding LopCN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Style="{DynamicResource txt_value2}"
                             FontSize="18"/>
 
@@ -350,7 +351,7 @@
                         <TextBlock
                             Grid.Row="1"
                             Grid.Column="1"
-                            Text="9A1   9A2"
+                            Text="{Binding LopGD, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Style="{DynamicResource txt_value2}"
                             FontSize="18"/>
 
