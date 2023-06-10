@@ -98,6 +98,7 @@
     <Compile Include="Model\ADMIN.cs">
       <DependentUpon>EduConnectEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Const.cs" />
     <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\EduConnectEntities.Context.cs">
       <AutoGen>True</AutoGen>
