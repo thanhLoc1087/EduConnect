@@ -23,18 +23,18 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Foreground="{StaticResource Yale Blue}" FontSize="75" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">ĐĂNG NHẬP</TextBlock>
+        <TextBlock Foreground="{StaticResource Yale Blue}" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">ĐĂNG NHẬP</TextBlock>
 
         <StackPanel Grid.Row="1">
-            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" FontWeight="Black" HorizontalAlignment="Center" >Xin chào!</TextBlock>
-            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" HorizontalAlignment="Center">Mời đăng nhập để tiếp tục vào ứng dụng.</TextBlock>
+            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="16" FontWeight="Black" HorizontalAlignment="Center" >Xin chào!</TextBlock>
+            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="16" HorizontalAlignment="Center">Mời đăng nhập để tiếp tục vào ứng dụng.</TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" FontWeight="Bold" Padding="50 0 0 0">Tên đăng nhập</TextBlock>
+            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="16" FontWeight="Bold" Padding="50 0 0 0">Tên đăng nhập</TextBlock>
             <TextBox
                   Margin="50 10"
-                FontSize="35"
+                FontSize="23"
                 Text="{Binding UserName}"
                   Style="{StaticResource MaterialDesignOutlinedTextBox}"
                   VerticalAlignment="Center"
@@ -66,7 +66,7 @@
             </PasswordBox>
         </StackPanel>
 
-        <CheckBox Grid.Row="4" Content="Lưu tài khoản" Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" FontWeight="Bold" VerticalAlignment="Top" Margin="50 0 0 0" VerticalContentAlignment="Center">
+        <CheckBox Grid.Row="4" Content="Lưu tài khoản" Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="16" FontWeight="Bold" VerticalAlignment="Top" Margin="50 0 0 0" VerticalContentAlignment="Center">
         </CheckBox>
 
         <DockPanel Grid.Row="5" >
@@ -74,13 +74,13 @@
                 IsDefault="True"
                 Command="{Binding LoginCommand}"
                 CommandParameter="{Binding ElementName=ucLogin}"
-                DockPanel.Dock="Top" Background="{StaticResource Yale Blue}" Opacity="0.75" Margin="50 0 50 0" Padding="0" Height="80" VerticalAlignment="Top" BorderBrush="Transparent">
-                <TextBlock Foreground="{StaticResource White}" FontSize="25">ĐĂNG NHẬP</TextBlock>
+                DockPanel.Dock="Top" Background="{StaticResource Yale Blue}" Opacity="0.75" Margin="50 0 50 0" Padding="0" Height="53" VerticalAlignment="Top" BorderBrush="Transparent">
+                <TextBlock Foreground="{StaticResource White}" FontSize="16">ĐĂNG NHẬP</TextBlock>
             </Button>
 
             <Button
                 DockPanel.Dock="Bottom"  Background="Transparent" Padding="0" HorizontalAlignment="Right" Margin="0 0 25 0" BorderBrush="Transparent">
-                <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" >Giúp đỡ</TextBlock>
+                <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="16" >Giúp đỡ</TextBlock>
             </Button>
         </DockPanel>
     </Grid>
