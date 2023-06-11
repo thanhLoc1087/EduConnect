@@ -202,6 +202,7 @@
     <Compile Include="ViewModel\SemesterScoreViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\StatisticViewModel.cs" />
+    <Compile Include="ViewModel\StudentPro5ViewModel.cs" />
     <Compile Include="ViewModel\TeacherPro5ViewModel.cs" />
     <Compile Include="ViewUCs\ClassListUC.xaml.cs">
       <DependentUpon>ClassListUC.xaml</DependentUpon>
