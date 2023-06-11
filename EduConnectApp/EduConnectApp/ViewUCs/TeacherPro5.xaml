@@ -50,13 +50,21 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
+                    <Ellipse
+                                Width="90"
+                                Height="90"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                VerticalAlignment="Center"
+                            >
 
-                    <Image 
-                        Grid.Column="0"
-                        Grid.Row="0"
-                        Grid.RowSpan="2"
-                        Source="../imgs/avtusr.jpg"
-                        Margin="0 -40 0 0"/>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="../imgs/avtusr.jpg"/>
+                        </Ellipse.Fill>
+
+               
+                    </Ellipse>
 
                     <StackPanel
                         HorizontalAlignment="Center"

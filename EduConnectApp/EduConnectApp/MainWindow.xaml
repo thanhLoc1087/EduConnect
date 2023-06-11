@@ -123,7 +123,9 @@
                 Background="{StaticResource Yale Blue}">
 
             <!--Đăng xuất-->
-            <Button  VerticalAlignment="Bottom"   Background="Transparent" Height="100" BorderBrush="Transparent" >
+            <Button  
+                Command="{Binding navHome}"
+                VerticalAlignment="Bottom"   Background="Transparent" Height="100" BorderBrush="Transparent" >
                 <StackPanel >
                     <materialDesign:PackIcon 
                             Kind="Logout"
@@ -140,6 +142,11 @@
                             FontSize="25"
                             />
                 </StackPanel>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding LogOut}" CommandParameter="{Binding ElementName=mainWd}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
             </Button>
 
         </Border>

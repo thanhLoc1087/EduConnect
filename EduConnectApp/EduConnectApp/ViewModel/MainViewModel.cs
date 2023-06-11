@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Controls;
 using EduConnectApp.Model;
+using System.Windows.Threading;
 
 namespace EduConnectApp.ViewModel
 {
@@ -40,6 +41,7 @@ namespace EduConnectApp.ViewModel
 
         public ICommand navInputScore { get; }
         public ICommand navEditScore { get; }
+        public ICommand LogOut { get; }
 
         public MainViewModel(NavigationStore navigationStore)
         {
@@ -96,7 +98,37 @@ namespace EduConnectApp.ViewModel
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
 
 
-
+            LogOut = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
+            {
+                if (MessageBox.Show("Do you want to LogOut?", "Log Out", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    p.Hide();
+                    LoginWindow loginWindow = new LoginWindow();
+                    var loginVM = loginWindow.DataContext as LoginViewModel;
+                    loginVM.UserName = Const.USERNAME;
+                    loginVM.Password = "";
+                    loginVM.IsLogin = false;
+                    loginWindow.ShowDialog();
+                    if (loginVM.IsLogin)
+                    {
+                        if (Const.IsAdmin)
+                        {
+                            NameUsr = DataProvider.Ins.DB.ADMINs.Where(x => x.MAAD == Const.KeyID && x.DELETED != true).ToList()[0].TENAD.ToString();
+                            Role = "ADMIN";
+                        }
+                        else
+                        {
+                            NameUsr = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MAGV == Const.KeyID && x.DELETED != true).ToList()[0].HOTEN.ToString();
+                            Role = "GIÁO VIÊN";
+                        }
+                        p.Show();
+                    }
+                    else
+                    {
+                        p.Close();
+                    }
+                }
+            });
         }
 
         private void OnCurrentViewModelChanged()
@@ -133,6 +165,5 @@ namespace EduConnectApp.ViewModel
         {
             p.Margin = new Thickness(0, 0, 0, 0);
         }
-
     }
 }
