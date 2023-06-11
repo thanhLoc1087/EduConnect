@@ -53,12 +53,21 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <Image 
-                        Grid.Column="0"
-                        Grid.Row="0"
-                        Grid.RowSpan="2"
-                        Source="../imgs/avtusr.jpg"
-                        Margin="0 -30 0 0"/>
+                    <Ellipse
+                                Width="90"
+                                Height="90"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                VerticalAlignment="Center"
+                            >
+
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="../imgs/avtusr.jpg"/>
+                        </Ellipse.Fill>
+
+
+                    </Ellipse>
 
                     <StackPanel
                         HorizontalAlignment="Center"
@@ -71,7 +80,8 @@
                             FontWeight="SemiBold"/>
 
                         <TextBlock
-                                Text="xxxxxxxx"
+                                Text="x"
+                            HorizontalAlignment="Center"
                                 Style="{DynamicResource txt_value2}"
                                 FontSize="18"/>
 
