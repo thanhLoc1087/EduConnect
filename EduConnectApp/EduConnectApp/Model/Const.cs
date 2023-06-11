@@ -14,5 +14,7 @@ namespace EduConnectApp.Model
         public static string USERNAME { get; set; }
         public static int KeyID { get; set; }
         public static bool IsAdmin { get; set; } = false;
+        public static string SchoolYear { get { return "2022-2023"; }  }
+        public static string School { get { return "THPT ĐỐC BINH KIỀU"; }  }
     }
 }

@@ -22,7 +22,7 @@
             <TextBlock Style="{DynamicResource txtbl_TilleTab}">DANH SÁCH CÁC LỚP</TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Style="{DynamicResource txtbl_TilleTab}">GIẢNG DẠY</TextBlock>
-                <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="Underline">NIÊN KHÓA 2022-2023</TextBlock>
+                <TextBlock Style="{DynamicResource txtbl_SchoolYear}"  TextDecorations="Underline" Text="{Binding schoolYear}"></TextBlock>
             </StackPanel>
         </StackPanel>
 
@@ -34,12 +34,12 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{DynamicResource txtbl_Infovalue}" Text="Email: "/>
-                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" x:Name="txtbl_Emai" Text="NguyenVanA@gmail.com "/>
+                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" x:Name="txtbl_Emai" Text="{Binding email}"/>
                 </StackPanel>
-                <TextBlock  Style="{DynamicResource txtbl_Infovalue}" x:Name="tbl_Address" Text="Khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh"/>
+                <TextBlock  Style="{DynamicResource txtbl_Infovalue}" x:Name="tbl_Address" Text="{Binding address}"/>
                 <TextBlock  Style="{DynamicResource txtbl_Infovalue}" Text="Công tác tại"/>
-                <TextBlock  Style="{DynamicResource txtbl_Infovalue2}" Text="THPT ĐỐC BINH KIỀU"/>
-                <TextBlock  Style="{DynamicResource txtbl_Infovalue}" Text="Tổ Hóa - Sinh - Công Nghệ"/>
+                <TextBlock  Style="{DynamicResource txtbl_Infovalue2}" Text="{Binding school}"/>
+                <TextBlock  Style="{DynamicResource txtbl_Infovalue}" Text="{Binding group}"/>
             </StackPanel>
         </Border>
 
@@ -52,7 +52,7 @@
 
             <StackPanel>
                 <TextBlock  Style="{StaticResource txtbl_DtgTitle }" Text="LỚP CHỦ NHIỆM" Margin="30 10 10 0"></TextBlock>
-                <DataGrid  HeadersVisibility="None"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                <DataGrid x:Name="dtg_HomeClass"  HeadersVisibility="None"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
                           IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding HomeroomList}" Background="Transparent">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn>
@@ -113,7 +113,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction     Command="{Binding Detail}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction     Command="{Binding Detail}" CommandParameter="{Binding ElementName=dtg_HomeClass}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding navClassListUC}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -190,6 +190,7 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding Detail}" CommandParameter="{Binding ElementName=dtg_Class}"></i:InvokeCommandAction>
                             <i:InvokeCommandAction Command="{Binding navClassListUC}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -212,27 +213,27 @@
                 </Border.Effect>
                 <StackPanel Margin="0 5">
                     <TextBlock Margin="30 0 0 0" Style="{StaticResource txtbl_Infovalue2}">Các môn giảng dạy</TextBlock>
-                    <TextBlock Margin="30 0 0 0" Style="{StaticResource txtbl_Infovalue}">NIÊN KHÓA 2022 - 2023</TextBlock>
+                    <TextBlock Margin="30 0 0 0" Style="{StaticResource txtbl_Infovalue}" Text="{Binding shoolYear}"></TextBlock>
                     <StackPanel Orientation="Horizontal" Margin="10 10 10 0" HorizontalAlignment="Center" >
-                        <Border Width="76" Height="42"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
+                        <Border x:Name="brd_subjec1" Visibility="{Binding vis1}" Width="76" Height="42"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
                             <Border.Effect>
                                 <DropShadowEffect Opacity="0.1"/>
                             </Border.Effect>
-                            <TextBlock Foreground="{StaticResource White}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center">HÓA</TextBlock>
+                            <TextBlock Foreground="{StaticResource White}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding subject1}"></TextBlock>
                         </Border>
 
-                        <Border Margin="10 0 0 0" Width="76" Height="42"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
+                        <Border x:Name="brd_subjec2" Visibility="{Binding vis2}" Margin="10 0 0 0" Width="76" Height="42"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
                             <Border.Effect>
                                 <DropShadowEffect Opacity="0.1"/>
                             </Border.Effect>
-                            <TextBlock Foreground="{StaticResource White}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center">SINH</TextBlock>
+                            <TextBlock Foreground="{StaticResource White}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding subject2}"></TextBlock>
                         </Border>
 
-                        <Border Margin="10 0 0 0" Width="76" Height="42"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
+                        <Border x:Name="brd_subjec3" Visibility="{Binding vis3}" Margin="10 0 0 0" Width="76" Height="42"  BorderThickness="1" CornerRadius="5" Background="{StaticResource Green Blue}">
                             <Border.Effect>
                                 <DropShadowEffect Opacity="0.1"/>
                             </Border.Effect>
-                            <TextBlock Foreground="{StaticResource White}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow">CÔNG NGHỆ</TextBlock>
+                            <TextBlock Foreground="{StaticResource White}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{Binding subject3}"></TextBlock>
                         </Border>
                     </StackPanel>
                 </StackPanel>

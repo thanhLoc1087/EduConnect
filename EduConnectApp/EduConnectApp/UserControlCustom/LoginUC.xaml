@@ -26,12 +26,12 @@
         <TextBlock Foreground="{StaticResource Yale Blue}" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">ĐĂNG NHẬP</TextBlock>
 
         <StackPanel Grid.Row="1">
-            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="16" FontWeight="Black" HorizontalAlignment="Center" >Xin chào!</TextBlock>
-            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="16" HorizontalAlignment="Center">Mời đăng nhập để tiếp tục vào ứng dụng.</TextBlock>
+            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" FontWeight="Black" HorizontalAlignment="Center" >Xin chào!</TextBlock>
+            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" HorizontalAlignment="Center">Mời đăng nhập để tiếp tục vào ứng dụng.</TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="16" FontWeight="Bold" Padding="50 0 0 0">Tên đăng nhập</TextBlock>
+            <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" FontWeight="Bold" Padding="50 0 0 0">Tên đăng nhập</TextBlock>
             <TextBox
                   Margin="50 10"
                 FontSize="23"
@@ -52,7 +52,7 @@
             </DockPanel>
             <PasswordBox
                 Margin="50 10"
-                FontSize="35"
+                FontSize="23"
                 x:Name="FloatingPasswordBox"
                 Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
                 materialDesign:HintAssist.Hint=""
