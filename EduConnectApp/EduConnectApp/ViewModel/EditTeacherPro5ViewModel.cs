@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace EduConnectApp.ViewModel
 {
-    public class StudentPro5ViewModel: BaseViewModel
+    public class EditTeacherPro5ViewModel:BaseViewModel
     {
-        public StudentPro5ViewModel(NavigationStore navigationStore)
-        {
-
-        }
+        public EditTeacherPro5ViewModel( NavigationStore navigationStore) { }
     }
 }

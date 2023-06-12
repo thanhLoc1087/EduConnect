@@ -292,6 +292,9 @@
                 <DataTemplate DataType="{x:Type vm:TeacherPro5ViewModel}">
                     <viewuc:TeacherPro5></viewuc:TeacherPro5>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:EditTeacherPro5ViewModel}">
+                    <viewuc:TeacherPro5Edit></viewuc:TeacherPro5Edit>
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:InputScoreViewModel}">
                     <viewuc:InputScore></viewuc:InputScore>
                 </DataTemplate>
