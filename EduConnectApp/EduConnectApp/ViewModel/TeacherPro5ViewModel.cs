@@ -1,4 +1,5 @@
-﻿using EduConnectApp.Model;
+﻿using EduConnectApp.Commands;
+using EduConnectApp.Model;
 using EduConnectApp.Store;
 using EduConnectApp.ViewUCs;
 using System;
@@ -8,11 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace EduConnectApp.ViewModel
 {
     public class TeacherPro5ViewModel :BaseViewModel
     {
+        public ICommand navEdit { get; }
+
         private string _LopCN;
         public string LopCN { get => _LopCN; set { _LopCN = value; OnPropertyChanged(); } }
         private string _LopGD;
@@ -38,7 +42,9 @@ namespace EduConnectApp.ViewModel
         private string _Email;
         public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
         public TeacherPro5ViewModel(NavigationStore navigationStore) 
-        { 
+        {
+            navEdit = new NavigationCommand<EditTeacherPro5ViewModel>(navigationStore, () => new EditTeacherPro5ViewModel(navigationStore));
+
             if (!Const.IsAdmin)
             {
                 Title = "Mã GV";

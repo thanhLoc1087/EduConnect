@@ -113,7 +113,8 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding navClassListUC}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding getDetail}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navEditStPro52}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </DataGrid>

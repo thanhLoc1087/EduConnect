@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Xml.Serialization;
 using EduConnectApp.Model;
+using EduConnectApp.ViewUCs;
 
 namespace EduConnectApp.ViewModel
 {
@@ -31,6 +32,8 @@ namespace EduConnectApp.ViewModel
         public ICommand navClassList { get; }
         public ICommand navMouse { get; }
         public ICommand mouseEnter { get; }
+        public ICommand navEditStPro52 { get; }
+        public ICommand getDetail { get; }
 
         private string _schoolYear;
         public string schoolYear { get => _schoolYear; set { _schoolYear = value; OnPropertyChanged(); } }
@@ -56,8 +59,9 @@ namespace EduConnectApp.ViewModel
             //navigate
             navClassListUC = new NavigationCommand<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore));
             navClassList = new NavigationCommand<StatisticViewModel>(navigationStore, () => new StatisticViewModel(navigationStore));
+            navEditStPro52 = new NavigationCommand<StatisticViewModel>(navigationStore, () => new StatisticViewModel(navigationStore));
             //navMouse = new RelayCommand<DataGrid>((p) => { return true; }, (p) => _UpdateSpn(p));
-            mouseEnter = new RelayCommand<DataGrid>((p) => { return p.SelectedItem == null ? false : true; }, (p) => _MouseEnter(p));
+           //getDetail = new RelayCommand<ClassListUC>((p) => { return p.dtg_Opearator.SelectedItem == null ? false : true; }, (p) => _GetDetail(p));
 
             Learning = new ObservableCollection<HOCTAP>(DataProvider.Ins.DB.HOCTAPs.Where(x => x.DELETED == false));
 
