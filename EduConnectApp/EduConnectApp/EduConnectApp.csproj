@@ -96,69 +96,72 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ADMIN.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Const.cs" />
     <Compile Include="Model\DataProvider.cs" />
-    <Compile Include="Model\EduConnectEntities.Context.cs">
+    <Compile Include="Model\EduConnect.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EduConnectEntities.Context.tt</DependentUpon>
+      <DependentUpon>EduConnect.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\EduConnectEntities.cs">
+    <Compile Include="Model\EduConnect.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\EduConnectEntities.Designer.cs">
+    <Compile Include="Model\EduConnect.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EduConnectEntities.edmx</DependentUpon>
+      <DependentUpon>EduConnect.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\GIANGDAY.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\GIAOVIEN.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\HOCSINH.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\HOCTAP.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\KETQUA.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KHOI.cs">
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LOAIDIEM.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LOGIN.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LOP.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MONHOC.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NHANXET.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PHUHUYNH.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TBMON.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\THANHTICH.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\THI.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TO1.cs">
-      <DependentUpon>EduConnectEntities.tt</DependentUpon>
+      <DependentUpon>EduConnect.tt</DependentUpon>
     </Compile>
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="src\UserControl1.xaml.cs">
@@ -397,12 +400,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\EduConnectEntities.edmx">
+    <EntityDeploy Include="Model\EduConnect.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EduConnectEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>EduConnect.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\EduConnectEntities.edmx.diagram">
-      <DependentUpon>EduConnectEntities.edmx</DependentUpon>
+    <None Include="Model\EduConnect.edmx.diagram">
+      <DependentUpon>EduConnect.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -474,15 +477,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\EduConnectEntities.Context.tt">
+    <Content Include="Model\EduConnect.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EduConnectEntities.edmx</DependentUpon>
-      <LastGenOutput>EduConnectEntities.Context.cs</LastGenOutput>
+      <DependentUpon>EduConnect.edmx</DependentUpon>
+      <LastGenOutput>EduConnect.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\EduConnectEntities.tt">
+    <Content Include="Model\EduConnect.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EduConnectEntities.edmx</DependentUpon>
-      <LastGenOutput>EduConnectEntities.cs</LastGenOutput>
+      <DependentUpon>EduConnect.edmx</DependentUpon>
+      <LastGenOutput>EduConnect.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,6 +32,7 @@ namespace EduConnectApp.Model
         public string NAMHOC { get; set; }
         public Nullable<int> GVCN { get; set; }
         public Nullable<int> LOPTRUONG { get; set; }
+        public Nullable<int> MAKHOI { get; set; }
         public Nullable<bool> DELETED { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -42,6 +43,7 @@ namespace EduConnectApp.Model
         public virtual ICollection<HOCTAP> HOCTAPs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KETQUA> KETQUAs { get; set; }
+        public virtual KHOI KHOI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NHANXET> NHANXETs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

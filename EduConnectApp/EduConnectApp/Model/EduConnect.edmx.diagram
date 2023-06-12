@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f258deea1ff840b3950b31fc9410f4d2" Name="Diagram1" ZoomLevel="34">
+        <EntityTypeShape EntityType="EduConnectModel.ADMIN" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.GIANGDAY" Width="1.5" PointX="8.25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.GIAOVIEN" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.HOCSINH" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.HOCTAP" Width="1.5" PointX="13.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.KETQUA" Width="1.5" PointX="16.5" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.KHOI" Width="1.5" PointX="9" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.LOAIDIEM" Width="1.5" PointX="14.25" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.LOGIN" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.LOP" Width="1.5" PointX="11.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.MONHOC" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.NHANXET" Width="1.5" PointX="13.5" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.PHUHUYNH" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.TBMON" Width="1.5" PointX="13.5" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.THANHTICH" Width="1.5" PointX="16.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.THI" Width="1.5" PointX="16.5" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EduConnectModel.TO1" Width="1.5" PointX="8.25" PointY="27.375" IsExpanded="true" />
+        <AssociationConnector Association="EduConnectModel.FK__ADMIN__MALOGIN__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__GIANGDAY__MAGV__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__GIANGDAY__MALOP__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__GIANGDAY__MAMH__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__GIAOVIEN__MALOGI__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__GIAOVIEN__MATO__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__LOP__GVCN__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK_TO" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__HOCSINH__MALOGIN__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__HOCTAP__MAHS__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__KETQUA__MAHS__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__LOP__LOPTRUONG__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__NHANXET__MAHS__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__PHUHUYNH__MAHS__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__TBMON__MAHS__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__THANHTICH__MAHS__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__THI__MAHS__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__HOCTAP__MALOP__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__KETQUA__MALOP__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__LOP__MAKHOI__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__THI__MALD__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__NHANXET__MALOP__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__TBMON__MALOP__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__THANHTICH__MALOP__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__THI__MALOP__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__TBMON__MAMH__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="EduConnectModel.FK__THI__MAMH__45F365D3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
