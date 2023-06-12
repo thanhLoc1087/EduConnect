@@ -54,7 +54,7 @@ namespace EduConnectApp.ViewModel
                 NgaySinh = temp.NTNS.ToString();
                 DiaChi = temp.DIACHI;
                 SDT = temp.SDT;
-                if (temp.GIOITINH.ToString() == "1")
+                if (temp.GIOITINH == true)
                     GioiTinh = "Nữ";
                 else
                     GioiTinh = "Nam";
