@@ -262,8 +262,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="7" Height="30" Width="100" Padding="0">
-                        <Button Content="Lưu" Foreground="{DynamicResource White}" FontSize="18" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
+                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="7" Height="50" Width="150" Padding="0">
+                        <Button FontWeight="SemiBold" Content="Lưu" Foreground="{DynamicResource White}" FontSize="18"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -274,8 +274,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{DynamicResource Tomato}" CornerRadius="7" Height="30" Width="100" Padding="0">
-                        <Button Content="Quay lại" Foreground="{DynamicResource White}" FontSize="18" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
+                    <Border Background="{DynamicResource Tomato}" CornerRadius="7" Height="50" Width="150" Padding="0">
+                        <Button FontWeight="SemiBold" Content="Quay lại" Foreground="{DynamicResource White}" FontSize="18"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -286,8 +286,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{DynamicResource Green Blue}" CornerRadius="7">
-                        <Image Source="../imgs/editIcon.png" Margin="5 5 5 5"/>
+                    <Border Margin="10 0" Height="50" Width="50" Background="{DynamicResource Green Blue}" CornerRadius="7">
+                        <Image Source="../imgs/editIcon.png" Height="23" Width="23"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -298,8 +298,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{DynamicResource Tomato}" CornerRadius="7">
-                        <Image Source="../imgs/trash.png" Margin="8"/>
+                    <Border Height="50" Width="50"  Background="{DynamicResource Tomato}" CornerRadius="7">
+                        <Image Source="../imgs/trash.png" Height="25" Width="25"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -310,8 +310,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="#40C9C9" CornerRadius="7">
-                        <Image Source="../imgs/printer.png" Margin="8"/>
+                    <Border Height="50" Width="50" Background="#40C9C9" CornerRadius="7">
+                        <Image Source="../imgs/printer.png" Height="30" Width="30"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -560,6 +560,7 @@
         <Setter Property="FontSize" Value="40"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
     <Style x:Key="txtbl_SchoolYear" TargetType="TextBlock">
@@ -613,13 +614,14 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
-
     <Style x:Key="btn_edit" TargetType="Button">
         <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Padding" Value="10"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="35"/>
+
     </Style>
 
     <Style x:Key="btn_delete" TargetType="Button">

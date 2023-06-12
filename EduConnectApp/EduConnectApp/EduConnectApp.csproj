@@ -193,6 +193,7 @@
     <Compile Include="ViewModel\ClassViewModel.cs" />
     <Compile Include="ViewModel\ContactViewModel.cs" />
     <Compile Include="ViewModel\EditScoreViewModel.cs" />
+    <Compile Include="ViewModel\EditStudentPro5ViewModel.cs" />
     <Compile Include="ViewModel\EditTeacherPro5ViewModel.cs" />
     <Compile Include="ViewModel\GradeViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
