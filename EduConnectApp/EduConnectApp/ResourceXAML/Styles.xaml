@@ -270,6 +270,18 @@
         </Setter>
     </Style>
 
+    <Style x:Key="SaveBtn2" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="7" Height="30" Width="100" Padding="0">
+                        <Button Content="Lưu" Foreground="{DynamicResource White}" FontSize="18" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="BackBtn" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>
@@ -282,12 +294,36 @@
         </Setter>
     </Style>
 
+    <Style x:Key="BackBtn2" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{DynamicResource Tomato}" CornerRadius="7" Height="30" Width="100" Padding="0">
+                        <Button Content="Quay lại" Foreground="{DynamicResource White}" FontSize="18" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="EditBtn" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Margin="10 0" Height="50" Width="50" Background="{DynamicResource Green Blue}" CornerRadius="7">
                         <Image Source="../imgs/editIcon.png" Height="23" Width="23"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="EditBtn2" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{DynamicResource Green Blue}" CornerRadius="7">
+                        <Image Source="../imgs/editIcon.png" Margin="5 5 5 5"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

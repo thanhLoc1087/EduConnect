@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EduConnectApp.ViewUCs"
+             xmlns:local="clr-namespace:EduConnectApp.ViewUCs" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Name="tcPro5Edit">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.2*"></RowDefinition>
@@ -74,13 +75,13 @@
                         Grid.Column="0"
                         Grid.Row="2">
                         <TextBlock
-                            Text="Mã GV"
+                            Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Style="{DynamicResource txtbl_Infovalue}"
                             FontSize="18"
                             FontWeight="SemiBold"/>
 
                         <TextBlock
-                                Text="x"
+                                Text="{Binding ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             HorizontalAlignment="Center"
                                 Style="{DynamicResource txt_value2}"
                                 FontSize="18"/>
@@ -107,7 +108,7 @@
                         <TextBox 
                             Background="Transparent" 
                             BorderThickness="0"
-                            Text="Nguyễn Văn A"
+                            Text="{Binding HoTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Foreground="{DynamicResource Green Blue}"
                             FontSize="18"
                             Padding="10 0 0 0"
@@ -133,15 +134,15 @@
                         BorderBrush="{DynamicResource Yale Blue}"
                         CornerRadius="10">
                         <ComboBox 
+                            SelectedItem="{Binding GioiTinh, Mode=TwoWay}"
                             Margin="10 5 10 5"
                             Style="{DynamicResource MaterialDesignComboBox}"
                             BorderBrush="{DynamicResource Yale Blue}"
                             VerticalContentAlignment="Center"
                             HorizontalContentAlignment="Center"
                             Foreground="{DynamicResource Green Blue}"
-                            FontSize="18">
-                            <ComboBoxItem Content="Nam"/>
-                            <ComboBoxItem Content="Nữ"/>
+                            FontSize="18"
+                            ItemsSource="{Binding GTList,Mode=TwoWay}">
                         </ComboBox>
                     </Border>
 
@@ -169,7 +170,7 @@
                             FontSize="18" 
                             FirstDayOfWeek="Monday"
                             SelectedDateFormat="Short"
-                            Text="{Binding Date, StringFormat='dd/MM/yyyy'}"
+                            Text="{Binding NgaySinh, StringFormat='dd/MM/yyyy'}"
                             />
                     </Border>
 
@@ -193,7 +194,7 @@
                         <TextBox 
                             Background="Transparent" 
                             BorderThickness="0"
-                            Text="0123456789"
+                            Text="{Binding SDT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Foreground="{DynamicResource Green Blue}"
                             FontSize="18"
                             Padding="10 0 0 0"
@@ -220,7 +221,7 @@
                         <TextBox 
                             Background="Transparent" 
                             BorderThickness="0"
-                            Text="200 Pasteur, Quận 3, Tp Hồ Chí MIinh"
+                            Text="{Binding DiaChi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Foreground="{DynamicResource Green Blue}"
                             FontSize="18"
                             Padding="10 0 0 0"
@@ -247,7 +248,7 @@
                         <TextBox 
                             Background="Transparent" 
                             BorderThickness="0"
-                            Text="CiVH@gmail.com"
+                            Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Foreground="{DynamicResource Green Blue}"
                             FontSize="18"
                             Padding="10 0 0 0"
@@ -258,14 +259,21 @@
                     <Button
                         Grid.Column="3"
                         Grid.Row="0"
-                        Style="{DynamicResource SaveBtn}"
-                        Margin="10"/>
+                        Style="{DynamicResource SaveBtn2}"
+                        Margin="10">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=tcPro5Edit}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
 
                     <Button
                         Grid.Column="3"
                         Grid.Row="1"
-                        Style="{DynamicResource BackBtn}"
-                        Margin="10"/>
+                        Style="{DynamicResource BackBtn2}"
+                        Margin="10">
+                    </Button>
 
 
 

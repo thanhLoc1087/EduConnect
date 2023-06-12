@@ -232,7 +232,7 @@
                             Grid.Column="1"
                             Grid.Row="1"
                             Grid.RowSpan="2"
-                            Style="{DynamicResource EditBtn}"
+                            Style="{DynamicResource EditBtn2}"
                             >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">

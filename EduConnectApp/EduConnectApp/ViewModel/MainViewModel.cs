@@ -102,6 +102,9 @@ namespace EduConnectApp.ViewModel
             {
                 if (MessageBox.Show("Do you want to LogOut?", "Log Out", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
+                    Const.IsAdmin = false;
+                    Const.ID = new int();
+                    Const.KeyID = new int();
                     p.Hide();
                     LoginWindow loginWindow = new LoginWindow();
                     var loginVM = loginWindow.DataContext as LoginViewModel;
