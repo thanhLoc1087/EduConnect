@@ -28,11 +28,13 @@ namespace EduConnectApp.ViewModel
             public string Address { get; set; }
 
         }
-        public ICommand navClassListUC { get; }
-        public ICommand navClassList { get; }
+        public static Student CurrentSelected { get; set; }
+
+        public ICommand navDetail { get; }
+        public ICommand Detail { get; }
         public ICommand navMouse { get; }
         public ICommand mouseEnter { get; }
-        public ICommand navEditStPro52 { get; }
+        public ICommand navEditStPro5 { get; }
         public ICommand getDetail { get; }
 
         private string _schoolYear;
@@ -57,11 +59,11 @@ namespace EduConnectApp.ViewModel
             ClassViewModel.AvailableClass classSelected = ClassViewModel.CurrentSelected;
 
             //navigate
-            navClassListUC = new NavigationCommand<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore));
-            navClassList = new NavigationCommand<StatisticViewModel>(navigationStore, () => new StatisticViewModel(navigationStore));
-            navEditStPro52 = new NavigationCommand<StatisticViewModel>(navigationStore, () => new StatisticViewModel(navigationStore));
+            navDetail = new NavigationCommand<StudentPro5ViewModel>(navigationStore, () => new StudentPro5ViewModel(navigationStore));
+            navEditStPro5 = new NavigationCommand<EditStudentPro5ViewModel>(navigationStore, () => new EditStudentPro5ViewModel(navigationStore));
             //navMouse = new RelayCommand<DataGrid>((p) => { return true; }, (p) => _UpdateSpn(p));
-           //getDetail = new RelayCommand<ClassListUC>((p) => { return p.dtg_Opearator.SelectedItem == null ? false : true; }, (p) => _GetDetail(p));
+           getDetail = new RelayCommand<ClassListUC>((p) => { return p.dtg_Edit.SelectedItem == null ? false : true; }, (p) => _GetDetail(p));
+           Detail = new RelayCommand<DataGrid>((p) => { return p.SelectedItem == null ? false : true; }, (p) => _Detail(p));
 
             Learning = new ObservableCollection<HOCTAP>(DataProvider.Ins.DB.HOCTAPs.Where(x => x.DELETED == false));
 
@@ -106,9 +108,14 @@ namespace EduConnectApp.ViewModel
             AmountSt = temp2.SISO.ToString() + " học sinh";
         }
 
-       void _MouseEnter (DataGrid p)
+       void _Detail (DataGrid p)
         {
-            p.IsEnabled= false;
+            CurrentSelected =(Student)p.SelectedItem;
+        }
+       void _GetDetail (ClassListUC p)
+        {
+            p.dtg_Student.SelectedIndex = p.dtg_Edit.SelectedIndex;
+            CurrentSelected =(Student)p.dtg_Student.SelectedItem;
         }
     }
 }

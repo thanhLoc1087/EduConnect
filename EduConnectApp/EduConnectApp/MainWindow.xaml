@@ -301,6 +301,12 @@
                 <DataTemplate DataType="{x:Type vm:EditScoreViewModel}">
                     <viewuc:EditScore></viewuc:EditScore>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:StudentPro5ViewModel}">
+                    <viewuc:StudentPro5></viewuc:StudentPro5>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:EditStudentPro5ViewModel}">
+                    <viewuc:StudentPro5Edit></viewuc:StudentPro5Edit>
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
 

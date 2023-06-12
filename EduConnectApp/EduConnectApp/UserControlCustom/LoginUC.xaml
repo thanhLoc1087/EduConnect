@@ -32,7 +32,7 @@
 
         <StackPanel Grid.Row="2">
             <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" FontWeight="Bold" Padding="50 0 0 0">Tên đăng nhập</TextBlock>
-            <TextBox
+            <TextBox 
                   Margin="50 10"
                 FontSize="23"
                 Text="{Binding UserName}"
