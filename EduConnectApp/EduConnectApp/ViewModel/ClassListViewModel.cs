@@ -13,13 +13,16 @@ using System.Windows.Media;
 using System.Xml.Serialization;
 using EduConnectApp.Model;
 using EduConnectApp.ViewUCs;
+using System.Windows;
 
 namespace EduConnectApp.ViewModel
 {
+
     public class ClassListViewModel :BaseViewModel
     {
         public struct Student
         {
+            public int ID { get; set; }
             public int number { get; set; }
             public string Name { get; set; }
             public string DOB { get; set; }
@@ -29,7 +32,6 @@ namespace EduConnectApp.ViewModel
 
         }
         public static Student CurrentSelected { get; set; }
-
         public ICommand navDetail { get; }
         public ICommand Detail { get; }
         public ICommand navMouse { get; }
@@ -76,6 +78,7 @@ namespace EduConnectApp.ViewModel
                 if (ht.MALOP == classSelected.ClassID)
                 {
                     var temp = DataProvider.Ins.DB.HOCSINHs.Where(x => x.MAHS == ht.MAHS && x.DELETED == false).FirstOrDefault();
+                    st.ID = temp.MAHS;
                     st.Name = temp.HOTEN;
                     dateTime = (DateTime)temp.NTNS;
                     st.DOB = dateTime.ToString("dd/MM/yyyy");
@@ -105,7 +108,7 @@ namespace EduConnectApp.ViewModel
             var temp3 = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MAGV == temp2.GVCN && x.DELETED == false).FirstOrDefault();
             teacherName = temp3.HOTEN;
             className = temp2.TENLOP;
-            AmountSt = temp2.SISO.ToString() + " học sinh";
+            AmountSt = StudentList.Count().ToString() + " học sinh";
         }
 
        void _Detail (DataGrid p)
@@ -117,5 +120,11 @@ namespace EduConnectApp.ViewModel
             p.dtg_Student.SelectedIndex = p.dtg_Edit.SelectedIndex;
             CurrentSelected =(Student)p.dtg_Student.SelectedItem;
         }
+        private void ListViewScrollViewer_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+{
+   ScrollViewer scv = (ScrollViewer)sender;
+   scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+   e.Handled = true;
+ }
     }
 }

@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EduConnectApp.ViewUCs" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:EduConnectApp.ViewUCs" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="576" d:DesignWidth="1054">
+             d:DesignHeight="576" d:DesignWidth="1054"
+             Name="stPro5Edit">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="6.5*"></ColumnDefinition>
@@ -120,9 +121,10 @@
                                     FontWeight="SemiBold"/>
 
                                 <TextBlock
-                                    Text="xxxxxxxx"
+                                    Text="{Binding MaHS}"
                                     Style="{DynamicResource txt_value2}"
-                                    FontSize="18"/>
+                                    FontSize="18"
+                                    HorizontalAlignment="Center"/>
 
                             </StackPanel>
 
@@ -142,13 +144,15 @@
                                     BorderThickness="1"
                                     BorderBrush="{DynamicResource Yale Blue}"
                                     CornerRadius="10">
-                                    <TextBox 
-                                        Background="Transparent" 
-                                        BorderThickness="0"
-                                        Text="9A1"
+                                    <ComboBox 
+                                       Style="{DynamicResource MaterialDesignComboBox}"
+                                        BorderBrush="{DynamicResource Yale Blue}"
+                                        VerticalContentAlignment="Center"
+                                        HorizontalContentAlignment="Center"
                                         Foreground="{DynamicResource Green Blue}"
                                         FontSize="18"
-                                        Padding="2"
+                                        SelectedItem="{Binding Lop}"
+                                        ItemsSource="{Binding ClassList}"
                                     />
                                 </Border>
                             </StackPanel>
@@ -169,17 +173,14 @@
                                         BorderThickness="1"
                                         BorderBrush="{DynamicResource Yale Blue}"
                                         CornerRadius="10">
-                                    <ComboBox 
-                                    Margin="10 5 10 5"
-                                    Style="{DynamicResource MaterialDesignComboBox}"
-                                    BorderBrush="{DynamicResource Yale Blue}"
-                                    VerticalContentAlignment="Center"
-                                    HorizontalContentAlignment="Center"
+                                    <TextBox 
+                                    Background="Transparent" 
+                                    BorderThickness="0"
+                                    Text="{Binding ChinhSach}"
                                     Foreground="{DynamicResource Green Blue}"
-                                    FontSize="10">
-                                        <ComboBoxItem Content="Có"/>
-                                        <ComboBoxItem Content="Không"/>
-                                    </ComboBox>
+                                    FontSize="19"
+                                    Padding="10 2 0 2" 
+                                    />
                                 </Border>
 
                             </StackPanel>
@@ -200,7 +201,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="{Binding name}"
+                                    Text="{Binding HoTen}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="19"
                                     Padding="10 2 0 2" 
@@ -228,7 +229,7 @@
                                     FontSize="19" 
                                     FirstDayOfWeek="Monday"
                                     SelectedDateFormat="Short"
-                                    Text="{Binding Date, StringFormat='dd/MM/yyyy'}"
+                                    Text="{Binding NgaySinh, StringFormat='dd/MM/yyyy', Mode=TwoWay}"
                                     />
                             </Border>
 
@@ -253,9 +254,9 @@
                                     VerticalContentAlignment="Center"
                                     HorizontalContentAlignment="Center"
                                     Foreground="{DynamicResource Green Blue}"
-                                    FontSize="18">  
-                                    <ComboBoxItem Content="Nam"/>
-                                    <ComboBoxItem Content="Nữ"/>
+                                    FontSize="18"
+                                    SelectedItem="{Binding GioiTinh}"
+                                    ItemsSource="{Binding GTList}">  
                                 </ComboBox>
                             </Border>
 
@@ -264,7 +265,7 @@
                                 Grid.Row="3"
                                 Style="{DynamicResource txtbl_Infovalue2}"
                                 VerticalAlignment="Center"
-                                Text="Nơi  sinh:"/>
+                                Text="Nơi sinh:"/>
                             <Border
                                 Grid.Column="2"
                                 Margin="0 0 5 0"
@@ -276,7 +277,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="Thành phố Hồ Chí Minh"
+                                    Text="{Binding NoiSinh}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"
@@ -300,7 +301,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="Kinh"
+                                    Text="{Binding DanToc}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"
@@ -324,7 +325,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="Không"
+                                    Text="{Binding TonGiao}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"
@@ -348,7 +349,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="0123456789"
+                                    Text="{Binding SDT}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"
@@ -373,7 +374,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="200 Pasteur, Quận 3, Tp Hồ Chí Minh"
+                                    Text="{Binding DiaChi}"
                                     TextWrapping="WrapWithOverflow"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
@@ -404,8 +405,21 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button  Grid.Column="0" Style="{DynamicResource SaveBtn}"/>
-                <Button Grid.Column="1" Style="{DynamicResource BackBtn}"/>
+                <Button  Grid.Column="0" Style="{DynamicResource SaveBtn}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=stPro5Edit}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navBack}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Grid.Column="1" Style="{DynamicResource BackBtn}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding navBack}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
 
             </Grid>
 
@@ -449,7 +463,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="Huỳnh Thị  Ly"
+                                    Text="{Binding TenMe}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"
@@ -476,7 +490,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="Buôn bán"
+                                    Text="{Binding NgheMe}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"
@@ -503,7 +517,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="01234567910"
+                                    Text="{Binding SDTMe}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"
@@ -542,7 +556,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="Huỳnh Thị  Ly"
+                                    Text="{Binding TenCha}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"
@@ -569,7 +583,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="Buôn bán"
+                                    Text="{Binding NgheCha}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"
@@ -596,7 +610,7 @@
                                 <TextBox 
                                     Background="Transparent" 
                                     BorderThickness="0"
-                                    Text="01234567910"
+                                    Text="{Binding SDTCha}"
                                     Foreground="{DynamicResource Green Blue}"
                                     FontSize="18"
                                     Padding="10 2 0 2"

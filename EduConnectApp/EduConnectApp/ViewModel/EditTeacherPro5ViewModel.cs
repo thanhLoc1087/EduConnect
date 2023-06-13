@@ -1,4 +1,5 @@
-﻿using EduConnectApp.Model;
+﻿using EduConnectApp.Commands;
+using EduConnectApp.Model;
 using EduConnectApp.Store;
 using EduConnectApp.ViewUCs;
 using System;
@@ -31,7 +32,13 @@ namespace EduConnectApp.ViewModel
         public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
         public string[] GTList { get; set; } = { "Nam", "Nữ" };
         public ICommand EditCommand { get; set; }
+        public ICommand navBack { get; set; }
         public EditTeacherPro5ViewModel( NavigationStore navigationStore) {
+
+            //Navigate
+            navBack = new NavigationCommand<TeacherPro5ViewModel>(navigationStore, () => new TeacherPro5ViewModel(navigationStore));
+
+
             if (!Const.IsAdmin)
             {
                 Title = "Mã GV";

@@ -38,7 +38,7 @@
                 Text="{Binding UserName}"
                   Style="{StaticResource MaterialDesignOutlinedTextBox}"
                   VerticalAlignment="Center"
-                  materialDesign:HintAssist.Hint="" 
+                  materialDesign:HintAssist.Hint="Enter your UserName" 
                   BorderBrush="{StaticResource Yale Blue}" Opacity="0.75" 
                 />
         </StackPanel>
@@ -55,7 +55,7 @@
                 FontSize="23"
                 x:Name="FloatingPasswordBox"
                 Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
-                materialDesign:HintAssist.Hint=""
+                materialDesign:HintAssist.Hint="Enter your Password"
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 BorderBrush="{StaticResource Yale Blue}" Opacity="0.75">
                 <i:Interaction.Triggers>
