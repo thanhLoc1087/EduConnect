@@ -51,7 +51,8 @@ namespace EduConnectApp.ViewModel
                 ID = Const.KeyID.ToString();
                 var temp = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MAGV == Const.KeyID && x.DELETED == false).FirstOrDefault();
                 HoTen = temp.HOTEN;
-                NgaySinh = temp.NTNS.ToString();
+                DateTime dateTime = (DateTime)temp.NTNS;
+                NgaySinh = dateTime.ToString("dd/MM/yyyy");
                 DiaChi = temp.DIACHI;
                 SDT = temp.SDT;
                 if (temp.GIOITINH == true)

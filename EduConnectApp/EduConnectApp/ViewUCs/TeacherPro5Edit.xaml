@@ -170,7 +170,7 @@
                             FontSize="18" 
                             FirstDayOfWeek="Monday"
                             SelectedDateFormat="Short"
-                            Text="{Binding NgaySinh, StringFormat='dd/MM/yyyy'}"
+                            Text="{Binding NgaySinh, StringFormat='dd/MM/yyyy', Mode=TwoWay}"
                             />
                     </Border>
 
@@ -264,6 +264,7 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=tcPro5Edit}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding navBack}" ></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
@@ -273,6 +274,11 @@
                         Grid.Row="1"
                         Style="{DynamicResource BackBtn2}"
                         Margin="10">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding navBack}" ></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </Button>
 
 

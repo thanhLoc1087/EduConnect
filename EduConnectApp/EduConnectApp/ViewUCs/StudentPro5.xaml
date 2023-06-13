@@ -98,9 +98,10 @@
                                     FontWeight="SemiBold"/>
 
                                 <TextBlock
-                                    Text="xxxxxxxx"
+                                    Text="{Binding MaHS}"
                                     Style="{DynamicResource txt_value2}"
-                                    FontSize="18"/>
+                                    FontSize="18"
+                                    HorizontalAlignment="Center"/>
 
                             </StackPanel>
 
@@ -116,7 +117,7 @@
                                     FontWeight="SemiBold"/>
                                 <TextBlock
                                     Margin="10 0 0 0"
-                                    Text="9A1"
+                                    Text="{Binding Lop}"
                                     Style="{DynamicResource txt_value2}"
                                     FontSize="18"/>
                             </StackPanel>
@@ -128,7 +129,7 @@
                                     FontWeight="SemiBold"/>
 
                             <TextBlock Grid.Row="7" Grid.RowSpan="2" HorizontalAlignment="Center"
-                                    Text="Không" VerticalAlignment="Top"
+                                    Text="{Binding ChinhSach}" VerticalAlignment="Top"
                                     Style="{DynamicResource txt_value2}"
                                     FontSize="18"/>
 
@@ -143,7 +144,7 @@
                                 Style="{DynamicResource txt_value2}"
                                 VerticalAlignment="Center"
                                 FontSize="18"
-                                Text="{Binding name}"/>
+                                Text="{Binding HoTen}"/>
 
                             <TextBlock
                                 Grid.Column="1"
@@ -157,7 +158,7 @@
                                 Style="{DynamicResource txt_value2}"
                                 VerticalAlignment="Center"
                                 FontSize="18"
-                                Text="15/12/2005"/>
+                                Text="{Binding NgaySinh}"/>
 
                             <TextBlock
                                 Grid.Column="1"
@@ -171,7 +172,7 @@
                                 Style="{DynamicResource txt_value2}"
                                 VerticalAlignment="Center"
                                 FontSize="18"
-                                Text="Nam"/>
+                                Text="{Binding GioiTinh}"/>
 
                             <TextBlock
                                 Grid.Column="1"
@@ -185,7 +186,7 @@
                                 Style="{DynamicResource txt_value2}"
                                 VerticalAlignment="Center"
                                 FontSize="18"
-                                Text="Thành phố Hồ Chí Minh"/>
+                                Text="{Binding NoiSinh}"/>
 
                             <TextBlock
                                 Grid.Column="1"
@@ -199,7 +200,7 @@
                                 Style="{DynamicResource txt_value2}"
                                 VerticalAlignment="Center"
                                 FontSize="18"
-                                Text="Kinh"/>
+                                Text="{Binding DanToc}"/>
 
                             <TextBlock
                                 Grid.Column="1"
@@ -213,7 +214,7 @@
                                 Style="{DynamicResource txt_value2}"
                                 VerticalAlignment="Center"
                                 FontSize="18"
-                                Text="Không"/>
+                                Text="{Binding TonGiao}"/>
 
                             <TextBlock
                                 Grid.Column="1"
@@ -227,7 +228,7 @@
                                 Style="{DynamicResource txt_value2}"
                                 VerticalAlignment="Center"
                                 FontSize="18"
-                                Text="0123456789"/>
+                                Text="{Binding SDT}"/>
 
                             <TextBlock
                                 Grid.Column="1"
@@ -242,7 +243,7 @@
                                 Style="{DynamicResource txt_value2}"
                                 VerticalAlignment="Top"
                                 FontSize="18"
-                                Text="200 Pasteur, Quận 3, Tp Hồ Chí MIinh"
+                                Text="{Binding DiaChi}"
                                 TextWrapping="WrapWithOverflow"/>
 
                         </Grid>
@@ -335,7 +336,7 @@
 
                             <TextBlock 
                                 Style="{DynamicResource txt_value}"
-                                Text="Huỳnh Thị Ly"
+                                Text="{Binding TenMe}"
                                 FontSize="18"/>
                         </StackPanel>
 
@@ -352,7 +353,7 @@
 
                             <TextBlock 
                                 Style="{DynamicResource txt_value}"
-                                Text="Buôn bán"
+                                Text="{Binding NgheMe}"
                                 FontSize="18"/>
                         </StackPanel>
 
@@ -369,7 +370,7 @@
 
                             <TextBlock 
                                 Style="{DynamicResource txt_value}"
-                                Text="01234567910"
+                                Text="{Binding SDTMe}"
                                 FontSize="18"/>
                         </StackPanel>
 
@@ -398,7 +399,7 @@
 
                             <TextBlock 
                                 Style="{DynamicResource txt_value}"
-                                Text="Huỳnh Thị Ly"
+                                Text="{Binding TenCha}"
                                 FontSize="18"/>
                         </StackPanel>
 
@@ -415,7 +416,7 @@
 
                             <TextBlock 
                                 Style="{DynamicResource txt_value}"
-                                Text="Buôn bán" 
+                                Text="{Binding NgheCha}" 
                                 FontSize="18"/>
                         </StackPanel>
 
@@ -432,7 +433,7 @@
 
                             <TextBlock 
                                 Style="{DynamicResource txt_value}"
-                                Text="01234567910"
+                                Text="{Binding SDTCha}"
                                 FontSize="18"/>
                         </StackPanel>
 
