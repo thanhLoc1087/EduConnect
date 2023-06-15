@@ -16,5 +16,6 @@ namespace EduConnectApp.Model
         public static bool IsAdmin { get; set; } = false;
         public static string SchoolYear { get { return "2022-2023"; }  }
         public static string School { get { return "THPT ĐỐC BINH KIỀU"; }  }
+        public static string Semester { get { return "2"; }  }
     }
 }

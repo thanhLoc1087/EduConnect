@@ -73,7 +73,7 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="1*"/>
                                                 <ColumnDefinition Width="1*"/>
-                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="1.5*"/>
                                                 <ColumnDefinition Width="3*"/>
                                                 <ColumnDefinition Width="0.5*"/>
                                             </Grid.ColumnDefinitions>
@@ -153,7 +153,7 @@
                                                 <ColumnDefinition Width="1*"/>
                                                 <ColumnDefinition Width="1*"/>
                                                 <ColumnDefinition Width="1.5*"/>
-                                                <ColumnDefinition Width="3.5*"/>
+                                                <ColumnDefinition Width="3*"/>
                                                 <ColumnDefinition Width="0.5*"/>
                                             </Grid.ColumnDefinitions>
                                             <StackPanel>
