@@ -42,8 +42,55 @@
             <!--Cbb and Search-->
             <StackPanel HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" >
                 <StackPanel  VerticalAlignment="Center" Orientation="Horizontal">
-                    <ComboBox Name="cbb_Gender" Style="{DynamicResource CbxGender}" />
-                    <TextBox Style="{DynamicResource SearchBox }"/>
+                    <ComboBox Name="cbxGender" SelectedIndex="0"  HorizontalAlignment="Left"
+                        Width="139" Margin="10 0" Height="39" Padding="15 0"
+                                     FontSize="16"
+                                  BorderBrush="{DynamicResource Yale Blue}"
+                                        Foreground="{DynamicResource Yale Blue}"                            
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}" 
+                                VerticalContentAlignment="Center"
+                              materialDesign:HintAssist.Hint="Giới tính: "
+                              Text="{Binding filterText, UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBoxItem Content="Tất cả"></ComboBoxItem>
+                        <ComboBoxItem Content="Nam"></ComboBoxItem>
+                        <ComboBoxItem Content="Nữ"></ComboBoxItem>
+                    </ComboBox> 
+                    <StackPanel Margin="10 0" 
+                              Orientation="Horizontal"
+                              materialDesign:RippleAssist.IsCentered="True">
+
+                        <Border CornerRadius="5" Width="295" Height="39" BorderThickness="1" BorderBrush="{DynamicResource Yale Blue}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+                                      Width="*" />
+                                    <ColumnDefinition
+                                      Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox            Padding="15 0"
+                                                    Foreground="{DynamicResource Yale Blue}"
+                                                    FontSize="16" materialDesign:HintAssist.Hint="Tìm kiếm tên"
+                                    Grid.Column="0"
+                                    Margin="8 0 0 0"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    BorderThickness="0"
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                                    Text="{Binding searchText, UpdateSourceTrigger=PropertyChanged}"/>
+                                <Button
+                                    Style="{StaticResource MaterialDesignToolButton}"
+                                    Grid.Column="1">
+                                    <materialDesign:PackIcon
+                                                        Width="50"
+                                                        Height="30"
+                                                        Foreground="{DynamicResource Yale Blue}"
+                                      Kind="Search"
+                                      Opacity=".56"
+                                       />
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="10 0">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" Text="Sỉ số: "/>
@@ -61,7 +108,7 @@
                 <ColumnDefinition Width=".7*"/>
             </Grid.ColumnDefinitions>
             <Grid Margin="0 10 0 10">
-                <DataGrid VerticalScrollBarVisibility="Disabled" FontSize=" 18" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Student" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding StudentList}" RowHeight="50" >
+                <DataGrid VerticalScrollBarVisibility="Disabled" FontSize=" 18" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Student" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterList}" RowHeight="50" >
                     <DataGrid.Columns  >
                         <DataGridTextColumn  ElementStyle="{DynamicResource txt_value}" Header="STT" Binding="{Binding number}" Width=".5*"/>
                         <DataGridTextColumn ElementStyle="{DynamicResource txt_value2}" Header="Họ và tên" Binding="{Binding Name}"  Width="2*"/>
@@ -96,7 +143,7 @@
             
             <!--operator Edit-->
             <Grid Grid.Column="1" Margin="0 10 0 10">
-                <DataGrid  VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Edit" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding StudentList}" GridLinesVisibility="None" RowHeight="50"  >
+                <DataGrid  VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Edit" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterList}" GridLinesVisibility="None" RowHeight="50"  >
                     <DataGrid.Columns >
                         <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
                         <DataGridTemplateColumn.CellTemplate >
@@ -123,7 +170,7 @@
             
             <!--operator Delete-->
             <Grid Grid.Column="2" Margin="0 10 10 10">
-                <DataGrid VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Delete" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding StudentList}" GridLinesVisibility="None" RowHeight="50" ColumnWidth="50" >
+                    <DataGrid VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Delete" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterList}" GridLinesVisibility="None" RowHeight="50" ColumnWidth="50" >
                     <DataGrid.Columns >
                         <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
                         <DataGridTemplateColumn.CellTemplate >
@@ -141,8 +188,8 @@
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding getDetail}" CommandParameter="{Binding ElementName=classListUC}"></i:InvokeCommandAction>
-                            <!--<i:InvokeCommandAction Command="{Binding navEditStPro5}"></i:InvokeCommandAction>-->
+                            <i:InvokeCommandAction Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=classListUC}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navClassList}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </DataGrid>

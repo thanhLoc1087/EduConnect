@@ -1,11 +1,13 @@
 ﻿using EduConnectApp.Commands;
 using EduConnectApp.Model;
 using EduConnectApp.Store;
+using EduConnectApp.ViewUCs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace EduConnectApp.ViewModel
@@ -50,6 +52,7 @@ namespace EduConnectApp.ViewModel
 
         public ICommand navBack { get; }
         public ICommand navEdit { get; }
+        public ICommand DeleteCommand { get; }
 
         public StudentPro5ViewModel(NavigationStore navigationStore)
         {
@@ -83,6 +86,18 @@ namespace EduConnectApp.ViewModel
             NgheMe = PH.NGHEME;
             SDTCha = PH.SDTBO;
             SDTMe = PH.SDTME;
+
+            // Delete
+            DeleteCommand = new RelayCommand<ClassListUC>((p) => { return true; }, (p) =>
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa học sinh này khỏi danh sách?", "Xác nhận!", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return;
+
+                studentSelected.DELETED = true;
+                var tempHT = DataProvider.Ins.DB.HOCTAPs.Where(x => x.MAHS == studentSelected.MAHS && x.MALOP == ClassViewModel.CurrentSelected.ClassID && x.DELETED == false).FirstOrDefault();
+                tempHT.DELETED = true;
+                DataProvider.Ins.DB.SaveChanges();
+            });
         }
     }
 }

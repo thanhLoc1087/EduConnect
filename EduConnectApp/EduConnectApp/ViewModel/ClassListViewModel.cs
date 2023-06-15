@@ -37,7 +37,9 @@ namespace EduConnectApp.ViewModel
         public ICommand navMouse { get; }
         public ICommand mouseEnter { get; }
         public ICommand navEditStPro5 { get; }
+        public ICommand navClassList { get; }
         public ICommand getDetail { get; }
+        public ICommand DeleteCommand { get; }
 
         private string _schoolYear;
         public string schoolYear { get => _schoolYear; set { _schoolYear = value; OnPropertyChanged(); } }
@@ -56,11 +58,49 @@ namespace EduConnectApp.ViewModel
 
         private ObservableCollection<HOCTAP> _Learning;
         public ObservableCollection<HOCTAP> Learning { get => _Learning; set { _Learning = value; OnPropertyChanged(); } }
+        private string _filterText;
+        public string filterText
+        {
+            get { return _filterText; }
+            set
+            {
+                _filterText = value;
+                OnPropertyChanged("filterText");
+                OnPropertyChanged("MyFilterList");
+            }
+        }
+        private string _searchText;
+        public string searchText
+        {
+            get { return _searchText; }
+            set
+            {
+                _searchText = value;
+                OnPropertyChanged("searchText");
+                OnPropertyChanged("MyFilterList");
+            }
+        }
+        public IEnumerable<Student> MyFilterList
+        {
+            get
+            {
+                if (searchText == null && filterText == null)
+                        return StudentList;
+                if (searchText == null && filterText != null)
+                    return StudentList.Where(x=> x.Gender == filterText);
+                if (searchText != null && filterText == null)
+                    return StudentList.Where(x => (x.Name.ToUpper().Contains(searchText.ToUpper())));
+                return StudentList.Where(x => (x.Name.ToUpper().Contains(searchText.ToUpper())) && x.Gender == filterText);
+            }
+        }
 
         public ClassListViewModel(NavigationStore navigationStore) {
             ClassViewModel.AvailableClass classSelected = ClassViewModel.CurrentSelected;
 
+            
+
             //navigate
+            navClassList = new NavigationCommand<ClassListViewModel>(navigationStore, () => new ClassListViewModel(navigationStore));
             navDetail = new NavigationCommand<StudentPro5ViewModel>(navigationStore, () => new StudentPro5ViewModel(navigationStore));
             navEditStPro5 = new NavigationCommand<EditStudentPro5ViewModel>(navigationStore, () => new EditStudentPro5ViewModel(navigationStore));
             //navMouse = new RelayCommand<DataGrid>((p) => { return true; }, (p) => _UpdateSpn(p));
@@ -109,6 +149,19 @@ namespace EduConnectApp.ViewModel
             teacherName = temp3.HOTEN;
             className = temp2.TENLOP;
             AmountSt = StudentList.Count().ToString() + " học sinh";
+
+            DeleteCommand = new RelayCommand<ClassListUC>((p) => { return p.dtg_Delete.SelectedIndex != -1; }, (p) =>
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa học sinh này khỏi danh sách?", "Xác nhận!", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return;
+
+                Student std = MyFilterList.ElementAt(p.dtg_Delete.SelectedIndex);
+                var temp1 = DataProvider.Ins.DB.HOCSINHs.Where(x => x.MAHS == std.ID && x.DELETED == false).FirstOrDefault();
+                temp1.DELETED = true;
+                var tempHT = DataProvider.Ins.DB.HOCTAPs.Where(x => x.MAHS == std.ID && x.MALOP == classSelected.ClassID && x.DELETED == false).FirstOrDefault();
+                tempHT.DELETED = true;
+                DataProvider.Ins.DB.SaveChanges();
+            });
         }
 
        void _Detail (DataGrid p)
@@ -119,12 +172,13 @@ namespace EduConnectApp.ViewModel
         {
             p.dtg_Student.SelectedIndex = p.dtg_Edit.SelectedIndex;
             CurrentSelected =(Student)p.dtg_Student.SelectedItem;
+
         }
         private void ListViewScrollViewer_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
-{
-   ScrollViewer scv = (ScrollViewer)sender;
-   scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
-   e.Handled = true;
- }
+        {
+            ScrollViewer scv = (ScrollViewer)sender;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
+            }
     }
 }
