@@ -181,19 +181,16 @@
         </EntityType>
         <EntityType Name="THI">
           <Key>
-            <PropertyRef Name="MAHS" />
-            <PropertyRef Name="MALOP" />
-            <PropertyRef Name="MAMH" />
-            <PropertyRef Name="MALD" />
-            <PropertyRef Name="HOCKY" />
+            <PropertyRef Name="MATHI" />
           </Key>
-          <Property Name="MAHS" Type="int" Nullable="false" />
-          <Property Name="MALOP" Type="int" Nullable="false" />
-          <Property Name="MAMH" Type="int" Nullable="false" />
-          <Property Name="MALD" Type="int" Nullable="false" />
+          <Property Name="MATHI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAHS" Type="int" />
+          <Property Name="MALOP" Type="int" />
+          <Property Name="MAMH" Type="int" />
+          <Property Name="MALD" Type="int" />
           <Property Name="DIEM" Type="varchar" MaxLength="4" />
           <Property Name="NGAYTHI" Type="date" />
-          <Property Name="HOCKY" Type="int" Nullable="false" />
+          <Property Name="HOCKY" Type="int" />
           <Property Name="DELETED" Type="bit" />
         </EntityType>
         <EntityType Name="TO1">
@@ -471,7 +468,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__THI__MAHS__440B1D61">
-          <End Role="HOCSINH" Type="Self.HOCSINH" Multiplicity="1" />
+          <End Role="HOCSINH" Type="Self.HOCSINH" Multiplicity="0..1" />
           <End Role="THI" Type="Self.THI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HOCSINH">
@@ -483,7 +480,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__THI__MALD__46E78A0C">
-          <End Role="LOAIDIEM" Type="Self.LOAIDIEM" Multiplicity="1" />
+          <End Role="LOAIDIEM" Type="Self.LOAIDIEM" Multiplicity="0..1" />
           <End Role="THI" Type="Self.THI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOAIDIEM">
@@ -495,7 +492,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__THI__MALOP__44FF419A">
-          <End Role="LOP" Type="Self.LOP" Multiplicity="1" />
+          <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
           <End Role="THI" Type="Self.THI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOP">
@@ -507,7 +504,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__THI__MAMH__45F365D3">
-          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="0..1" />
           <End Role="THI" Type="Self.THI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MONHOC">
@@ -886,19 +883,16 @@
         </EntityType>
         <EntityType Name="THI">
           <Key>
-            <PropertyRef Name="MAHS" />
-            <PropertyRef Name="MALOP" />
-            <PropertyRef Name="MAMH" />
-            <PropertyRef Name="MALD" />
-            <PropertyRef Name="HOCKY" />
+            <PropertyRef Name="MATHI" />
           </Key>
-          <Property Name="MAHS" Type="Int32" Nullable="false" />
-          <Property Name="MALOP" Type="Int32" Nullable="false" />
-          <Property Name="MAMH" Type="Int32" Nullable="false" />
-          <Property Name="MALD" Type="Int32" Nullable="false" />
+          <Property Name="MATHI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAHS" Type="Int32" />
+          <Property Name="MALOP" Type="Int32" />
+          <Property Name="MAMH" Type="Int32" />
+          <Property Name="MALD" Type="Int32" />
           <Property Name="DIEM" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="NGAYTHI" Type="DateTime" Precision="0" />
-          <Property Name="HOCKY" Type="Int32" Nullable="false" />
+          <Property Name="HOCKY" Type="Int32" />
           <Property Name="DELETED" Type="Boolean" />
           <NavigationProperty Name="HOCSINH" Relationship="Self.FK__THI__MAHS__440B1D61" FromRole="THI" ToRole="HOCSINH" />
           <NavigationProperty Name="LOAIDIEM" Relationship="Self.FK__THI__MALD__46E78A0C" FromRole="THI" ToRole="LOAIDIEM" />
@@ -1110,7 +1104,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__THI__MAHS__440B1D61">
-          <End Role="HOCSINH" Type="Self.HOCSINH" Multiplicity="1" />
+          <End Role="HOCSINH" Type="Self.HOCSINH" Multiplicity="0..1" />
           <End Role="THI" Type="Self.THI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HOCSINH">
@@ -1158,7 +1152,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__THI__MALD__46E78A0C">
-          <End Role="LOAIDIEM" Type="Self.LOAIDIEM" Multiplicity="1" />
+          <End Role="LOAIDIEM" Type="Self.LOAIDIEM" Multiplicity="0..1" />
           <End Role="THI" Type="Self.THI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOAIDIEM">
@@ -1206,7 +1200,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__THI__MALOP__44FF419A">
-          <End Role="LOP" Type="Self.LOP" Multiplicity="1" />
+          <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
           <End Role="THI" Type="Self.THI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOP">
@@ -1230,7 +1224,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__THI__MAMH__45F365D3">
-          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="0..1" />
           <End Role="THI" Type="Self.THI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MONHOC">
@@ -1241,7 +1235,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EduConnectEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EduConnectEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ADMINs" EntityType="Self.ADMIN" />
           <EntitySet Name="GIANGDAYs" EntityType="Self.GIANGDAY" />
           <EntitySet Name="GIAOVIENs" EntityType="Self.GIAOVIEN" />
@@ -1373,7 +1367,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EduConnectModelStoreContainer" CdmEntityContainer="EduConnectEntities2">
+        <EntityContainerMapping StorageEntityContainer="EduConnectModelStoreContainer" CdmEntityContainer="EduConnectEntities">
           <EntitySetMapping Name="ADMINs">
             <EntityTypeMapping TypeName="EduConnectModel.ADMIN">
               <MappingFragment StoreEntitySet="ADMIN">
@@ -1557,6 +1551,7 @@
           <EntitySetMapping Name="THIs">
             <EntityTypeMapping TypeName="EduConnectModel.THI">
               <MappingFragment StoreEntitySet="THI">
+                <ScalarProperty Name="MATHI" ColumnName="MATHI" />
                 <ScalarProperty Name="MAHS" ColumnName="MAHS" />
                 <ScalarProperty Name="MALOP" ColumnName="MALOP" />
                 <ScalarProperty Name="MAMH" ColumnName="MAMH" />

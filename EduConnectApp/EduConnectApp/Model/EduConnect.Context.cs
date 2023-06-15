@@ -13,10 +13,10 @@ namespace EduConnectApp.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EduConnectEntities2 : DbContext
+    public partial class EduConnectEntities : DbContext
     {
-        public EduConnectEntities2()
-            : base("name=EduConnectEntities2")
+        public EduConnectEntities()
+            : base("name=EduConnectEntities")
         {
         }
     

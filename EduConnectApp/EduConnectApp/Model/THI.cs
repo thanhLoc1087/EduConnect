@@ -14,13 +14,14 @@ namespace EduConnectApp.Model
     
     public partial class THI
     {
-        public int MAHS { get; set; }
-        public int MALOP { get; set; }
-        public int MAMH { get; set; }
-        public int MALD { get; set; }
+        public int MATHI { get; set; }
+        public Nullable<int> MAHS { get; set; }
+        public Nullable<int> MALOP { get; set; }
+        public Nullable<int> MAMH { get; set; }
+        public Nullable<int> MALD { get; set; }
         public string DIEM { get; set; }
         public Nullable<System.DateTime> NGAYTHI { get; set; }
-        public int HOCKY { get; set; }
+        public Nullable<int> HOCKY { get; set; }
         public Nullable<bool> DELETED { get; set; }
     
         public virtual HOCSINH HOCSINH { get; set; }
