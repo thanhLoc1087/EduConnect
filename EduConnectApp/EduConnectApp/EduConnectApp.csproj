@@ -480,6 +480,8 @@
   <ItemGroup>
     <Resource Include="imgs\SemesterLine1.png" />
     <Resource Include="imgs\SemesterLine2.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\EduConnect.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EduConnect.edmx</DependentUpon>

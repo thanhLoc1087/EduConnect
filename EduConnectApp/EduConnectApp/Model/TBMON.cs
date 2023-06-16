@@ -19,6 +19,7 @@ namespace EduConnectApp.Model
         public int MAMH { get; set; }
         public int HOCKY { get; set; }
         public string DTB { get; set; }
+        public Nullable<bool> DELETED { get; set; }
     
         public virtual HOCSINH HOCSINH { get; set; }
         public virtual LOP LOP { get; set; }

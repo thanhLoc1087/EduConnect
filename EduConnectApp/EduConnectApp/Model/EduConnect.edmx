@@ -169,6 +169,7 @@
           <Property Name="MAMH" Type="int" Nullable="false" />
           <Property Name="HOCKY" Type="int" Nullable="false" />
           <Property Name="DTB" Type="varchar" MaxLength="4" />
+          <Property Name="DELETED" Type="bit" />
         </EntityType>
         <EntityType Name="THANHTICH">
           <Key>
@@ -192,6 +193,7 @@
           <Property Name="DIEM" Type="varchar" MaxLength="4" />
           <Property Name="NGAYTHI" Type="date" />
           <Property Name="HOCKY" Type="int" />
+          <Property Name="DELETED" Type="bit" />
         </EntityType>
         <EntityType Name="TO1">
           <Key>
@@ -866,6 +868,7 @@
           <Property Name="MAMH" Type="Int32" Nullable="false" />
           <Property Name="HOCKY" Type="Int32" Nullable="false" />
           <Property Name="DTB" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DELETED" Type="Boolean" />
           <NavigationProperty Name="HOCSINH" Relationship="Self.FK__TBMON__MAHS__5629CD9C" FromRole="TBMON" ToRole="HOCSINH" />
           <NavigationProperty Name="LOP" Relationship="Self.FK__TBMON__MALOP__571DF1D5" FromRole="TBMON" ToRole="LOP" />
           <NavigationProperty Name="MONHOC" Relationship="Self.FK__TBMON__MAMH__5812160E" FromRole="TBMON" ToRole="MONHOC" />
@@ -894,6 +897,7 @@
           <Property Name="DIEM" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="NGAYTHI" Type="DateTime" Precision="0" />
           <Property Name="HOCKY" Type="Int32" />
+          <Property Name="DELETED" Type="Boolean" />
           <NavigationProperty Name="HOCSINH" Relationship="Self.FK__THI__MAHS__440B1D61" FromRole="THI" ToRole="HOCSINH" />
           <NavigationProperty Name="LOAIDIEM" Relationship="Self.FK__THI__MALD__46E78A0C" FromRole="THI" ToRole="LOAIDIEM" />
           <NavigationProperty Name="LOP" Relationship="Self.FK__THI__MALOP__44FF419A" FromRole="THI" ToRole="LOP" />
@@ -1534,6 +1538,7 @@
                 <ScalarProperty Name="MAMH" ColumnName="MAMH" />
                 <ScalarProperty Name="HOCKY" ColumnName="HOCKY" />
                 <ScalarProperty Name="DTB" ColumnName="DTB" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1559,6 +1564,7 @@
                 <ScalarProperty Name="DIEM" ColumnName="DIEM" />
                 <ScalarProperty Name="NGAYTHI" ColumnName="NGAYTHI" />
                 <ScalarProperty Name="HOCKY" ColumnName="HOCKY" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
