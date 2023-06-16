@@ -12,8 +12,8 @@
              x:Name="Statistic">
     <Grid Background="Transparent" Margin="0 10 10 10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="6*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.5*"/>
@@ -28,8 +28,8 @@
         </StackPanel>
 
         <!--Statistic-->
-        <lvc:CartesianChart Grid.Row="1" Grid.ColumnSpan="2" x:Name="liveChart" Series="{Binding SeriesCollection}" 
-                            LegendLocation="Right" Background="{StaticResource White}" Margin="100 0">
+        <lvc:CartesianChart Grid.Row="1" x:Name="liveChart" Series="{Binding SeriesCollection}" 
+                            LegendLocation="Right" Background="{StaticResource White}" Margin="10 0"> 
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="" Labels="{Binding Labels}"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
@@ -37,6 +37,23 @@
                 <lvc:Axis Title="Số lượng" Labels="{Binding Formatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
+
+        <ComboBox Grid.Column="1" Grid.Row="1" Name="cbbClass" SelectedIndex="{Binding cbbClassIndex}" HorizontalAlignment="Center"
+                        Width="200"  Height="39" Padding="15 7" VerticalAlignment="Top"
+                                     FontSize="16"
+                                  BorderBrush="{DynamicResource Yale Blue}"
+                                        Foreground="{DynamicResource Yale Blue}"                            
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}" 
+                       materialDesign:HintAssist.HelperText="Lớp" 
+                                    Background="{StaticResource White}"
+                                 ItemsSource="{Binding MyClassList}" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding cbb1Changed}" CommandParameter="{Binding ElementName=cbbClass}"></i:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+        </ComboBox>
 
 
         <!--<lvc:PieChart Grid.Column="1" Grid.Row="1"
@@ -72,22 +89,6 @@
                 </MenuItem>
             </Menu>-->
 
-            <ComboBox Name="cbbClass" SelectedIndex="{Binding cbbClassIndex}" HorizontalAlignment="Center"
-                        Width="200" Margin="70 0" Height="39" Padding="15 0"
-                                     FontSize="16"
-                                  BorderBrush="{DynamicResource Yale Blue}"
-                                        Foreground="{DynamicResource Yale Blue}"                            
-                                  Style="{StaticResource MaterialDesignOutlinedComboBox}" 
-                       materialDesign:HintAssist.HelperText="Lớp" 
-                                    Background="{StaticResource White}"
-                                VerticalContentAlignment="Center" ItemsSource="{Binding MyClassList}">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding cbb1Changed}" CommandParameter="{Binding ElementName=cbbClass}"></i:InvokeCommandAction>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-
-            </ComboBox>
             <!--<ComboBox x:Name="cbbSubject" Style="{StaticResource CbxSubject}" Margin="10 0 0 0"/>-->
         </StackPanel>
 
@@ -99,11 +100,11 @@
             </Grid.ColumnDefinitions>
             <Grid Name="grid_Scale"/>
         </Grid>
-        
+
         <!--Student List-->
         <StackPanel Grid.Row="2">
             <TextBlock FontSize="20" FontWeight="Bold" Foreground="{StaticResource Celestial Blue}" Margin="30,10,0,0" >DANH SÁCH HỌC SINH</TextBlock>
-            <DataGrid x:Name="dtg_Student" HeadersVisibility="None"  Height="200" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+            <DataGrid   x:Name="dtg_Student" HeadersVisibility="None"  Height="200" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                           IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding MyStudentList}" Background="Transparent">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn>
@@ -167,6 +168,6 @@
         </StackPanel>
 
         <!--Image-->
-        <Image Source="../imgs/StatisticImg.png" Grid.Column="1" Grid.Row="2"/>
+        <Image VerticalAlignment="Bottom" Source="../imgs/StatisticImg.png" Grid.Column="1" Grid.Row="2"/>
     </Grid>
 </UserControl>

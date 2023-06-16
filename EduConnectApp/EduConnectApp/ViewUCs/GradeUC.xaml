@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:EduConnectApp.ViewUCs"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" x:Name="ScoreUC"
              d:DesignHeight="576" d:DesignWidth="1054">
     <Grid Background="Transparent" Margin="0 10 10 10">
         <!--<Grid.ColumnDefinitions>
@@ -23,11 +23,11 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <!--Title-->
-            <StackPanel>
+            <StackPanel Margin="10 0">
                 <TextBlock Style="{DynamicResource txtbl_TilleTab}">DANH SÁCH CÁC LỚP</TextBlock>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{DynamicResource txtbl_TilleTab}">GIẢNG DẠY</TextBlock>
-                    <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="Underline">NIÊN KHÓA 2022-2023</TextBlock>
+                    <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="Underline" Text="{Binding schoolYear}"></TextBlock>
                 </StackPanel>
             </StackPanel>
 
@@ -39,12 +39,12 @@
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{DynamicResource txtbl_Infovalue}" Text="Email: "/>
-                        <TextBlock Style="{DynamicResource txtbl_Infovalue}" x:Name="txtbl_Emai" Text="NguyenVanA@gmail.com "/>
+                        <TextBlock Style="{DynamicResource txtbl_Infovalue}" x:Name="txtbl_Emai" Text="{Binding email}"/>
                     </StackPanel>
-                    <TextBlock  Style="{DynamicResource txtbl_Infovalue}" x:Name="tbl_Address" Text="Khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh"/>
+                    <TextBlock  Style="{DynamicResource txtbl_Infovalue}" x:Name="tbl_Address" Text="{Binding address}"/>
                     <TextBlock  Style="{DynamicResource txtbl_Infovalue}" Text="Công tác tại"/>
-                    <TextBlock  Style="{DynamicResource txtbl_Infovalue2}" Text="THPT ĐỐC BINH KIỀU"/>
-                    <TextBlock  Style="{DynamicResource txtbl_Infovalue}" Text="Tổ Hóa - Sinh - Công Nghệ"/>
+                    <TextBlock  Style="{DynamicResource txtbl_Infovalue2}" Text="{Binding school}"/>
+                    <TextBlock  Style="{DynamicResource txtbl_Infovalue}" Text="{Binding group}"/>
                 </StackPanel>
             </Border>
 
@@ -52,8 +52,8 @@
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <Grid>
                 <!--Homeroom Class-->
@@ -65,7 +65,7 @@
 
                     <StackPanel>
                         <TextBlock  Style="{StaticResource txtbl_DtgTitle }" Text="LỚP CHỦ NHIỆM" Margin="30 10 10 0"></TextBlock>
-                        <DataGrid  HeadersVisibility="None"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                        <DataGrid x:Name="dtg_HomeRoomList"  HeadersVisibility="None"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
                           IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding HomeroomList}" Background="Transparent">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn>
@@ -86,7 +86,7 @@
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="1*"/>
                                                         <ColumnDefinition Width="1*"/>
-                                                        <ColumnDefinition Width="2*"/>
+                                                        <ColumnDefinition Width="1.5*"/>
                                                         <ColumnDefinition Width="3*"/>
                                                         <ColumnDefinition Width="0.5*"/>
                                                     </Grid.ColumnDefinitions>
@@ -102,7 +102,10 @@
                                                     <GridSplitter IsEnabled="False" Grid.Column="1" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
                                                     <StackPanel Grid.Column="2">
                                                         <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="SỈ SỐ"></TextBlock>
-                                                        <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding NumofAttendants}"></TextBlock>
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                            <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding NumofAttendants}" ></TextBlock>
+                                                            <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="học sinh" ></TextBlock>
+                                                        </StackPanel>
                                                     </StackPanel>
                                                     <GridSplitter IsEnabled="False" Grid.Column="2" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
 
@@ -123,7 +126,8 @@
 
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction Command="{Binding navScoreDetail}"></i:InvokeCommandAction>
+                                    <i:InvokeCommandAction Command="{Binding Detail}" CommandParameter="{Binding ElementName=dtg_HomeRoomList}"></i:InvokeCommandAction>
+                                    <i:InvokeCommandAction Command="{Binding navScoreTable}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </DataGrid>
@@ -140,8 +144,9 @@
                     <!--Class-->
                     <StackPanel Grid.Row="1">
                         <TextBlock  Style="{StaticResource txtbl_DtgTitle }" Text="LỚP GIẢNG DẠY" Margin="30 5 0 0"></TextBlock>
-                        <DataGrid x:Name="dtg_Class" HeadersVisibility="None"  Height="350" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
-                          IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding ClassList}" Background="Transparent" >
+                        <DataGrid  VerticalScrollBarVisibility="Hidden" x:Name="dtg_Class" HeadersVisibility="None"  Height="350" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                          IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding TeachingList}" Background="Transparent"
+                                  >
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
@@ -161,10 +166,9 @@
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="1*"/>
                                                         <ColumnDefinition Width="1*"/>
-                                                        <ColumnDefinition Width="2*"/>
-                                                        <ColumnDefinition Width="3.5*"/>
+                                                        <ColumnDefinition Width="1.5*"/>
+                                                        <ColumnDefinition Width="3*"/>
                                                         <ColumnDefinition Width="0.5*"/>
-                                                        <ColumnDefinition Width="2*"/>
                                                     </Grid.ColumnDefinitions>
                                                     <StackPanel>
                                                         <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="KHỐI"></TextBlock>
@@ -178,7 +182,10 @@
                                                     <GridSplitter IsEnabled="False" Grid.Column="1" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
                                                     <StackPanel Grid.Column="2">
                                                         <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="SỈ SỐ"></TextBlock>
-                                                        <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding NumofAttendants}"></TextBlock>
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                            <TextBlock Style="{DynamicResource txtbl_ClassValue}" Text="{Binding NumofAttendants}" ></TextBlock>
+                                                            <TextBlock Style="{DynamicResource txtbl_dtgHeader1}" Text="học sinh" ></TextBlock>
+                                                        </StackPanel>
                                                     </StackPanel>
                                                     <GridSplitter IsEnabled="False" Grid.Column="2" BorderThickness="1" BorderBrush="{DynamicResource Green Blue}" Height="60" />
 
@@ -188,10 +195,6 @@
                                                     </StackPanel>
                                                     <Image Grid.Column="4" Height="16" Width="9" Source="D:\UIT\HK4\NMCNPM\DoAn\EduConnectApp\EduConnectApp\imgs\arrowright.png"></Image>
 
-                                                    <Border x:Name="bdr_InputScore" Height="47" Width="133" Grid.Column="5"  CornerRadius="15" Background="{DynamicResource Celestial Blue}">
-                                                        <Button Style="{DynamicResource btn_InputScore}" >
-                                                        </Button>
-                                                    </Border>
                                                 </Grid>
                                                 <!--</Button>-->
                                             </Border>
@@ -202,23 +205,96 @@
 
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction Command="{Binding navScoreDetail}"></i:InvokeCommandAction>
+                                    <i:InvokeCommandAction Command="{Binding Detail}" CommandParameter="{Binding ElementName=dtg_Class}"></i:InvokeCommandAction>
+                                    <i:InvokeCommandAction Command="{Binding navScoreTable}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
 
                         </DataGrid>
                     </StackPanel>
                 </Grid>
-
-
-
             </Grid>
+
+            <!--Input score button-->
             <Grid Grid.Column="1" Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"></RowDefinition>
-                    <RowDefinition Height="2*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Image Margin="5" Grid.Row="1" Source="../imgs/imgScreenScore.png"></Image>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid  Margin="0 10 0 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3.75*"/>
+                        <RowDefinition Height="7*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--HomeroomList Input-->
+                    <DataGrid Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Input1" 
+                              ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding HomeroomList}" 
+                              GridLinesVisibility="None" RowHeight="90"  Padding="0" Margin="0,0,0,174" Grid.RowSpan="2"  >
+                        <DataGrid.Columns >
+                            <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Border x:Name="bdr_InputScore" Height="50" Width="135"   CornerRadius="15" Background="{DynamicResource Celestial Blue}">
+                                            <Button Style="{DynamicResource btn_InputScore}" >
+                                                
+                                            </Button>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding getDetail}" CommandParameter="{Binding ElementName=ScoreUC}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding navInputscore}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </DataGrid>
+
+                    <!--ClassList Input-->
+                    <DataGrid VerticalScrollBarVisibility="Hidden" Grid.Row="1" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Input2" 
+                              ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding TeachingList}" 
+                              GridLinesVisibility="None" RowHeight="100"  Padding="0" Grid.RowSpan="2"  >
+                        <DataGrid.Columns >
+                            <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Border  x:Name="bdr_InputScore" Height="50" Width="135"   CornerRadius="15" Background="{DynamicResource Celestial Blue}">
+                                            <Button Style="{DynamicResource btn_InputScore}" >
+                                            </Button>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding getDetail}" CommandParameter="{Binding ElementName=ScoreUC}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding navInputscore}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </DataGrid>
+                </Grid>
+
+                <!--Semester + img-->
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition  Height="7*"/>
+                    </Grid.RowDefinitions>
+                    <Border VerticalAlignment="Center" Height="70" Background="White" CornerRadius="10" Margin="0 10">
+                        <StackPanel>
+                            <TextBlock Style="{DynamicResource txtbl_DtgTitle}" FontSize="13" Margin="10">KẾ HOẠCH NĂM</TextBlock>
+                            <Image Visibility="{Binding visLine1}" Source="../imgs/SemesterLine1.png"/>
+                            <Image  Visibility="{Binding visLine2}" Source="../imgs/SemesterLine2.png"/>
+                            <TextBlock Style="{DynamicResource txtbl_DtgTitle}" FontSize="7" HorizontalAlignment="Right" Margin="30 0" Text="{Binding semester}"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                    <Image Margin="5" Grid.Row="1" Source="../imgs/imgScreenScore.png" VerticalAlignment="Bottom"></Image>
+                </Grid>
             </Grid>
 
         </Grid>

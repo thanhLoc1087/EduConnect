@@ -112,6 +112,7 @@ namespace EduConnectApp.ViewModel
                     loginVM.Password = "";
                     loginVM.IsLogin = false;
                     loginWindow.ShowDialog();
+                    p.rdBtn_Home.IsChecked= true;
                     if (loginVM.IsLogin)
                     {
                         if (Const.IsAdmin)

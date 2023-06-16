@@ -100,8 +100,9 @@
                               Background="{DynamicResource White}"
                                         Foreground="{DynamicResource Yale Blue}"                            
                                   Style="{StaticResource MaterialDesignOutlinedComboBox}" 
-                                VerticalContentAlignment="Center">
+                                VerticalContentAlignment="Center" >
 
+                        <ComboBoxItem Content="Tổng kết"/>
                         <ComboBoxItem Content="Toán"/>
                         <ComboBoxItem Content="Vật lý"/>
                         <ComboBoxItem Content="Hóa học"/>

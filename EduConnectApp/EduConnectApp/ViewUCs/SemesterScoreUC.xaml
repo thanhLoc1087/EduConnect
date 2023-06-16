@@ -23,27 +23,27 @@
                 <RowDefinition/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Style="{DynamicResource txtbl_TilleTab}" Text="BẢNG ĐIỂM LỚP 9A1"/>
+            <TextBlock Style="{DynamicResource txtbl_TilleTab}" Text="{Binding Title}"/>
 
             <StackPanel Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" Text="NIÊN KHÓA"/>
-                    <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" Text="2022-2023"/>
+                    <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" Text="{Binding schoolYear}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" Text="GVCN: "/>
-                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="Nguyễn Văn A"/>
+                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="{Binding formTeacher}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" Text="GVGD: "/>
-                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="Nguyễn Văn A"/>
+                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="{Binding teachingTeacher}"/>
                 </StackPanel>
             </StackPanel>
 
             <!--Cbb and Search-->
             <StackPanel HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" >
                 <StackPanel  VerticalAlignment="Center" Orientation="Horizontal">
-                    <ComboBox x:Name="cbb_Semester" SelectedIndex="0"  HorizontalAlignment="Left"
+                    <ComboBox x:Name="cbb_Semester" SelectedIndex="{Binding semester}"  HorizontalAlignment="Left"
                         Width="139" Margin="10 0" Height="39" Padding="15 0"
                                      FontSize="16"
                                   BorderBrush="{DynamicResource Yale Blue}"
@@ -56,33 +56,124 @@
                         <ComboBoxItem Content="Học kì 2"/>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding changeDtg}" CommandParameter="{Binding ElementName=scoreUC}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding changeDtgYear}" CommandParameter="{Binding ElementName=scoreUC}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ComboBox>
-                    <ComboBox Name="cbb_Subject" Style="{DynamicResource CbxSubject}" />
-                    <TextBox Style="{DynamicResource SearchBox }"/>
+                    
+                    <!--cbb sub-->
+                    <ComboBox SelectedIndex="1" x:Name="cbb_Subject"   HorizontalAlignment="Left"
+                        Width="139" Margin="10 0" Height="39" Padding="15 0"
+                                     FontSize="16"
+                                  BorderBrush="{DynamicResource Yale Blue}"
+                              Background="{DynamicResource White}"
+                                        Foreground="{DynamicResource Yale Blue}"                            
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}" 
+                                VerticalContentAlignment="Center" >
+
+                        <ComboBoxItem Content="Tổng kết"/>
+                        <ComboBoxItem Content="Toán"/>
+                        <ComboBoxItem Content="Vật lý"/>
+                        <ComboBoxItem Content="Hóa học"/>
+                        <ComboBoxItem Content="Sinh học"/>
+                        <ComboBoxItem Content="Tiếng Anh"/>
+                        <ComboBoxItem Content="Lịch sử"/>
+                        <ComboBoxItem Content="Địa lý"/>
+                        <ComboBoxItem Content="Ngữ văn"/>
+                        <ComboBoxItem Content="Công nghệ"/>
+                        <ComboBoxItem Content="GDCD"/>
+                        <ComboBoxItem Content="Tin học"/>
+                        <ComboBoxItem Content="GDQP"/>
+                        <ComboBoxItem Content="Thể dục"/>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding changeDtgSub}" CommandParameter="{Binding ElementName=scoreUC}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                    <Border CornerRadius="5" Width="295" Height="39" BorderThickness="1" BorderBrush="{DynamicResource Yale Blue}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                      Width="*" />
+                                <ColumnDefinition
+                                      Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox            Padding="15 0"
+                                                    Foreground="{DynamicResource Yale Blue}"
+                                                    FontSize="16" materialDesign:HintAssist.Hint="Tìm kiếm tên"
+                                    Grid.Column="0"
+                                    Margin="8 0 0 0"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    BorderThickness="0"
+                                    MinWidth="200"  Text="{Binding searchText, UpdateSourceTrigger=PropertyChanged}"
+                                    VerticalAlignment="Center" />
+                            <Button
+                                    Style="{StaticResource MaterialDesignToolButton}"
+                                    Grid.Column="1">
+                                <materialDesign:PackIcon
+                                                        Width="50"
+                                                        Height="30"
+                                                        Foreground="{DynamicResource Yale Blue}"
+                                      Kind="Search"
+                                      Opacity=".56"
+                                       />
+                            </Button>
+                        </Grid>
+                    </Border>
+                    <!--<TextBox Style="{DynamicResource SearchBox }"  Text="{Binding searchText, UpdateSourceTrigger=PropertyChanged}"/>-->
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="10 0">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" Text="Sỉ số: "/>
-                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="44 học sinh"/>
+                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="{Binding AmountSt }"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
 
         <!--DataGrid-->
         <Grid  Grid.Row="1" Margin="0 10 10 10">
-            <DataGrid Visibility="Hidden" x:Name="dtg_Semester"   IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding StudentList}"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width=".7*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--HK-->
+            <DataGrid Visibility="Visible" x:Name="dtg_Semester"   IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterListSemester}"  >
                 <DataGrid.Columns >
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="STT" Binding="{Binding number}" Width=".5*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value2}" Header="Họ và tên" Binding="{Binding Name}"  Width="2*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Miệng" Binding="{Binding DOB}"  Width="*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="15 phút" Binding="{Binding Gender}"  Width="*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="45 phút" Binding="{Binding Phone}"  Width="*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Thi" Binding="{Binding Address}"  Width="*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="TBHK" Binding="{Binding Address}"  Width="*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Xếp loại" Binding="{Binding Address}"  Width="*"/>
-                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="*">
+                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="STT" Binding="{Binding num}" Width=".5*"/>
+                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value2}" Header="Họ và tên" Binding="{Binding name}"  Width="2*"/>
+                    <DataGridTextColumn x:Name="co_Mieng" ElementStyle="{DynamicResource txt_value}" Header="Miệng" Binding="{Binding mieng}"  Width="*"/>
+                    <!--<DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="15 phút" Binding="{Binding min15}"  Width="*"/>-->
+                    <DataGridTemplateColumn  x:Name="co_Min15" Header="15 phút" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Style="{DynamicResource txt_value}" Margin="0 0 5 0" Text="{Binding min15_1}"/>
+                                    <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min15_2}"/>
+                                    <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min15_3}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--<DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="45 phút" Binding="{Binding min45}"  Width="*"/>-->
+                    <DataGridTemplateColumn x:Name="co_Min45" Header="45 phút" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Style="{DynamicResource txt_value}" Margin="0 0 5 0" Text="{Binding min45_1}"/>
+                                    <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min45_2}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="co_Test" ElementStyle="{DynamicResource txt_value}" Header="Thi" Binding="{Binding test}"  Width="*"/>
+                    <DataGridTextColumn x:Name="co_TBHK" ElementStyle="{DynamicResource txt_value}" Header="TBHK" Binding="{Binding avg}"  Width="*"/>
+                    <DataGridTextColumn Visibility="Collapsed" x:Name="co_AvgSub" ElementStyle="{DynamicResource txt_value}" Header="TB Môn" Binding="{Binding avgSub}"  Width="*"/>
+                    <DataGridTextColumn Visibility="Collapsed" x:Name="co_RankHK" ElementStyle="{DynamicResource txt_value}" Header="Xếp loại" Binding="{Binding rank}"  Width="*"/>
+                    <DataGridTextColumn Visibility="Collapsed" x:Name="co_ConductHK" ElementStyle="{DynamicResource txt_value}" Header="Hạnh kiểm" Binding="{Binding conduct}"  Width="*"/>
+                    <!--<DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Xếp loại" Binding="{Binding type}"  Width="*"/>-->
+                    <!--<DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -95,39 +186,57 @@
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    </DataGridTemplateColumn>-->
                 </DataGrid.Columns>
 
             </DataGrid>
-            <DataGrid  x:Name="dtg_Year"  IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding StudentList}"  >
+
+            
+            <!--Ca nam-->
+            <DataGrid Visibility="Hidden"  x:Name="dtg_Year"  IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding yearScoreList}"  >
                 <DataGrid.Columns >
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="STT" Binding="{Binding number}" Width=".5*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value2}" Header="Họ và tên" Binding="{Binding Name}"  Width="2*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Học kì 1" Binding="{Binding DOB}"  Width="*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Học kì 2" Binding="{Binding Gender}"  Width="*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Cả năm" Binding="{Binding Phone}"  Width="*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Xếp loại" Binding="{Binding Address}"  Width="*"/>
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Hạnh kiểm" Binding="{Binding Address}"  Width="*"/>
-                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Button Style="{DynamicResource btn_edit}">
-                                        <materialDesign:PackIcon Kind="PencilOutline"/>
-                                    </Button>
-                                    <Button Style="{DynamicResource btn_delete}" >
-                                        <materialDesign:PackIcon Kind="DeleteOutline" />
-                                    </Button>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="STT" Binding="{Binding num}" Width=".5*"/>
+                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value2}" Header="Họ và tên" Binding="{Binding name}"  Width="2*"/>
+                    <DataGridTextColumn x:Name="co_Hk1" ElementStyle="{DynamicResource txt_value}" Header="Học kì 1" Binding="{Binding ses1}"  Width="*"/>
+                    <DataGridTextColumn x:Name="co_Hk2" ElementStyle="{DynamicResource txt_value}" Header="Học kì 2" Binding="{Binding ses2}"  Width="*"/>
+                    <DataGridTextColumn x:Name="co_Year" ElementStyle="{DynamicResource txt_value}" Header="Cả năm" Binding="{Binding year}"  Width="*"/>
+                    <DataGridTextColumn Visibility="Collapsed" x:Name="co_Hk1_tk" ElementStyle="{DynamicResource txt_value}" Header="Học kì 1" Binding="{Binding ses1_tk}"  Width="*"/>
+                    <DataGridTextColumn Visibility="Collapsed" x:Name="co_Hk2_tk" ElementStyle="{DynamicResource txt_value}" Header="Học kì 2" Binding="{Binding ses2_tk}"  Width="*"/>
+                    <DataGridTextColumn Visibility="Collapsed" x:Name="co_Year_tk" ElementStyle="{DynamicResource txt_value}" Header="Cả năm" Binding="{Binding year_tk}"  Width="*"/>
+                    <DataGridTextColumn Visibility="Collapsed" x:Name="co_Rank" ElementStyle="{DynamicResource txt_value}" Header="Xếp loại" Binding="{Binding rank}"  Width="*"/>
+                    <DataGridTextColumn Visibility="Collapsed" x:Name="co_Conduct" ElementStyle="{DynamicResource txt_value}" Header="Hạnh kiểm" Binding="{Binding conduct}"  Width="*"/>
                 </DataGrid.Columns>
-
             </DataGrid>
+            
+            <!--Opearator Edit-->
+            <!--operator Edit-->
+            <Grid Grid.Column="1" Margin="0 10 0 10">
+                <DataGrid  VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Edit" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding StudentList}" GridLinesVisibility="None" RowHeight="50"  >
+                    <DataGrid.Columns >
+                        <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Border  Height="35" Width="35" CornerRadius="10" Background="{DynamicResource Celestial Blue}">
+                                        <Button  Style="{DynamicResource btn_edit}">
+                                            <materialDesign:PackIcon Kind="PencilOutline" Height="15" Width="20" Foreground="White"/>
+                                        </Button>
+                                    </Border>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding getDetail}" CommandParameter="{Binding ElementName=classListUC}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navEditScore}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </DataGrid>
+            </Grid>
 
         </Grid>
-
     </Grid>
 </UserControl>
 
