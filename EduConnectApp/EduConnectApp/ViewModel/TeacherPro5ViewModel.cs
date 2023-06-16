@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace EduConnectApp.ViewModel
 {
-    public class TeacherPro5ViewModel :BaseViewModel
+    public class TeacherPro5ViewModel : BaseViewModel
     {
         public ICommand navEdit { get; }
 
@@ -41,7 +41,7 @@ namespace EduConnectApp.ViewModel
         public string GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
         private string _Email;
         public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
-        public TeacherPro5ViewModel(NavigationStore navigationStore) 
+        public TeacherPro5ViewModel(NavigationStore navigationStore)
         {
             navEdit = new NavigationCommand<EditTeacherPro5ViewModel>(navigationStore, () => new EditTeacherPro5ViewModel(navigationStore));
 
@@ -64,7 +64,7 @@ namespace EduConnectApp.ViewModel
                 var MaTo = temp.MATO;
                 To = DataProvider.Ins.DB.TO1.Where(x => x.MATO == MaTo && x.DELETED == false).FirstOrDefault().TENTO.ToString();
 
-                LopCN = DataProvider.Ins.DB.LOPs.Where(x => x.GVCN == temp.MAGV && x.DELETED == false).FirstOrDefault().TENLOP.ToString();
+                LopCN = DataProvider.Ins.DB.LOPs.Where(x => x.GVCN == temp.MAGV && x.DELETED == false).FirstOrDefault()==null ? "" : DataProvider.Ins.DB.LOPs.Where(x => x.GVCN == temp.MAGV && x.DELETED == false).FirstOrDefault().TENLOP.ToString();
 
                 var GD = DataProvider.Ins.DB.GIANGDAYs.Where(x => x.MAGV == Const.KeyID && x.DELETED == false).ToArray();
                 int[] MaMonGD = new int[GD.Length];
@@ -78,9 +78,9 @@ namespace EduConnectApp.ViewModel
                 {
                     int k = GD[i].MAMH;
                     int j = GD[i].MALOP;
-                    TenMonGD[i] = DataProvider.Ins.DB.MONHOCs.Where(x=>x.MAMH == k && x.DELETED == false).FirstOrDefault().TENMH.ToString();
-                    TenLopGD[i] = DataProvider.Ins.DB.LOPs.Where(x=>x.MALOP == j && x.DELETED == false).FirstOrDefault().TENLOP.ToString();
-                }    
+                    TenMonGD[i] = DataProvider.Ins.DB.MONHOCs.Where(x => x.MAMH == k && x.DELETED == false).FirstOrDefault().TENMH.ToString();
+                    TenLopGD[i] = DataProvider.Ins.DB.LOPs.Where(x => x.MALOP == j && x.DELETED == false).FirstOrDefault().TENLOP.ToString();
+                }
                 TenMonGD = TenMonGD.Distinct().ToArray();
                 TenLopGD = TenLopGD.Distinct().ToArray();
 
@@ -93,7 +93,7 @@ namespace EduConnectApp.ViewModel
                 ID = Const.KeyID.ToString();
                 var temp = DataProvider.Ins.DB.ADMINs.Where(x => x.MAAD == Const.KeyID && x.DELETED == false).FirstOrDefault();
                 HoTen = temp.TENAD;
-            }    
+            }
         }
     }
 }

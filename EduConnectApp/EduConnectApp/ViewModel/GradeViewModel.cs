@@ -119,10 +119,10 @@ namespace EduConnectApp.ViewModel
                         }
                     }
                 }
-                HomeroomList.Add(availableClass);
+                if (availableClass.ClassID !=0)
+                    HomeroomList.Add(availableClass);
 
                 //Lop Giang day
-                int flag = 0;
                 ClassUC classuc = new ClassUC();
 
                 foreach (GIANGDAY gd in Teaching)
@@ -162,10 +162,6 @@ namespace EduConnectApp.ViewModel
             void _Detail(DataGrid p)
             {
                 CurrentSelected = (AvailableClass)p.SelectedItem;
-            }
-            void _Scroll(GradeUC p)
-            {
-                //p.dtg_Input2.ScrollIntoView();
             }
             void _GetDetail(GradeUC p)
             {
