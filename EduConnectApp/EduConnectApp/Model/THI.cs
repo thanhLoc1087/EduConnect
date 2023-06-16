@@ -22,7 +22,6 @@ namespace EduConnectApp.Model
         public string DIEM { get; set; }
         public Nullable<System.DateTime> NGAYTHI { get; set; }
         public Nullable<int> HOCKY { get; set; }
-        public Nullable<bool> DELETED { get; set; }
     
         public virtual HOCSINH HOCSINH { get; set; }
         public virtual LOAIDIEM LOAIDIEM { get; set; }
