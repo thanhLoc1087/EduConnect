@@ -110,13 +110,14 @@ namespace EduConnectApp.ViewModel
                         availableClass.Grade = " " + lop.TENLOP.Substring(0, 2);
                         availableClass.Class = lop.TENLOP;
                         availableClass.NumofAttendants=(int)lop.SISO;
-                        foreach (GIAOVIEN gv in Teacher  )
+                        foreach (GIAOVIEN gv in Teacher)
                         {
                             if (gv.MAGV == lop.GVCN&& gv.DELETED ==false) availableClass.Teacher = gv.HOTEN;
                         }
                     }
                 }
-                HomeroomList.Add(availableClass);
+                if (availableClass.ClassID != 0)
+                    HomeroomList.Add(availableClass);
 
                 //Lop Giang day
                 vis1 = "Collapsed";
@@ -146,15 +147,15 @@ namespace EduConnectApp.ViewModel
                         }
 
                         var temp3 = DataProvider.Ins.DB.MONHOCs.Where(x => x.MAMH == gd.MAMH && x.DELETED == false).FirstOrDefault();
-                        if (flag== 0) { subject1 = temp3.TENMH; flag=1; vis1 = "Visible";  }
-                        if (flag== 1 && subject1 != temp3.TENMH) { subject2= temp3.TENMH;flag =2; vis2 = "Visible"; }
+                        if (flag== 0) { subject1 = temp3.TENMH; flag=1; vis1 = "Visible"; }
+                        if (flag== 1 && subject1 != temp3.TENMH) { subject2= temp3.TENMH; flag =2; vis2 = "Visible"; }
                         if (flag== 2 && subject1 != temp3.TENMH && subject2 != temp3.TENMH) { subject3= temp3.TENMH; vis1 = "Visible"; }
                     }
                 }
             }
         }
 
-        void _Detail (DataGrid p )
+        void _Detail(DataGrid p)
         {
             CurrentSelected =(AvailableClass)p.SelectedItem;
 
