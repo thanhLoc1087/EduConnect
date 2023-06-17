@@ -54,7 +54,7 @@
                         <ComboBoxItem Content="Tất cả"></ComboBoxItem>
                         <ComboBoxItem Content="Nam"></ComboBoxItem>
                         <ComboBoxItem Content="Nữ"></ComboBoxItem>
-                    </ComboBox> 
+                    </ComboBox>
                     <StackPanel Margin="10 0" 
                               Orientation="Horizontal"
                               materialDesign:RippleAssist.IsCentered="True">
@@ -101,22 +101,22 @@
 
         <!--DataGrid-->
         <ScrollViewer VerticalScrollBarVisibility="Hidden" Grid.Row="1">
-        <Grid PreviewMouseWheel="Grid_PreviewMouseWheel">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="8*"/>
-                <ColumnDefinition Width=".7*"/>
-                <ColumnDefinition Width=".7*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Margin="0 10 0 10">
-                <DataGrid VerticalScrollBarVisibility="Disabled" FontSize=" 18" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Student" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterList}" RowHeight="50" >
-                    <DataGrid.Columns  >
-                        <DataGridTextColumn  ElementStyle="{DynamicResource txt_value}" Header="STT" Binding="{Binding number}" Width=".5*"/>
-                        <DataGridTextColumn ElementStyle="{DynamicResource txt_value2}" Header="Họ và tên" Binding="{Binding Name}"  Width="2*"/>
-                        <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Ngày sinh" Binding="{Binding DOB}"  Width="1.2*"/>
-                        <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Giới tính" Binding="{Binding Gender}"  Width="0.8*"/>
-                        <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Số điện thoại" Binding="{Binding Phone}"  Width="1.2*"/>
-                        <DataGridTextColumn ElementStyle="{DynamicResource txt_value2}" Header="Địa chỉ" Binding="{Binding Address}"  Width="2*"/>
-                        <!--<DataGridTemplateColumn Header="Operations" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
+            <Grid PreviewMouseWheel="Grid_PreviewMouseWheel">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width=".7*"/>
+                    <ColumnDefinition Width=".7*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Margin="0 10 0 10">
+                    <DataGrid VerticalScrollBarVisibility="Disabled" FontSize=" 15" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Student" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterList}" RowHeight="50" >
+                        <DataGrid.Columns  >
+                            <DataGridTextColumn  ElementStyle="{DynamicResource txt_value}" Header="STT" Binding="{Binding number}" Width=".5*"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource txt_value2}" Header="Họ và tên" Binding="{Binding Name}"  Width="2*"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Ngày sinh" Binding="{Binding DOB}"  Width="1.2*"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Giới tính" Binding="{Binding Gender}"  Width="0.8*"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Số điện thoại" Binding="{Binding Phone}"  Width="1.2*"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource txt_value2}" Header="Địa chỉ" Binding="{Binding Address}"  Width="2*"/>
+                            <!--<DataGridTemplateColumn Header="Operations" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
                         <DataGridTemplateColumn.CellTemplate >
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -130,72 +130,72 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>-->
-                    </DataGrid.Columns>
+                        </DataGrid.Columns>
 
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding Detail}" CommandParameter="{Binding ElementName=dtg_Student}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding navDetail}"></i:InvokeCommandAction>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </DataGrid>
-            </Grid>
-            
-            <!--operator Edit-->
-            <Grid Grid.Column="1" Margin="0 10 0 10">
-                <DataGrid  VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Edit" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterList}" GridLinesVisibility="None" RowHeight="50"  >
-                    <DataGrid.Columns >
-                        <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
-                        <DataGridTemplateColumn.CellTemplate >
-                            <DataTemplate>
-                                    <Border  Height="35" Width="35" CornerRadius="10" Background="{DynamicResource Celestial Blue}">
-                                        <Button  Style="{DynamicResource btn_edit}">
-                                            <materialDesign:PackIcon Kind="PencilOutline" Height="15" Width="20" Foreground="White"/>
-                                        </Button>
-                                    </Border>
-                                    
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    </DataGrid.Columns>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding Detail}" CommandParameter="{Binding ElementName=dtg_Student}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding navDetail}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </DataGrid>
+                </Grid>
 
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding getDetail}" CommandParameter="{Binding ElementName=classListUC}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding navEditStPro5}"></i:InvokeCommandAction>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </DataGrid>
-            </Grid>
-            
-            <!--operator Delete-->
-            <Grid Grid.Column="2" Margin="0 10 10 10">
+                <!--operator Edit-->
+                <Grid Grid.Column="1" Margin="0 10 0 10">
+                    <DataGrid  VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Edit" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterList}" GridLinesVisibility="None" RowHeight="50"  >
+                        <DataGrid.Columns >
+                            <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Border  Height="35" Width="35" CornerRadius="10" Background="{DynamicResource Celestial Blue}">
+                                            <Button  Style="{DynamicResource btn_edit}">
+                                                <materialDesign:PackIcon Kind="PencilOutline" Height="15" Width="20" Foreground="White"/>
+                                            </Button>
+                                        </Border>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding getDetail}" CommandParameter="{Binding ElementName=classListUC}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding navEditStPro5}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </DataGrid>
+                </Grid>
+
+                <!--operator Delete-->
+                <Grid Grid.Column="2" Margin="0 10 10 10">
                     <DataGrid VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dtg_Delete" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterList}" GridLinesVisibility="None" RowHeight="50" ColumnWidth="50" >
-                    <DataGrid.Columns >
-                        <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
-                        <DataGridTemplateColumn.CellTemplate >
-                            <DataTemplate>
-                                    <Border  Height="35" Width="35" CornerRadius="10" Background="{DynamicResource Engineering Orange}">
-                                        <Button  Style="{DynamicResource btn_edit}">
-                                            <materialDesign:PackIcon Kind="DeleteOutline" Height="15" Width="20" Foreground="White"/>
-                                        </Button>
-                                    </Border>
-                                    
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    </DataGrid.Columns>
+                        <DataGrid.Columns >
+                            <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Border  Height="35" Width="35" CornerRadius="10" Background="{DynamicResource Engineering Orange}">
+                                            <Button  Style="{DynamicResource btn_edit}">
+                                                <materialDesign:PackIcon Kind="DeleteOutline" Height="15" Width="20" Foreground="White"/>
+                                            </Button>
+                                        </Border>
 
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=classListUC}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding navClassList}"></i:InvokeCommandAction>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </DataGrid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=classListUC}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding navClassList}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </DataGrid>
+                </Grid>
+
             </Grid>
-
-        </Grid>
         </ScrollViewer>
     </Grid>
 </UserControl>

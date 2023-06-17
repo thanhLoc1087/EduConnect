@@ -287,7 +287,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{DynamicResource Tomato}" CornerRadius="7" Height="50" Width="150" Padding="0">
+                    <Border Background="{DynamicResource Tomato}" CornerRadius="7" Height="45" Width="140" Padding="0">
                         <Button FontWeight="SemiBold" Content="Quay lại" Foreground="{DynamicResource White}" FontSize="18"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
                     </Border>
                 </ControlTemplate>
@@ -311,8 +311,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Margin="10 0" Height="50" Width="50" Background="{DynamicResource Green Blue}" CornerRadius="7">
-                        <Image Source="../imgs/editIcon.png" Height="23" Width="23"/>
+                    <Border Margin="10 0" Height="45" Width="45" Background="{DynamicResource Green Blue}" CornerRadius="7">
+                        <Image Source="../imgs/editIcon.png" Height="20" Width="20"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -335,7 +335,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Height="50" Width="50"  Background="{DynamicResource Tomato}" CornerRadius="7">
+                    <Border Height="45" Width="45"  Background="{DynamicResource Tomato}" CornerRadius="7">
                         <Image Source="../imgs/trash.png" Height="25" Width="25"/>
                     </Border>
                 </ControlTemplate>
@@ -347,7 +347,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Height="50" Width="50" Background="#40C9C9" CornerRadius="7">
+                    <Border Height="45" Width="45" Background="#40C9C9" CornerRadius="7">
                         <Image Source="../imgs/printer.png" Height="30" Width="30"/>
                     </Border>
                 </ControlTemplate>
@@ -629,6 +629,15 @@
         <Setter Property="FontWeight" Value="Medium"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Padding" Value="10"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="dtg_Header2" TargetType="DataGridColumnHeader">
+        <Setter Property="Foreground" Value="{DynamicResource Yale Blue}"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Padding" Value="3"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Width" Value="auto"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
