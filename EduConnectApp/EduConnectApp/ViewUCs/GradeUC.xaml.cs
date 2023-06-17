@@ -24,5 +24,13 @@ namespace EduConnectApp.ViewUCs
         {
             InitializeComponent();
         }
+        private void Grid_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            Grid grid = sender as Grid;
+            ScrollViewer scv = grid.Parent as ScrollViewer;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using EduConnectApp.Model;
+﻿using EduConnectApp.Commands;
+using EduConnectApp.Model;
 using EduConnectApp.Store;
 using EduConnectApp.ViewUCs;
 using System;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace EduConnectApp.ViewModel
@@ -17,6 +19,7 @@ namespace EduConnectApp.ViewModel
         public struct semesterScore
         {
             public int num { get; set; }
+            public int stID { get; set; }
             public string name { get; set; }
             public string mieng { get; set; }
             public string min15_1 { get; set; }
@@ -34,17 +37,31 @@ namespace EduConnectApp.ViewModel
         public struct yearScore
         {
             public int num { get; set; }
+            public int stID { get; set; }
             public string name { get; set; }
             public string ses1 { get; set; }
             public string ses2 { get; set; }
             public string year { get; set; }
+            public string ses1_tk { get; set; }
+            public string ses2_tk { get; set; }
+            public string year_tk { get; set; }
             public string rank { get; set; }
             public string conduct { get; set; }
         }
 
+        public struct selectedStudent
+        {
+            public int malop { get; set; }
+            public int mahs { get; set; }
+            public int hk { get; set; }
+        }
+        public static selectedStudent CurrentSelected { get; set; }
 
         public ICommand changeDtgYear { get; }
         public ICommand changeDtgSub { get; }
+        public ICommand Detail { get; }
+        public ICommand navScoreDetail { get; }
+        public ICommand navBack { get; }
 
         private string _Title;
         public string Title { get => _Title; set { _Title = value; OnPropertyChanged(); } }
@@ -67,6 +84,10 @@ namespace EduConnectApp.ViewModel
         public ObservableCollection<THI> TestList { get => _TestList; set { _TestList = value; OnPropertyChanged(); } }
         private ObservableCollection<HOCTAP> _LearningList;
         public ObservableCollection<HOCTAP> LearningList { get => _LearningList; set { _LearningList = value; OnPropertyChanged(); } }
+        private ObservableCollection<TBMON> _avgSubList;
+        public ObservableCollection<TBMON> avgSubList { get => _avgSubList; set { _avgSubList = value; OnPropertyChanged(); } }
+        private ObservableCollection<KETQUA> _resultList;
+        public ObservableCollection<KETQUA> resultList { get => _resultList; set { _resultList = value; OnPropertyChanged(); } }
 
         private string _searchText;
         public string searchText
@@ -77,6 +98,7 @@ namespace EduConnectApp.ViewModel
                 _searchText = value;
                 OnPropertyChanged("searchText");
                 OnPropertyChanged("MyFilterListSemester");
+                OnPropertyChanged("MyFilterListYear");
             }
         }
 
@@ -84,10 +106,21 @@ namespace EduConnectApp.ViewModel
         {
             get
             {
-                if (searchText == null)
+                if (searchText == null || searchText == "")
                     return semesterScoreList;
                 else
                     return semesterScoreList.Where(x => (x.name.ToUpper().Contains(searchText.ToUpper())));
+
+            }
+        }
+        public IEnumerable<yearScore> MyFilterListYear
+        {
+            get
+            {
+                if (searchText == null || searchText == "")
+                    return yearScoreList;
+                else
+                    return yearScoreList.Where(x => (x.name.ToUpper().Contains(searchText.ToUpper())));
 
             }
         }
@@ -96,13 +129,20 @@ namespace EduConnectApp.ViewModel
         public SemesterScoreViewModel(NavigationStore navigationStore)
         {
             GradeViewModel.AvailableClass classSelected = GradeViewModel.CurrentSelected;
+            //navigate
+            navScoreDetail = new NavigationCommand<ScoreDetailViewModel>(navigationStore, () => new ScoreDetailViewModel(navigationStore));
+            navBack = new NavigationCommand<GradeViewModel>(navigationStore, () => new GradeViewModel(navigationStore));
 
+            //command
             changeDtgYear = new RelayCommand<SemesterScore>((p) => { return true; }, (p) => _UpdateYearCbb(p, classSelected.ClassID));
             changeDtgSub = new RelayCommand<SemesterScore>((p) => { return true; }, (p) => _UpdateSubjectCbb(p, classSelected.ClassID));
+            Detail = new RelayCommand<DataGrid>((p) => { return p.SelectedItem==null?false:true; }, (p) => _Detail(p, classSelected.ClassID));
 
             //List
             TestList = new ObservableCollection<THI>(DataProvider.Ins.DB.THIs.Where(x => x.DELETED == false));
             LearningList = new ObservableCollection<HOCTAP>(DataProvider.Ins.DB.HOCTAPs.Where(x => x.DELETED == false));
+            avgSubList = new ObservableCollection<TBMON>(DataProvider.Ins.DB.TBMONs.Where(x => x.DELETED == false));
+            resultList = new ObservableCollection<KETQUA>(DataProvider.Ins.DB.KETQUAs.Where(x => x.DELETED == false));
 
             //Title
             Title = "BẢNG ĐIỂM LỚP " + classSelected.Class;
@@ -114,9 +154,35 @@ namespace EduConnectApp.ViewModel
             //Semester
             semester = Const.Semester;
             _UpdateScoreSemester(1, classSelected.ClassID, semester);
-
+            _UpdateScoreYear(1, classSelected.ClassID);
         }
 
+        void _Detail(DataGrid p, int malop)
+        {
+            selectedStudent st = new selectedStudent();
+            if (p.Name == "dtg_Semester")
+            {
+                semesterScore sc = new semesterScore();
+                sc = (semesterScore)p.SelectedItem;
+                st.malop = malop; 
+                st.mahs = sc.stID;
+                st.hk = semester;
+            }
+            else
+            {
+                yearScore yc = (yearScore)p.SelectedItem;
+                st.malop = malop;
+                st.mahs = yc.stID;
+                st.hk = semester;
+            }
+            CurrentSelected = st;
+        }
+
+
+        void _Update(SemesterScore p)
+        {
+            p.dtg_Semester.IsHitTestVisible= false;
+        }
         void _UpdateYearCbb(SemesterScore p, int classID)
         {
             semester = p.cbb_Semester.SelectedIndex;
@@ -124,6 +190,7 @@ namespace EduConnectApp.ViewModel
             {
                 p.dtg_Semester.Visibility=Visibility.Hidden;
                 p.dtg_Year.Visibility=Visibility.Visible;
+                p.dtg_semesterEdit.IsHitTestVisible = false;
             }
             else
             {
@@ -132,6 +199,8 @@ namespace EduConnectApp.ViewModel
 
             }
             _UpdateScoreSemester(p.cbb_Subject.SelectedIndex, classID, semester);
+            _UpdateScoreYear(p.cbb_Subject.SelectedIndex, classID);
+            p.dtg_Year.Items.Refresh();
             p.dtg_Semester.Items.Refresh();
         }
         void _UpdateSubjectCbb(SemesterScore p, int classID)
@@ -179,6 +248,8 @@ namespace EduConnectApp.ViewModel
 
                 _UpdateTeachingTeacher(p.cbb_Subject.SelectedIndex, classID);
                 _UpdateScoreSemester(p.cbb_Subject.SelectedIndex, classID, semester);
+                _UpdateScoreYear(p.cbb_Subject.SelectedIndex, classID);
+                p.dtg_Year.Items.Refresh();
                 p.dtg_Semester.Items.Refresh();
             }
         }
@@ -194,22 +265,78 @@ namespace EduConnectApp.ViewModel
             else teachingTeacher = "";
         }
 
+        void _UpdateScoreYear(int subID, int classID)
+        {
+            yearScoreList.Clear();
+            int index = 0;
+            foreach (HOCTAP ht in LearningList)
+            {
+                if (ht.MALOP ==  classID)
+                {
+                    yearScore yc = new yearScore();
+                    index++;
+                    var tempStudent = DataProvider.Ins.DB.HOCSINHs.Where(x => x.MAHS == ht.MAHS && x.DELETED == false).FirstOrDefault();
+                    yc.name = tempStudent.HOTEN;
+                    yc.stID = (int)ht.MAHS;
+                    yc.num=index;
+
+                    foreach (TBMON tbm in avgSubList)
+                    {
+                        if (tbm.MAHS == ht.MAHS && tbm.MALOP == classID && tbm.MAMH == subID)
+                        {
+                            switch (tbm.HOCKY)
+                            {
+                                case 0:
+                                    yc.year = tbm.DTB.ToString(); break;
+                                case 1:
+                                    yc.ses1 = tbm.DTB.ToString(); break;
+                                case 2:
+                                    yc.ses2 = tbm.DTB.ToString(); break;
+                            }
+                        }
+                    }
+                    foreach (KETQUA kq in resultList)
+                    {
+                        if (kq.MAHS == ht.MAHS && kq.MALOP == classID)
+                        {
+                            switch (kq.HOCKY)
+                            {
+                                case 0:
+                                    yc.year_tk = kq.DTB.ToString(); break;
+                                case 1:
+                                    yc.ses1_tk = kq.DTB.ToString(); break;
+                                case 2:
+                                    yc.ses2_tk = kq.DTB.ToString(); break;
+                            }
+                            yc.rank = kq.XEPLOAI;
+                            yc.conduct = kq.HANHKIEM;
+                        }
+                    }
+
+                    yearScoreList.Add(yc);
+                }
+
+            }
+        }
+
         void _UpdateScoreSemester(int subID, int classID, int semester)
         {
             semesterScoreList.Clear();
 
             string[] scoreTemp = Enumerable.Repeat("", 3).ToArray();
             string[] scoreTemp45 = Enumerable.Repeat("", 3).ToArray();
-            semesterScore sc = new semesterScore();
-            sc.num = 0;
+            int num = 0;
             int index = 0, index45 = 0;
             foreach (HOCTAP ht in LearningList)
             {
                 if (ht.MALOP ==  classID)
                 {
+                    num++;
+                    semesterScore sc = new semesterScore();
+                    sc.num= num;
                     var tempStudent = DataProvider.Ins.DB.HOCSINHs.Where(x => x.MAHS == ht.MAHS && x.DELETED == false).FirstOrDefault();
                     sc.name = tempStudent.HOTEN;
-                    sc.num++;
+                    sc.stID = (int)ht.MAHS;
 
                     foreach (THI thi in TestList)
                     {
@@ -235,22 +362,27 @@ namespace EduConnectApp.ViewModel
                             }
                         }
                     }
-                    var tempTBHK = DataProvider.Ins.DB.TBMONs.Where(x => x.MAHS == ht.MAHS && x.MALOP==classID && x.MAMH == subID  && x.DELETED == false).FirstOrDefault();
+                    var tempTBHK = DataProvider.Ins.DB.TBMONs.Where(x => x.MAHS == ht.MAHS && x.MALOP==classID && x.MAMH == subID  && x.HOCKY == semester&& x.DELETED == false).FirstOrDefault();
                     if (tempTBHK!=null)
-                    {
                         sc.avg = tempTBHK.DTB;
-                        sc.min15_1 = scoreTemp[0];
-                        sc.min15_2 = scoreTemp[1];
-                        sc.min15_3 = scoreTemp[2];
-                        sc.min45_1= scoreTemp45[0];
-                        sc.min45_2= scoreTemp45[1];
-                        index=0;
-                        scoreTemp = Enumerable.Repeat("", 3).ToArray();
-                        index45=0;
-                        scoreTemp45 = Enumerable.Repeat("", 3).ToArray();
-
-                        semesterScoreList.Add(sc);
+                    sc.min15_1 = scoreTemp[0];
+                    sc.min15_2 = scoreTemp[1];
+                    sc.min15_3 = scoreTemp[2];
+                    sc.min45_1= scoreTemp45[0];
+                    sc.min45_2= scoreTemp45[1];
+                    index=0;
+                    scoreTemp = Enumerable.Repeat("", 3).ToArray();
+                    index45=0;
+                    scoreTemp45 = Enumerable.Repeat("", 3).ToArray();
+                    var tempKQ = DataProvider.Ins.DB.KETQUAs.Where(x => x.MAHS == ht.MAHS && x.MALOP==classID && x.HOCKY == semester && x.DELETED == false).FirstOrDefault();
+                    if (tempKQ!=null)
+                    {
+                        sc.avgSub =  tempKQ.DTB.ToString();
+                        sc.rank = tempKQ.XEPLOAI;
+                        sc.conduct=tempKQ.HANHKIEM;
                     }
+                    semesterScoreList.Add(sc);
+
                 }
             }
 

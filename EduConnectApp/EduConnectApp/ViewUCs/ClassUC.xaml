@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <!--Title-->
-        <StackPanel>
+        <StackPanel Margin="10 0">
             <TextBlock Style="{DynamicResource txtbl_TilleTab}">DANH SÁCH CÁC LỚP</TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Style="{DynamicResource txtbl_TilleTab}">GIẢNG DẠY</TextBlock>
@@ -131,7 +131,7 @@
             <!--Class-->
             <StackPanel Grid.Row="1">
                 <TextBlock  Style="{StaticResource txtbl_DtgTitle }" Text="LỚP GIẢNG DẠY" Margin="30 5 0 0"></TextBlock>
-                <DataGrid x:Name="dtg_Class" HeadersVisibility="None"  Height="350" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                <DataGrid GridLinesVisibility="None" x:Name="dtg_Class" HeadersVisibility="None"  Height="350" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
                           IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header1}" ItemsSource="{Binding TeachingList}" Background="Transparent" >
                     <DataGrid.Columns>
                         <DataGridTemplateColumn>
