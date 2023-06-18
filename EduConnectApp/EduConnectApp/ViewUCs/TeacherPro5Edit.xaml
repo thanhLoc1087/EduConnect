@@ -64,10 +64,29 @@
                             >
 
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="../imgs/avtusr.jpg"/>
+                            <ImageBrush x:Name="avt" ImageSource="{Binding Ava}"/>
                         </Ellipse.Fill>
 
 
+                    </Ellipse>
+                    <Ellipse
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Width="40"
+                                Height="40"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Margin="10 0 32 5"
+                                >
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="../imgs/camera.png"/>
+                        </Ellipse.Fill>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDown">
+                                <i:InvokeCommandAction Command="{Binding UpdateAva}" CommandParameter="{Binding ElementName=avt}" ></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </Ellipse>
 
                     <StackPanel
@@ -264,6 +283,7 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=tcPro5Edit}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding ReloadAva}" CommandParameter="{Binding ElementName=mainWd}"></i:InvokeCommandAction>
                                 <i:InvokeCommandAction Command="{Binding navBack}" ></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

@@ -22,7 +22,7 @@ namespace EduConnectApp.UCViewModel
             public string PhoneNum { get; set; }
             public string Email { get; set; }
             public string Address { get; set; }
-
+            public string Ava { get; set; }
         }
 
         public ICommand navClassListUC { get; }

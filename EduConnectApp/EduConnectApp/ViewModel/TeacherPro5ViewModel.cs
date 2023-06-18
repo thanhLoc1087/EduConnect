@@ -41,6 +41,8 @@ namespace EduConnectApp.ViewModel
         public string GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
         private string _Email;
         public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
+        private string _Ava;
+        public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public TeacherPro5ViewModel(NavigationStore navigationStore)
         {
             navEdit = new NavigationCommand<EditTeacherPro5ViewModel>(navigationStore, () => new EditTeacherPro5ViewModel(navigationStore));
@@ -60,6 +62,7 @@ namespace EduConnectApp.ViewModel
                 else
                     GioiTinh = "Nam";
                 Email = temp.EMAIL;
+                Ava = temp.AVA;
 
                 var MaTo = temp.MATO;
                 To = DataProvider.Ins.DB.TO1.Where(x => x.MATO == MaTo && x.DELETED == false).FirstOrDefault().TENTO.ToString();
@@ -93,6 +96,7 @@ namespace EduConnectApp.ViewModel
                 ID = Const.KeyID.ToString();
                 var temp = DataProvider.Ins.DB.ADMINs.Where(x => x.MAAD == Const.KeyID && x.DELETED == false).FirstOrDefault();
                 HoTen = temp.TENAD;
+                Ava = temp.AVA;
             }
         }
     }

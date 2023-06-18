@@ -32,6 +32,7 @@ namespace EduConnectApp.Model
         public Nullable<int> MALOGIN { get; set; }
         public Nullable<int> MATO { get; set; }
         public Nullable<bool> DELETED { get; set; }
+        public string AVA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GIANGDAY> GIANGDAYs { get; set; }

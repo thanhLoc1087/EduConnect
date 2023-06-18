@@ -1,6 +1,7 @@
 ﻿using EduConnectApp.Commands;
 using EduConnectApp.Model;
 using EduConnectApp.Store;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.Windows.Controls;
+using EduConnectApp.ViewUCs;
 
 namespace EduConnectApp.ViewModel
 {
@@ -47,17 +52,23 @@ namespace EduConnectApp.ViewModel
         public string DanToc { get => _DanToc; set { _DanToc = value; OnPropertyChanged(); } }
         private string _TonGiao;
         public string TonGiao { get => _TonGiao; set { _TonGiao = value; OnPropertyChanged(); } }
+        private string _Ava;
+        public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public string[] GTList { get; set; } = { "Nam", "Nữ" };
         public string[] ClassList { get; set; }
 
         public ICommand navBack { get; }
         public ICommand EditCommand { get; }
+        public ICommand UpdateAva { get; set; }
 
         public EditStudentPro5ViewModel(NavigationStore navigationStore)
         {
             //navigate
             navBack = new NavigationCommand<StudentPro5ViewModel>(navigationStore, () => new StudentPro5ViewModel(navigationStore));
-            
+
+            // update ava
+            UpdateAva = new RelayCommand<Image>((p) => { return true; }, (p) => _updateAva(p));
+
             //classList
             var classList = DataProvider.Ins.DB.LOPs.Where(x=>x.DELETED == false).ToList();
             ClassList = new string[classList.Count()];
@@ -79,6 +90,7 @@ namespace EduConnectApp.ViewModel
             SDT = studentSelected.SDT;
             DiaChi = studentSelected.DIACHI;
             ChinhSach = studentSelected.CHINHSACH;
+            Ava = studentSelected.AVA;
             var temp = DataProvider.Ins.DB.HOCTAPs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault();
             Lop = DataProvider.Ins.DB.LOPs.Where(x => x.MALOP == temp.MALOP && x.DELETED == false).SingleOrDefault().TENLOP;
 
@@ -114,6 +126,7 @@ namespace EduConnectApp.ViewModel
                 if (GioiTinh == "Nam")
                     std.GIOITINH = false;
                 else std.GIOITINH = true;
+                std.AVA = Ava;
 
                 var phhs = DataProvider.Ins.DB.PHUHUYNHs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault();
                 phhs.HOTENBO = TenCha;
@@ -130,6 +143,18 @@ namespace EduConnectApp.ViewModel
                 MessageBox.Show("Lưu thông tin thành công!");
                 DataProvider.Ins.DB.SaveChanges();
             });
+
+        }
+        void _updateAva(Image p)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.png)|*.jpg; *.png";
+            if (open.ShowDialog() == true)
+            {
+                var linkImg = open.FileName;
+                p.Source = (ImageSource)new ImageSourceConverter().ConvertFromString(linkImg);
+                Ava = linkImg.ToString();
+            }
         }
     }
 }

@@ -42,7 +42,15 @@ namespace EduConnectApp.ViewModel
         public ICommand navInputScore { get; }
         public ICommand navEditScore { get; }
         public ICommand LogOut { get; }
-
+        private string _Ava;
+        public string Ava
+        {
+            get => _Ava;
+            set
+            {
+                _Ava = value; OnPropertyChanged();
+            }
+        }
         public MainViewModel(NavigationStore navigationStore)
         {
             LoadedMainWd = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
@@ -68,6 +76,12 @@ namespace EduConnectApp.ViewModel
                     {
                         NameUsr = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MAGV == Const.KeyID && x.DELETED != true).ToList()[0].HOTEN.ToString();
                         Role = "GIÁO VIÊN";
+                    }
+                    Ava = Const.AVA;
+                    if (Ava != null)
+                    {
+                        //string str = Const._localLink + Const.AVA.Remove(0, 2);
+                        p.ava.ImageSource = (ImageSource)new ImageSourceConverter().ConvertFromString(Ava);
                     }
                     p.Show();
                 }
@@ -124,6 +138,12 @@ namespace EduConnectApp.ViewModel
                         {
                             NameUsr = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MAGV == Const.KeyID && x.DELETED != true).ToList()[0].HOTEN.ToString();
                             Role = "GIÁO VIÊN";
+                        }
+                        Ava = Const.AVA;
+                        if (Ava != null)
+                        {
+                            //string str = Const._localLink + Const.AVA.Remove(0, 2);
+                            p.ava.ImageSource = (ImageSource)new ImageSourceConverter().ConvertFromString(Ava);
                         }
                         p.Show();
                     }

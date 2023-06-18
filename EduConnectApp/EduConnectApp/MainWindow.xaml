@@ -70,7 +70,7 @@
                         <Ellipse Height="45" Width="45" HorizontalAlignment="Left">
                             <Ellipse.Fill>
                                 <!--<ImageBrush x:Name="ava" ImageSource="{Binding Ava}" ></ImageBrush>-->
-                                <ImageBrush x:Name="ava" ImageSource="./imgs/avtusr.jpg"></ImageBrush>
+                                <ImageBrush x:Name="ava" ImageSource="{Binding Ava}"></ImageBrush>
                             </Ellipse.Fill>
                         </Ellipse>
                         <StackPanel Grid.Column="2" Margin="10 0">
@@ -306,6 +306,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:EditStudentPro5ViewModel}">
                     <viewuc:StudentPro5Edit></viewuc:StudentPro5Edit>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:ExportPro5ViewModel}">
+                    <viewuc:ExportPro5></viewuc:ExportPro5>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
