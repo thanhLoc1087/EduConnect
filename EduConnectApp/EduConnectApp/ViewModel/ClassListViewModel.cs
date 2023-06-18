@@ -87,10 +87,10 @@ namespace EduConnectApp.ViewModel
                 if (searchText == null && filterText == null)
                         return StudentList;
                 if (searchText == null && filterText != null)
-                    return StudentList.Where(x=> x.Gender == filterText);
+                    return StudentList.Where(x=> x.Gender == filterText || filterText == "Tất cả");
                 if (searchText != null && filterText == null)
                     return StudentList.Where(x => (x.Name.ToUpper().Contains(searchText.ToUpper())));
-                return StudentList.Where(x => (x.Name.ToUpper().Contains(searchText.ToUpper())) && x.Gender == filterText);
+                return StudentList.Where(x => (x.Name.ToUpper().Contains(searchText.ToUpper())) && (x.Gender == filterText || filterText == "Tất cả"));
             }
         }
 

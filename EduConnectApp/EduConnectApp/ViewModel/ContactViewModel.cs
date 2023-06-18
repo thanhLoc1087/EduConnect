@@ -28,6 +28,7 @@ namespace EduConnectApp.ViewModel
             public string PhoneNum { get; set; }
             public string Email { get; set; }
             public string Address { get; set; }
+            public string Ava { get; set; }
 
         }
         public ICommand navClassListUC { get; }
@@ -82,6 +83,7 @@ namespace EduConnectApp.ViewModel
                 teacher.Address = gv.DIACHI;
                 teacher.PhoneNum = gv.SDT;
                 teacher.Email = gv.EMAIL;
+                teacher.Ava = gv.AVA;
                 foreach(TO1 to in DepartmentList.Where(x => x.MATO == gv.MATO))
                 {
                     teacher.Department = to.TENTO;

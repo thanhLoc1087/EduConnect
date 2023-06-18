@@ -61,7 +61,7 @@
                             >
 
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="../imgs/avtusr.jpg"/>
+                            <ImageBrush ImageSource="{Binding Ava}"/>
                         </Ellipse.Fill>
 
                

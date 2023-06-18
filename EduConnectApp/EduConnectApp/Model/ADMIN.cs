@@ -18,6 +18,7 @@ namespace EduConnectApp.Model
         public string TENAD { get; set; }
         public Nullable<int> MALOGIN { get; set; }
         public Nullable<bool> DELETED { get; set; }
+        public string AVA { get; set; }
     
         public virtual LOGIN LOGIN { get; set; }
     }

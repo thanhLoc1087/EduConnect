@@ -48,6 +48,8 @@ namespace EduConnectApp.ViewModel
         public string DanToc { get => _DanToc; set { _DanToc = value; OnPropertyChanged(); } }
         private string _TonGiao;
         public string TonGiao { get => _TonGiao; set { _TonGiao = value; OnPropertyChanged(); } }
+        private string _Ava;
+        public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public string[] GTList { get; set; } = { "Nam", "Nữ" };
 
         public ICommand navBack { get; }
@@ -76,6 +78,7 @@ namespace EduConnectApp.ViewModel
             SDT = studentSelected.SDT;
             DiaChi = studentSelected.DIACHI;
             ChinhSach = studentSelected.CHINHSACH;
+            Ava = studentSelected.AVA;
             var temp = DataProvider.Ins.DB.HOCTAPs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault();
             Lop = DataProvider.Ins.DB.LOPs.Where(x => x.MALOP == temp.MALOP && x.DELETED == false).SingleOrDefault().TENLOP;
 

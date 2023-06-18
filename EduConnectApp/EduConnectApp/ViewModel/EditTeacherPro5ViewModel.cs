@@ -2,6 +2,7 @@
 using EduConnectApp.Model;
 using EduConnectApp.Store;
 using EduConnectApp.ViewUCs;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace EduConnectApp.ViewModel
 {
@@ -30,14 +33,29 @@ namespace EduConnectApp.ViewModel
         public string GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
         private string _Email;
         public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
+        private string _Ava;
+        public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public string[] GTList { get; set; } = { "Nam", "Nữ" };
         public ICommand EditCommand { get; set; }
+        public ICommand UpdateAva { get; set; }
+        public ICommand ReloadAva { get; set; }
         public ICommand navBack { get; set; }
         public EditTeacherPro5ViewModel( NavigationStore navigationStore) {
 
             //Navigate
             navBack = new NavigationCommand<TeacherPro5ViewModel>(navigationStore, () => new TeacherPro5ViewModel(navigationStore));
 
+            //Update Avatar
+            UpdateAva = new RelayCommand<ImageBrush>((p) => { return true; },(p) => _updateAva(p)); ;
+
+            //Reload Avatar in MainWindow
+            ReloadAva = new RelayCommand<MainWindow>((p) => true, (p) =>
+            {
+                if (Ava != "")
+                {
+                    p.ava.ImageSource = (ImageSource)new ImageSourceConverter().ConvertFromString(Ava);
+                }
+            });
 
             if (!Const.IsAdmin)
             {
@@ -53,7 +71,7 @@ namespace EduConnectApp.ViewModel
                 else
                     GioiTinh = "Nam";
                 Email = temp.EMAIL;
-
+                Ava = temp.AVA;
             }
             else
             {
@@ -61,6 +79,7 @@ namespace EduConnectApp.ViewModel
                 ID = Const.KeyID.ToString();
                 var temp = DataProvider.Ins.DB.ADMINs.Where(x => x.MAAD == Const.KeyID && x.DELETED == false).FirstOrDefault();
                 HoTen = temp.TENAD;
+                Ava = temp.AVA;
             }
 
             EditCommand = new RelayCommand<object>((p)=> 
@@ -82,6 +101,7 @@ namespace EduConnectApp.ViewModel
                 if (GioiTinh == "Nam")
                     usr.GIOITINH = false;
                 else usr.GIOITINH = true;
+                usr.AVA = Ava;
 
                 MessageBox.Show("Lưu thông tin thành công!");
                 DataProvider.Ins.DB.SaveChanges();
@@ -89,6 +109,17 @@ namespace EduConnectApp.ViewModel
             });
         }
 
-        
+        void _updateAva(ImageBrush p)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.png)|*.jpg; *.png";
+            if (open.ShowDialog() == true)
+            {
+                var linkImg = open.FileName;
+                Uri fileURI = new Uri(linkImg, UriKind.Relative);
+                p.ImageSource = new BitmapImage(fileURI); 
+                Ava = linkImg.ToString();
+            }
+        }
     }
 }

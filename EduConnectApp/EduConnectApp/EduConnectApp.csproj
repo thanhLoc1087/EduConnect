@@ -198,6 +198,7 @@
     <Compile Include="ViewModel\EditScoreViewModel.cs" />
     <Compile Include="ViewModel\EditStudentPro5ViewModel.cs" />
     <Compile Include="ViewModel\EditTeacherPro5ViewModel.cs" />
+    <Compile Include="ViewModel\ExportPro5ViewModel.cs" />
     <Compile Include="ViewModel\GradeViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\InputScoreViewModel.cs" />
@@ -220,6 +221,9 @@
     </Compile>
     <Compile Include="ViewUCs\EditScore.xaml.cs">
       <DependentUpon>EditScore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUCs\ExportPro5.xaml.cs">
+      <DependentUpon>ExportPro5.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewUCs\GradeUC.xaml.cs">
       <DependentUpon>GradeUC.xaml</DependentUpon>
@@ -335,6 +339,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewUCs\EditScore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewUCs\ExportPro5.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
