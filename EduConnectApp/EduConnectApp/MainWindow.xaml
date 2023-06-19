@@ -21,7 +21,7 @@
             <i:InvokeCommandAction Command="{Binding LoadedMainWd}" CommandParameter="{Binding ElementName=mainWd}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
+
     <Grid Background="{StaticResource Background}">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="strow"></RowDefinition>

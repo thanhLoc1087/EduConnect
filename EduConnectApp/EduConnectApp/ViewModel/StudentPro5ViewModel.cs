@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace EduConnectApp.ViewModel
 {
-    public class StudentPro5ViewModel: BaseViewModel
+    public class StudentPro5ViewModel : BaseViewModel
     {
         private string _TenCha;
         public string TenCha { get => _TenCha; set { _TenCha = value; OnPropertyChanged(); } }
@@ -54,6 +54,7 @@ namespace EduConnectApp.ViewModel
 
         public ICommand navBack { get; }
         public ICommand navEdit { get; }
+        public ICommand navExport { get; }
         public ICommand DeleteCommand { get; }
 
         public StudentPro5ViewModel(NavigationStore navigationStore)
@@ -61,6 +62,7 @@ namespace EduConnectApp.ViewModel
             //navigate
             navBack = new NavigationCommand<ClassListViewModel>(navigationStore, () => new ClassListViewModel(navigationStore));
             navEdit = new NavigationCommand<EditStudentPro5ViewModel>(navigationStore, () => new EditStudentPro5ViewModel(navigationStore));
+            navExport = new NavigationCommand<ExportPro5ViewModel>(navigationStore, () => new ExportPro5ViewModel(navigationStore));
 
             //value
             HOCSINH studentSelected = DataProvider.Ins.DB.HOCSINHs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault();
@@ -82,7 +84,7 @@ namespace EduConnectApp.ViewModel
             var temp = DataProvider.Ins.DB.HOCTAPs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault();
             Lop = DataProvider.Ins.DB.LOPs.Where(x => x.MALOP == temp.MALOP && x.DELETED == false).SingleOrDefault().TENLOP;
 
-            var PH = DataProvider.Ins.DB.PHUHUYNHs.Where(x=> x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault();
+            var PH = DataProvider.Ins.DB.PHUHUYNHs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault();
             TenCha = PH.HOTENBO;
             TenMe = PH.HOTENME;
             NgheCha = PH.NGHEBO;

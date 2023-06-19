@@ -276,7 +276,13 @@
                 </Button>
 
                 <Button 
-                        Style="{DynamicResource PrintBtn}"/>
+                        Style="{DynamicResource PrintBtn}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding navExport}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
                 <Button 
                         Style="{DynamicResource EditBtn}">
                     <i:Interaction.Triggers>
