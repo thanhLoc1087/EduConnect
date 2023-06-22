@@ -132,6 +132,7 @@ namespace EduConnectApp.ViewModel
             var tempLop = DataProvider.Ins.DB.LOPs.Where(x => x.MALOP == temp.MALOP && x.DELETED == false).SingleOrDefault();
             Lop = tempLop.TENLOP;
             GVCN = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MAGV == tempLop.GVCN && x.DELETED == false).SingleOrDefault().HOTEN;
+
             NhanXet = DataProvider.Ins.DB.NHANXETs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.HOCKY == Const.Semester && x.DELETED == false).SingleOrDefault().NHANXET1;
 
             var PH = DataProvider.Ins.DB.PHUHUYNHs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault();
@@ -173,7 +174,6 @@ namespace EduConnectApp.ViewModel
                             case 3:
                                 scoreTemp45[index45] = thi.DIEM;
                                 index45++;
-
                                 break;
                             case 4:
                                 sc.test = thi.DIEM;
@@ -238,7 +238,6 @@ namespace EduConnectApp.ViewModel
                             case 3:
                                 scoreTemp45[index45] = thi.DIEM;
                                 index45++;
-
                                 break;
                             case 4:
                                 sc.test = thi.DIEM;

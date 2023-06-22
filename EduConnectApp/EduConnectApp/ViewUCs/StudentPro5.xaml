@@ -284,6 +284,7 @@
                     </i:Interaction.Triggers>
                 </Button>
                 <Button 
+                    Visibility="{Binding isPermitted, Converter={StaticResource BooleanToVisibilityConverter}}" 
                         Style="{DynamicResource EditBtn}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
@@ -293,6 +294,7 @@
 
                 </Button>
                 <Button 
+                    Visibility="{Binding isPermitted, Converter={StaticResource BooleanToVisibilityConverter}}" 
                         Style="{DynamicResource DeleteBtn}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">

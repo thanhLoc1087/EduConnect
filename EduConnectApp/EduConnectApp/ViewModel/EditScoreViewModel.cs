@@ -216,6 +216,7 @@ namespace EduConnectApp.ViewModel
                                     tempScore += decimal.Parse(thi.DIEM)*3;
                                     break;
                             }
+
                     sc.score[7] =  String.Format("{0:0.00}", (tempScore/11));
                     //    decimal.Parse(sc.score[1]) + decimal.Parse(sc.score[2]) + decimal.Parse(sc.score[3]) +
                     //    decimal.Parse(sc.score[4])*2 + decimal.Parse(sc.score[5]) * 2 + decimal.Parse(sc.score[6])*3)/11));
