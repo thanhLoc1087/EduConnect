@@ -36,6 +36,7 @@
                     </StackPanel>
                 </StackPanel>
 
+                <!--Cbb hoc ky-->
                 <ComboBox  x:Name="cbb_Semester" SelectedIndex="{Binding semester}"  HorizontalAlignment="Left"
                         Width="139" Margin="10 5 0 0" Height="39" Padding="20 0"
                                      FontSize="16"

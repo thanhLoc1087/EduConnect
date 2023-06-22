@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:EduConnectApp.ViewUCs"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" x:Name="EditScoreUC"
              d:DesignHeight="576" d:DesignWidth="1054">
     <Grid Background="Transparent" Margin="0 10 10 10">
         <Grid.ColumnDefinitions>
@@ -14,10 +14,11 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2.5*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
 
+        <!--Title-->
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -30,78 +31,90 @@
 
             <TextBlock Style="{DynamicResource txtbl_TilleTab}" Text="KẾT QUẢ HỌC TẬP" />
 
-            <StackPanel Grid.Row="1">
-                <TextBlock Style="{StaticResource txtbl_SchoolYear}" TextDecorations="None" Text="NIÊN KHÓA 2022-2023" Margin="0 0 0 0"></TextBlock>
-                <TextBlock Style="{StaticResource txtbl_Infovalue}" Text="HỌC KỲ 2" FontSize="16"></TextBlock>
+            <StackPanel Grid.Row="1" >
+                <StackPanel  VerticalAlignment="Top" Orientation="Horizontal" Margin="10 0">
+                    <TextBlock Style="{StaticResource txtbl_SchoolYear}" TextDecorations="None" Text="{Binding schoolYear}" Margin="0 0 0 0"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource txtbl_Infovalue}" Text=" - HỌC KỲ " FontSize="16"></TextBlock>
+                        <TextBlock Style="{StaticResource txtbl_Infovalue}" Text="{Binding semester}" FontSize="16"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+
+                <!--Cbb hoc ky-->
+                <ComboBox  x:Name="cbb_Semester" SelectedIndex="{Binding semester}"  HorizontalAlignment="Left"
+                        Width="139" Margin="10 5 0 0" Height="39" Padding="20 0"
+                                     FontSize="16"
+                                  BorderBrush="{DynamicResource Yale Blue}"
+                                        Foreground="{DynamicResource Yale Blue}" 
+                              Background="{StaticResource White}"
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}" 
+                                VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="Cả năm"/>
+                    <ComboBoxItem Content="Học kì 1"/>
+                    <ComboBoxItem Content="Học kì 2"/>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding changeScoreTb}" CommandParameter="{Binding ElementName=EditScoreUC}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
             </StackPanel>
 
-            <TextBlock Grid.Column="1" Style="{StaticResource txtbl_SchoolYear}" Text="NGUYỄN HỒNG AN" TextDecorations="None" FontSize="22" HorizontalAlignment="Right" Margin="0 0 20 0" VerticalAlignment="Bottom" ></TextBlock>
+            <TextBlock Grid.Column="1" Style="{StaticResource txtbl_SchoolYear}" Text="{Binding studentName}" TextDecorations="None" FontSize="22" HorizontalAlignment="Right" Margin="0 0 20 0" VerticalAlignment="Bottom" ></TextBlock>
             <StackPanel Grid.Column="1" Grid.Row="1" Margin="0 0 20 0">
                 <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" Text="Lớp: "/>
-                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="10A1"/>
+                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="{Binding className}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" Text="GVCN: "/>
-                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="Nguyễn Văn A"/>
+                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="16"  Text="{Binding formTeacher}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
 
-        <Border  Grid.Row="1" BorderThickness="7" CornerRadius="20" BorderBrush="White"  Margin="0 10 10 10">
+        <!--dtg_semester-->
+        <Border Background="White"  Grid.Row="1" BorderThickness="7" CornerRadius="20" BorderBrush="White"  Margin="0 10 10 10">
             <Border.Effect>
                 <DropShadowEffect Opacity="0.25"/>
             </Border.Effect>
-            <DataGrid IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding SubjectList}">
+
+            <DataGrid Background="White" x:Name="dtg_Scoretable"  AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}"  ItemsSource="{Binding scoreTableList}">
                 <DataGrid.Columns >
-                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Môn" Width="2*" Binding="{Binding name}"/>
-                    <DataGridTemplateColumn Width="2*" Header="Miệng">
+                    <DataGridTextColumn Header="Môn" Width="*"  ElementStyle="{DynamicResource txt_value}" Binding="{Binding subject}"/>
+                    <DataGridTemplateColumn Header="Miệng"  IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBox Style="{StaticResource tbx_InputScore}"></TextBox>
+                                <TextBox  BorderBrush="{DynamicResource Green Blue}" Foreground="{DynamicResource Green Blue}" Margin="0 0 5 0" Text="{Binding score[0], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn   x:Name="co_Min15" Header="15 phút" IsReadOnly="True" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBox  BorderBrush="{DynamicResource Green Blue}" Foreground="{DynamicResource Green Blue}" Margin="0 0 5 0" 
+                                             Text="{Binding score[1], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                    <TextBox   BorderBrush="{DynamicResource Green Blue}" Foreground="{DynamicResource Green Blue}"  Margin="5 0" Text="{Binding score[2], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                    <TextBox   BorderBrush="{DynamicResource Green Blue}" Foreground="{DynamicResource Green Blue}"  Margin="5 0" Text="{Binding score[3], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Width="3*" Header="15 phút" >
+                    <DataGridTemplateColumn x:Name="co_Min45" Header="45 phút" IsReadOnly="True" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBox Style="{StaticResource tbx_InputScore}"></TextBox>
-                                    <TextBox Margin="10 0 0 0" Style="{StaticResource tbx_InputScore}"></TextBox>
-                                    <TextBox Margin="10 0 0 0" Style="{StaticResource tbx_InputScore}"></TextBox>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBox   BorderBrush="{DynamicResource Green Blue}" Foreground="{DynamicResource Green Blue}"  Margin="0 0 5 0" Text="{Binding score[4], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                    <TextBox  BorderBrush="{DynamicResource Green Blue}" Foreground="{DynamicResource Green Blue}"  Margin="5 0" Text="{Binding score[5], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Width="4*" Header="45 phút">
+                    <DataGridTemplateColumn Header="Thi"  IsReadOnly="True" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBox Style="{StaticResource tbx_InputScore}"></TextBox>
-                                    <TextBox Margin="10 0 0 0" Style="{StaticResource tbx_InputScore}"></TextBox>
-                                    <TextBox Margin="10 0 0 0" Style="{StaticResource tbx_InputScore}"></TextBox>
-                                    <TextBox Margin="10 0 0 0" Style="{StaticResource tbx_InputScore}"></TextBox>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Width="2*" Header="Thi">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBox Style="{StaticResource tbx_InputScore}"></TextBox>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Width="2*" Header="TBHK">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBox Style="{StaticResource tbx_InputScore}"></TextBox>
-                                </StackPanel>
+                                <TextBox  BorderBrush="{DynamicResource Green Blue}" Foreground="{DynamicResource Green Blue}" Margin="0 0 5 0" Text="{Binding score[6], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -109,9 +122,45 @@
             </DataGrid>
         </Border>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 30 10">
-            <Button Style="{StaticResource SaveBtn}"></Button>
-            <Button Margin="20 0 0 0" Style="{StaticResource BackBtn}"></Button>
+        <!--dtg_year-->
+        <Border Visibility="Hidden" x:Name="brd_year" Grid.Row="1" BorderThickness="7" CornerRadius="20" BorderBrush="White"  Margin="0 10 10 10">
+            <Border.Effect>
+                <DropShadowEffect Opacity="0.25"/>
+            </Border.Effect>
+
+            <DataGrid x:Name="dtg_Scoretable_Year"  Visibility="Hidden" IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding scoreTableList_Year}">
+                <DataGrid.Columns >
+                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Môn" Width="*" Binding="{Binding subject}"/>
+                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="THBK 1" Binding="{Binding avg[0]}"  Width="*"/>
+                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="THBK 2" Binding="{Binding avg[1]}"  Width="*"/>
+                    <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Cả năm" Binding="{Binding avg_Year}"  Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 10 10">
+            <Border Style="{DynamicResource brd_BackBtn}">
+                <Button Style="{DynamicResource BackBtn3}"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding navBack}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </Button>
+            </Border>
+            <Border Style="{DynamicResource brd_SaveBtn}"  Margin="10 0 0 0">
+                <Button Style="{DynamicResource SaveBtn3}"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=dtg_Scoretable}"></i:InvokeCommandAction>
+                            <i:InvokeCommandAction Command="{Binding navBack}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </Button>
+            </Border>
         </StackPanel>
 
         <Border Grid.Row="1" Grid.Column="1" Margin="10 10 10 10" Background="White" BorderThickness="1" CornerRadius="15">
@@ -121,27 +170,45 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 20 0 0">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" FontSize="18" Text="Điểm tổng kết: "/>
-                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="18"  Text="10.0" Margin="20 0 0 0"/>
+                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="18"  Text="{Binding avgSemester}" Margin="20 0 0 0"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="10 20 0 0">
+                <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" FontSize="18" Text="Hạnh kiểm: "/>
-                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="18"  Text="Tốt" Margin="20 0 0 0"/>
+                    <ComboBox Text="{Binding conduct}" SelectedIndex="{Binding cbbSelected}" HorizontalAlignment="Left"
+                        Width="139" Margin="10 5 0 0" Height="39" Padding="20 0"
+                                     FontSize="16"
+                                  BorderBrush="{DynamicResource Yale Blue}"
+                                        Foreground="{DynamicResource Yale Blue}" 
+                              Background="{StaticResource White}"
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}" 
+                                VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="Tốt"/>
+                        <ComboBoxItem Content="Khá"/>
+                        <ComboBoxItem Content="Trung bình"/>
+                        <ComboBoxItem Content="Yếu"/>
+                    </ComboBox>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="10 20 0 0">
+                <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None" FontSize="18" Text="Xếp loại: "/>
-                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="18"  Text="Giỏi" Margin="20 0 0 0"/>
+                    <TextBlock Style="{DynamicResource txtbl_Infovalue}" FontSize="18"  Text="{Binding rank}" Margin="20 0 0 0"/>
                 </StackPanel>
 
-                <StackPanel Margin="10 20 20 0 ">
+                <!--Achievement-->
+                <StackPanel Margin="10 10 20 0 ">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None"  FontSize="18" Text="Thành tích"/>
-                    <TextBox Style="{StaticResource tbx_Achievement}"/>
+                    <Border Style="{DynamicResource brd_achievement}">
+                        <TextBox  Style="{DynamicResource tbx_Achievement}"  Text="{Binding achievements}"/>
+                    </Border>
                 </StackPanel>
 
+                <!--Comment-->
                 <StackPanel Margin="10 10 20 0 ">
                     <TextBlock Style="{DynamicResource txtbl_SchoolYear}" TextDecorations="None"  FontSize="18" Text="Nhận xét"/>
-                    <TextBox Style="{StaticResource tbx_Achievement}" Height="110"/>
+                    <Border Style="{DynamicResource brd_achievement}">
+                        <TextBox  Style="{DynamicResource tbx_Achievement}"  Text="{Binding comment}"/>
+                    </Border>
                 </StackPanel>
             </StackPanel>
         </Border>

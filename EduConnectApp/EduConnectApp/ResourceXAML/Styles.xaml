@@ -263,12 +263,43 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="7" Height="50" Width="150" Padding="0">
+                    <Border Background="{DynamicResource Celestial Blue}" CornerRadius="7" Height="45" Width="150" Padding="0">
                         <Button FontWeight="SemiBold" Content="Lưu" Foreground="{DynamicResource White}" FontSize="18"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+    <Style x:Key="brd_SaveBtn" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{DynamicResource Celestial Blue}"/>
+        <Setter Property="CornerRadius" Value="7"/>
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Width" Value="139"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style x:Key="SaveBtn3" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Content" Value="Lưu"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    
+    <Style x:Key="brd_BackBtn" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{DynamicResource Tomato}"/>
+        <Setter Property="CornerRadius" Value="7"/>
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Width" Value="139"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style x:Key="BackBtn3" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Content" Value="Quay lại"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
     <Style x:Key="SaveBtn2" TargetType="{x:Type Button}">
@@ -357,27 +388,49 @@
 
 
     <Style x:Key="tbx_InputScore" TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+    <!--<Style x:Key="tbx_InputScore" TargetType="{x:Type TextBox}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Border BorderBrush="{DynamicResource Green Blue}" Height="25" Width="25" BorderThickness="1" CornerRadius="2" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBox materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" Foreground="{DynamicResource Green Blue}" CaretBrush="{DynamicResource Green Blue}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                        <TextBox materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" Foreground="{DynamicResource Green Blue}" CaretBrush="{DynamicResource Green Blue}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{TemplateBinding Text}"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
-    <Style x:Key="tbx_Achievement" TargetType="{x:Type TextBox}">
+    <!--<Style x:Key="tbx_Achievement" TargetType="{x:Type TextBox}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Border BorderBrush="{DynamicResource Green Blue}" BorderThickness="1"  Margin="10 5 0 0" CornerRadius="10" Padding="0" >
-                        <TextBox Height="80"  materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" CaretBrush="{DynamicResource Green Blue}" FontSize="14" Foreground="{DynamicResource Green Blue}" TextWrapping="WrapWithOverflow"/>
+                        <TextBox Text="{TemplateBinding Text}" Height="80"  materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" CaretBrush="{DynamicResource Green Blue}" FontSize="14" Foreground="{DynamicResource Green Blue}" TextWrapping="WrapWithOverflow"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>-->
+
+    <Style x:Key="tbx_Achievement" TargetType="{x:Type TextBox}">
+        <Setter Property="Height" Value="80"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+    </Style>
+
+    <Style x:Key="brd_achievement" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="{DynamicResource Green Blue}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="10 5 0 0"/>
+        <Setter Property="CornerRadius" Value="10 "/>
+        <Setter Property="Padding" Value="0 "/>
+        <Setter Property="Height" Value="90"/>
     </Style>
 
 
@@ -632,6 +685,7 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Width" Value="auto"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="White"/>
     </Style>
     <Style x:Key="dtg_Header2" TargetType="DataGridColumnHeader">
         <Setter Property="Foreground" Value="{DynamicResource Yale Blue}"/>

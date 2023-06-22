@@ -29,10 +29,28 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Style="{DynamicResource txtbl_TilleTab}" Text="BẢNG ĐIỂM LỚP 9A1"/>
+                <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 10 10">
+                    <Border Style="{DynamicResource brd_SaveBtn}">
+                        <Button Style="{DynamicResource SaveBtn3}"  >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding InputCommand}" CommandParameter="{Binding ElementName=dtg_Scoretable}"></i:InvokeCommandAction>
+                                    <i:InvokeCommandAction Command="{Binding navBack}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
 
-                <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 20 0">
-                    <Button Style="{StaticResource SaveBtn}"></Button>
-                    <Button Margin="20 0 0 0" Style="{StaticResource BackBtn}"></Button>
+                        </Button>
+                    </Border>
+                    <Border Style="{DynamicResource brd_BackBtn}" Margin="10 0 0 0">
+                        <Button Style="{DynamicResource BackBtn3}"  >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding navBack}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
+                        </Button>
+                    </Border>
                 </StackPanel>
             </Grid>
 

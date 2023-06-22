@@ -146,16 +146,6 @@ namespace EduConnectApp.ViewModel
                         }
                     }
 
-                    //    HomeroomList.Add(new AvailableClass { Grade = 10, Class = "10A1", NumofAttendants = 45, Teacher="Nguyễn Văn A" });
-
-                    //dtGrid_ScrollChanged = new RelayCommand<GradeUC>((p) => { return true; }, (p) => _Scroll(p));
-
-
-                    //ClassList.Add(new AvailableClass { Grade = 10, Class = "10A2", NumofAttendants = 45, Teacher = "Nguyễn Văn B" });
-                    //ClassList.Add(new AvailableClass { Grade = 11, Class = "11A2", NumofAttendants = 45, Teacher = "Nguyễn Văn C" });
-                    //ClassList.Add(new AvailableClass { Grade = 11, Class = "11A3", NumofAttendants = 45, Teacher = "Nguyễn Văn D" });
-                    //ClassList.Add(new AvailableClass { Grade = 12, Class = "12A2", NumofAttendants = 45, Teacher = "Nguyễn Văn E" });
-
                 }
             }
 
@@ -165,8 +155,6 @@ namespace EduConnectApp.ViewModel
             }
             void _GetDetail(GradeUC p)
             {
-                //p.dtg_HomeRoomList.SelectedIndex = p.dtg_Input1.SelectedIndex;
-                //CurrentSelected =(AvailableClass)p.dtg_HomeRoomList.SelectedItem;
 
                 if (p.dtg_Input1.SelectedIndex==-1)
                 {
