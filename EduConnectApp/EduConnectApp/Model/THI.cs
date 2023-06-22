@@ -20,7 +20,6 @@ namespace EduConnectApp.Model
         public Nullable<int> MAMH { get; set; }
         public Nullable<int> MALD { get; set; }
         public string DIEM { get; set; }
-        public Nullable<System.DateTime> NGAYTHI { get; set; }
         public Nullable<int> HOCKY { get; set; }
         public Nullable<bool> DELETED { get; set; }
     

@@ -194,7 +194,6 @@
           <Property Name="MAMH" Type="int" />
           <Property Name="MALD" Type="int" />
           <Property Name="DIEM" Type="varchar" MaxLength="4" />
-          <Property Name="NGAYTHI" Type="date" />
           <Property Name="HOCKY" Type="int" />
           <Property Name="DELETED" Type="bit" />
         </EntityType>
@@ -901,7 +900,6 @@
           <Property Name="MAMH" Type="Int32" />
           <Property Name="MALD" Type="Int32" />
           <Property Name="DIEM" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="NGAYTHI" Type="DateTime" Precision="0" />
           <Property Name="HOCKY" Type="Int32" />
           <Property Name="DELETED" Type="Boolean" />
           <NavigationProperty Name="HOCSINH" Relationship="Self.FK__THI__MAHS__440B1D61" FromRole="THI" ToRole="HOCSINH" />
@@ -1571,7 +1569,6 @@
                 <ScalarProperty Name="MAMH" ColumnName="MAMH" />
                 <ScalarProperty Name="MALD" ColumnName="MALD" />
                 <ScalarProperty Name="DIEM" ColumnName="DIEM" />
-                <ScalarProperty Name="NGAYTHI" ColumnName="NGAYTHI" />
                 <ScalarProperty Name="HOCKY" ColumnName="HOCKY" />
                 <ScalarProperty Name="DELETED" ColumnName="DELETED" />
               </MappingFragment>
