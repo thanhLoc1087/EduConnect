@@ -13,6 +13,7 @@
           <Property Name="TENAD" Type="nvarchar" MaxLength="255" />
           <Property Name="MALOGIN" Type="int" />
           <Property Name="DELETED" Type="bit" />
+          <Property Name="AVA" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="GIANGDAY">
           <Key>
@@ -41,6 +42,7 @@
           <Property Name="MALOGIN" Type="int" />
           <Property Name="MATO" Type="int" />
           <Property Name="DELETED" Type="bit" />
+          <Property Name="AVA" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="HOCSINH">
           <Key>
@@ -61,6 +63,7 @@
           <Property Name="NIENKHOA" Type="varchar" MaxLength="20" />
           <Property Name="MALOGIN" Type="int" />
           <Property Name="DELETED" Type="bit" />
+          <Property Name="AVA" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="HOCTAP">
           <Key>
@@ -669,6 +672,7 @@
           <Property Name="TENAD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="MALOGIN" Type="Int32" />
           <Property Name="DELETED" Type="Boolean" />
+          <Property Name="AVA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="LOGIN" Relationship="Self.FK__ADMIN__MALOGIN__267ABA7A" FromRole="ADMIN" ToRole="LOGIN" />
         </EntityType>
         <EntityType Name="GIANGDAY">
@@ -701,6 +705,7 @@
           <Property Name="MALOGIN" Type="Int32" />
           <Property Name="MATO" Type="Int32" />
           <Property Name="DELETED" Type="Boolean" />
+          <Property Name="AVA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="GIANGDAYs" Relationship="Self.FK__GIANGDAY__MAGV__49C3F6B7" FromRole="GIAOVIEN" ToRole="GIANGDAY" />
           <NavigationProperty Name="LOGIN" Relationship="Self.FK__GIAOVIEN__MALOGI__30F848ED" FromRole="GIAOVIEN" ToRole="LOGIN" />
           <NavigationProperty Name="TO1" Relationship="Self.FK__GIAOVIEN__MATO__31EC6D26" FromRole="GIAOVIEN" ToRole="TO1" />
@@ -726,6 +731,7 @@
           <Property Name="NIENKHOA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MALOGIN" Type="Int32" />
           <Property Name="DELETED" Type="Boolean" />
+          <Property Name="AVA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="LOGIN" Relationship="Self.FK__HOCSINH__MALOGIN__29572725" FromRole="HOCSINH" ToRole="LOGIN" />
           <NavigationProperty Name="HOCTAPs" Relationship="Self.FK__HOCTAP__MAHS__3C69FB99" FromRole="HOCSINH" ToRole="HOCTAP" />
           <NavigationProperty Name="KETQUAs" Relationship="Self.FK__KETQUA__MAHS__52593CB8" FromRole="HOCSINH" ToRole="KETQUA" />
@@ -1379,6 +1385,7 @@
                 <ScalarProperty Name="TENAD" ColumnName="TENAD" />
                 <ScalarProperty Name="MALOGIN" ColumnName="MALOGIN" />
                 <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="AVA" ColumnName="AVA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1406,6 +1413,7 @@
                 <ScalarProperty Name="MALOGIN" ColumnName="MALOGIN" />
                 <ScalarProperty Name="MATO" ColumnName="MATO" />
                 <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="AVA" ColumnName="AVA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1427,6 +1435,7 @@
                 <ScalarProperty Name="NIENKHOA" ColumnName="NIENKHOA" />
                 <ScalarProperty Name="MALOGIN" ColumnName="MALOGIN" />
                 <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="AVA" ColumnName="AVA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

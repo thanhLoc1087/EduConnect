@@ -1,0 +1,678 @@
+﻿<UserControl x:Class="EduConnectApp.ViewUCs.ExportPro5"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EduConnectApp.ViewUCs" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignWidth="1054"
+             Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="50 20 50 20">
+            <Button x:Name="printBtn" Margin="0 0 20 0" Style="{DynamicResource PrintBtn}" Click="printBtn_Click" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding navExport}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Style="{DynamicResource BackBtn}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding navBack}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </StackPanel>
+        <ScrollViewer x:Name="scroll" Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+            <Grid x:Name="print">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel
+                        Grid.Row="0"
+                        HorizontalAlignment="Right"
+                Margin="30"
+            >
+                    <TextBlock
+            FontSize="20"
+            FontWeight="Bold"
+                HorizontalAlignment="Center"
+            >SỞ GD-ĐT THÀNH PHỐ HỒ CHÍ MINH</TextBlock>
+                    <TextBlock
+            FontSize="20"
+            FontWeight="Bold"
+                HorizontalAlignment="Center"
+            >Trường THPT Đốc Binh Kiều</TextBlock>
+                </StackPanel>
+
+                <TextBlock
+            Grid.Row="1"
+            FontSize="50"
+            FontWeight="Bold"
+            HorizontalAlignment="Center">
+            PHIẾU THÔNG TIN CÁ NHÂN
+                </TextBlock>
+
+                <Grid 
+            Margin="20"
+            Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid
+            Margin="0 20 0 0"
+            Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="7*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid
+                        Grid.Row="0"
+                        Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".5*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Họ và tên:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding HoTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="1"
+                        Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".5*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Số hiệu:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding MaHS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="2"
+                        Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".5*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Lớp:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding Lop, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="3"
+                        Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".5*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Ngày sinh:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding NgaySinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Image
+                    Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Source="{Binding Ava}"
+                    Stretch="UniformToFill" Height="200" Width="160"/>
+                    </Grid>
+
+                    <Grid 
+                Margin="50"
+                Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid
+                        Grid.Row="0"
+                        Grid.Column="0"
+                    Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Nơi sinh:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding NoiSinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="1"
+                        Grid.Column="0"
+                    Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Giới tính:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding GioiTinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="2"
+                        Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Dân tộc:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding DanToc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="2"
+                        Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Tôn giáo:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding TonGiao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="3"
+                        Grid.Column="0"
+                    Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Giáo viên chủ nhiệm:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding GVCN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="4"
+                        Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Họ tên bố:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding TenCha, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="4"
+                        Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Nghề nghiệp:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding NgheCha, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="5"
+                        Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Họ tên mẹ:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding TenMe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="5"
+                        Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Nghề nghiệp:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding NgheMe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="6"
+                        Grid.Column="0"
+                    Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Chính sách:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding ChinhSach, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="7"
+                        Grid.Column="0"
+                    Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Điện thoại (Nếu có): "
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding SDT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid
+                        Grid.Row="8"
+                        Grid.Column="0"
+                    Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Ghi chú:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding GhiChu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid
+            Grid.Row="3"
+            Margin="50">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                Grid.Row="0"
+                FontSize="30" 
+                FontStyle="Italic" 
+                TextDecorations="Underline"
+                >Nhận xét và đánh giá:</TextBlock>
+                    <TextBlock
+                Grid.Row="1"
+                FontSize="30" 
+                TextWrapping="Wrap"
+                Margin="30"
+                Text="{Binding NhanXet}"
+                ></TextBlock>
+                </Grid>
+
+                <Grid Grid.Row="4" Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock 
+                        Grid.Row="0" 
+                        FontSize="30"
+                        Text="Bảng điểm chi tiết HK1:"/>
+
+                    <Border  Grid.Row="1" BorderThickness="7" CornerRadius="20" BorderBrush="White"  Margin="0 10 10 10">
+                        <Border.Effect>
+                            <DropShadowEffect Opacity="0.25"/>
+                        </Border.Effect>
+
+                        <DataGrid x:Name="dtg_Scoretable_1" IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding scoreTableList_1}" PreviewMouseWheel="dtg_Scoretable_PreviewMouseWheel">
+                            <DataGrid.Columns >
+                                <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Môn" Width="*" Binding="{Binding subject}"/>
+                                <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Miệng" Binding="{Binding mieng}"  Width="*"/>
+                                <DataGridTemplateColumn  x:Name="co_Min15_1" Header="15 phút" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="0 0 5 0" Text="{Binding min15_1}"/>
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min15_2}"/>
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min15_3}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn x:Name="co_Min45_1" Header="45 phút" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="0 0 5 0" Text="{Binding min45_1}"/>
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min45_2}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn x:Name="co_Test_1" ElementStyle="{DynamicResource txt_value}" Header="Thi" Binding="{Binding test}"  Width="*"/>
+                                <DataGridTextColumn x:Name="co_TBHK_1" ElementStyle="{DynamicResource txt_value}" Header="TBHK" Binding="{Binding avg}"  Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+
+                </Grid>
+
+                <Grid Grid.Row="5" Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock 
+                        Grid.Row="0" 
+                        FontSize="30"
+                        Text="Bảng điểm chi tiết HK2:"/>
+
+                    <Border  Grid.Row="1" BorderThickness="7" CornerRadius="20" BorderBrush="White"  Margin="0 10 10 10">
+                        <Border.Effect>
+                            <DropShadowEffect Opacity="0.25"/>
+                        </Border.Effect>
+
+                        <DataGrid x:Name="dtg_Scoretable_2" IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding scoreTableList_2}" PreviewMouseWheel="dtg_Scoretable_PreviewMouseWheel">
+                            <DataGrid.Columns >
+                                <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Môn" Width="*" Binding="{Binding subject}"/>
+                                <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Miệng" Binding="{Binding mieng}"  Width="*"/>
+                                <DataGridTemplateColumn x:Name="co_Min15_2" Header="15 phút" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="0 0 5 0" Text="{Binding min15_1}"/>
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min15_2}"/>
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min15_3}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn x:Name="co_Min45_2" Header="45 phút" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="0 0 5 0" Text="{Binding min45_1}"/>
+                                                <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min45_2}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn x:Name="co_Test_2" ElementStyle="{DynamicResource txt_value}" Header="Thi" Binding="{Binding test}"  Width="*"/>
+                                <DataGridTextColumn x:Name="co_TBHK_2" ElementStyle="{DynamicResource txt_value}" Header="TBHK" Binding="{Binding avg}"  Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="6" Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock 
+                        Grid.Row="0" 
+                        FontSize="30"
+                        Text="Bảng điểm cả năm:"/>
+                    <Border Grid.Row="1" x:Name="brd_year" BorderThickness="7" CornerRadius="20" BorderBrush="White"  Margin="0 10 10 10">
+                        <Border.Effect>
+                            <DropShadowEffect Opacity="0.25"/>
+                        </Border.Effect>
+
+                        <DataGrid x:Name="dtg_Scoretable_Year" IsReadOnly="True" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding scoreTableList_Year}" PreviewMouseWheel="dtg_Scoretable_PreviewMouseWheel">
+                            <DataGrid.Columns >
+                                <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Môn" Width="*" Binding="{Binding subject}"/>
+                                <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="THBK 1" Binding="{Binding avg_1}"  Width="*"/>
+                                <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="THBK 2" Binding="{Binding avg_2}"  Width="*"/>
+                                <DataGridTextColumn ElementStyle="{DynamicResource txt_value}" Header="Cả năm" Binding="{Binding avg_Year}"  Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+
+                    <TextBlock
+                Grid.Row="2"
+                FontSize="30" 
+                FontStyle="Italic" 
+                TextDecorations="Underline"
+                >Đánh giá kết quả học tập:</TextBlock>
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="ĐTB:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding avgSemester, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Học lực:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding rank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Style="{DynamicResource txtbl_Infovalue2}"
+                            VerticalAlignment="Center"
+                            Text="Hạnh kiểm:"
+                            FontSize="30"/>
+                            <TextBlock
+                            Grid.Column="1"
+                            Style="{DynamicResource txt_value2}"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            Text="{Binding conduct, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

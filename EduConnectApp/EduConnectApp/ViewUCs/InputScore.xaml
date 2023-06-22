@@ -29,7 +29,6 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Style="{DynamicResource txtbl_TilleTab}" Text="BẢNG ĐIỂM LỚP 9A1"/>
-
                 <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 10 10">
                     <Border Style="{DynamicResource brd_SaveBtn}">
                         <Button Style="{DynamicResource SaveBtn3}"  >

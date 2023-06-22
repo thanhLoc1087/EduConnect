@@ -1005,12 +1005,11 @@
                                 Width="75"
                                 Height="75"
                                 VerticalAlignment="Center"
-                                Fill="#D9D9D9"
                             >
-                                                        <!--<Ellipse.Fill>
-                                    <ImageBrush ImageSource="../imgs/Logo.png"/>
+                                                        <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Ava}"/>
 
-                                </Ellipse.Fill>-->
+                                </Ellipse.Fill>
                                                     </Ellipse>
                                                 </DockPanel>
 
@@ -1268,12 +1267,11 @@
                                 Width="75"
                                 Height="75"
                                 VerticalAlignment="Center"
-                                Fill="#D9D9D9"
                             >
-                                                        <!--<Ellipse.Fill>
-                                    <ImageBrush ImageSource="../imgs/Logo.png"/>
+                                                        <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Ava}"/>
 
-                                </Ellipse.Fill>-->
+                                </Ellipse.Fill>
                                                     </Ellipse>
                                                 </DockPanel>
 

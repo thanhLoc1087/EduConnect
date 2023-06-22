@@ -71,8 +71,12 @@ namespace EduConnectApp.ViewModel
                 {
                     Const.IsAdmin = true;
                     Const.KeyID = DataProvider.Ins.DB.ADMINs.Where(x => x.MALOGIN == ID && x.DELETED == false).ToList()[0].MAAD;
+                    Const.AVA = DataProvider.Ins.DB.ADMINs.Where(x => x.MALOGIN == ID && x.DELETED == false).ToList()[0].AVA;
                 }
-                else { Const.KeyID = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MALOGIN == ID && x.DELETED == false).ToList()[0].MAGV; }
+                else { 
+                    Const.KeyID = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MALOGIN == ID && x.DELETED == false).ToList()[0].MAGV;
+                    Const.AVA = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MALOGIN == ID && x.DELETED == false).ToList()[0].AVA;
+                }
 
                 FrameworkElement window = GetWindowParent(p);
                 var w = (window as Window);

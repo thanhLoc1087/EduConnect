@@ -87,18 +87,19 @@
                             </Grid.RowDefinitions>
 
                             <Image
+                                x:Name="avt"
                                 Grid.Column="0"
                                 Grid.Row="0"
                                 Grid.RowSpan="4"
-                                Source="../imgs/avtusr.jpg"
+                                Source="{Binding Ava}"
                                 Margin="15"/>
 
                             <Ellipse
                                 Grid.Column="0"
                                 Grid.Row="0"
                                 Grid.RowSpan="4"
-                                Width="20"
-                                Height="20"
+                                Width="40"
+                                Height="40"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom"
                                 Margin="10 0 32 5"
@@ -106,7 +107,11 @@
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="../imgs/camera.png"/>
                                 </Ellipse.Fill>
-                                
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseDown">
+                                        <i:InvokeCommandAction Command="{Binding UpdateAva}" CommandParameter="{Binding ElementName=avt}" ></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                             </Ellipse>
 
                             <StackPanel
