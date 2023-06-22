@@ -503,7 +503,7 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                                <TextBlock Style="{DynamicResource txt_value}" Margin="0 0 5 0" Text="{Binding min15_1}"/>
+                                                <TextBlock  Margin="0 0 5 0" Text="{Binding min15_1}"/>
                                                 <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min15_2}"/>
                                                 <TextBlock Style="{DynamicResource txt_value}" Margin="5 0" Text="{Binding min15_3}"/>
                                             </StackPanel>

@@ -89,7 +89,7 @@ namespace EduConnectApp.ViewModel
         private List<scoreTable> _scoreTableList_1 = new List<scoreTable>();
         public List<scoreTable> scoreTableList_1 { get => _scoreTableList_1; set { _scoreTableList_1 = value; OnPropertyChanged(); } }
         private List<scoreTable> _scoreTableList_2 = new List<scoreTable>();
-        public List<scoreTable> scoreTableList_2 { get => _scoreTableList_1; set { _scoreTableList_1 = value; OnPropertyChanged(); } }
+        public List<scoreTable> scoreTableList_2 { get => _scoreTableList_2; set { _scoreTableList_2 = value; OnPropertyChanged(); } }
         private List<scoreTable_Year> _scoreTableList_Year = new List<scoreTable_Year>();
         public List<scoreTable_Year> scoreTableList_Year { get => _scoreTableList_Year; set { _scoreTableList_Year = value; OnPropertyChanged(); } }
         private string _avgSemester;
@@ -132,7 +132,7 @@ namespace EduConnectApp.ViewModel
             var tempLop = DataProvider.Ins.DB.LOPs.Where(x => x.MALOP == temp.MALOP && x.DELETED == false).SingleOrDefault();
             Lop = tempLop.TENLOP;
             GVCN = DataProvider.Ins.DB.GIAOVIENs.Where(x => x.MAGV == tempLop.GVCN && x.DELETED == false).SingleOrDefault().HOTEN;
-            NhanXet = DataProvider.Ins.DB.NHANXETs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault().NHANXET1;
+            NhanXet = DataProvider.Ins.DB.NHANXETs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.HOCKY == Const.Semester && x.DELETED == false).SingleOrDefault().NHANXET1;
 
             var PH = DataProvider.Ins.DB.PHUHUYNHs.Where(x => x.MAHS == ClassListViewModel.CurrentSelected.ID && x.DELETED == false).SingleOrDefault();
             TenCha = PH.HOTENBO;
@@ -246,7 +246,7 @@ namespace EduConnectApp.ViewModel
                         }
                     }
                 }
-                var tempTBHK = DataProvider.Ins.DB.TBMONs.Where(x => x.MAHS == mahs && x.MALOP == classID && x.MAMH == mh.MAMH && x.HOCKY == 1 && x.DELETED == false).FirstOrDefault();
+                var tempTBHK = DataProvider.Ins.DB.TBMONs.Where(x => x.MAHS == mahs && x.MALOP == classID && x.MAMH == mh.MAMH && x.HOCKY == 2 && x.DELETED == false).FirstOrDefault();
                 if (tempTBHK != null)
                     sc.avg = tempTBHK.DTB;
                 sc.min15_1 = scoreTemp[0];

@@ -240,7 +240,7 @@
                 </RadioButton>
 
                 <!--Cài đặt-->
-                <RadioButton x:Name="rdBtn_Setting" Style="{StaticResource rdbtn_MenuStyle}"  >
+                <!--<RadioButton x:Name="rdBtn_Setting" Style="{StaticResource rdbtn_MenuStyle}"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  Kind="Cog" Style="{StaticResource ic_MenuStyle}"/>
                         <TextBlock Text="Cài đặt" Style="{StaticResource txtbl_MenuStyle}" />
@@ -252,7 +252,7 @@
                             <i:InvokeCommandAction Command="{Binding updateTabName}" CommandParameter="{Binding ElementName=mainWd}" ></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                </RadioButton>
+                </RadioButton>-->
             </StackPanel>
 
 
