@@ -166,9 +166,12 @@ namespace EduConnectApp.ViewModel
             var tempKQ = DataProvider.Ins.DB.KETQUAs.Where(x => x.MAHS == mahs && x.MALOP==classID && x.HOCKY == semester && x.DELETED == false).FirstOrDefault();
             if (tempKQ!=null)
             {
-                avgSemester =  tempKQ.DTB.ToString();
-                rank = tempKQ.XEPLOAI;
-                conduct=tempKQ.HANHKIEM;
+                avgSemester =  String.Format("{0:0.00}", tempKQ.DTB);
+                if (semester < Const.Semester)
+                {
+                    rank = tempKQ.XEPLOAI;
+                    conduct=tempKQ.HANHKIEM;
+                }
             }
             var tempTT = DataProvider.Ins.DB.THANHTICHes.Where(x => x.MAHS == mahs && x.MALOP==classID && x.DELETED == false).FirstOrDefault();
             if (tempTT!=null)
@@ -237,10 +240,17 @@ namespace EduConnectApp.ViewModel
             var tempKQ = DataProvider.Ins.DB.KETQUAs.Where(x => x.MAHS == mahs && x.MALOP==classID && x.HOCKY == semester && x.DELETED == false).FirstOrDefault();
             if (tempKQ!=null)
             {
-                avgSemester =  tempKQ.DTB.ToString();
-                rank = tempKQ.XEPLOAI;
-                conduct=tempKQ.HANHKIEM;
+                avgSemester =  String.Format("{0:0.00}", tempKQ.DTB);
+                if (semester < Const.Semester)
+                {
+                    rank = tempKQ.XEPLOAI;
+                    conduct=tempKQ.HANHKIEM;
+                }
             }
+            else avgSemester = "";
+            rank = "";
+            conduct = "";
+
             var tempTT = DataProvider.Ins.DB.THANHTICHes.Where(x => x.MAHS == mahs && x.MALOP==classID && x.DELETED == false).FirstOrDefault();
             if (tempTT!=null)
             {

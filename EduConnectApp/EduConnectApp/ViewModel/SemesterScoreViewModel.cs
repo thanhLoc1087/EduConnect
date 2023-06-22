@@ -60,8 +60,10 @@ namespace EduConnectApp.ViewModel
         public ICommand changeDtgYear { get; }
         public ICommand changeDtgSub { get; }
         public ICommand Detail { get; }
+        public ICommand getDetail { get; }
         public ICommand navScoreDetail { get; }
         public ICommand navBack { get; }
+        public ICommand navEdit { get; }
 
         private string _Title;
         public string Title { get => _Title; set { _Title = value; OnPropertyChanged(); } }
@@ -132,11 +134,13 @@ namespace EduConnectApp.ViewModel
             //navigate
             navScoreDetail = new NavigationCommand<ScoreDetailViewModel>(navigationStore, () => new ScoreDetailViewModel(navigationStore));
             navBack = new NavigationCommand<GradeViewModel>(navigationStore, () => new GradeViewModel(navigationStore));
+            navEdit = new NavigationCommand<EditScoreViewModel>(navigationStore, () => new EditScoreViewModel(navigationStore));
 
             //command
             changeDtgYear = new RelayCommand<SemesterScore>((p) => { return true; }, (p) => _UpdateYearCbb(p, classSelected.ClassID));
             changeDtgSub = new RelayCommand<SemesterScore>((p) => { return true; }, (p) => _UpdateSubjectCbb(p, classSelected.ClassID));
             Detail = new RelayCommand<DataGrid>((p) => { return p.SelectedItem==null?false:true; }, (p) => _Detail(p, classSelected.ClassID));
+            getDetail = new RelayCommand<SemesterScore>((p) => { return p.dtg_Edit.SelectedItem == null ? false : true; }, (p) => _GetDetail(p, classSelected.ClassID));
 
             //List
             TestList = new ObservableCollection<THI>(DataProvider.Ins.DB.THIs.Where(x => x.DELETED == false));
@@ -155,6 +159,13 @@ namespace EduConnectApp.ViewModel
             semester = Const.Semester;
             _UpdateScoreSemester(1, classSelected.ClassID, semester);
             _UpdateScoreYear(1, classSelected.ClassID);
+        }
+
+        void _GetDetail(SemesterScore p, int classID)
+        {
+            p.dtg_Semester.SelectedIndex = p.dtg_Edit.SelectedIndex;
+            _Detail(p.dtg_Semester, classID);
+
         }
 
         void _Detail(DataGrid p, int malop)
@@ -190,7 +201,7 @@ namespace EduConnectApp.ViewModel
             {
                 p.dtg_Semester.Visibility=Visibility.Hidden;
                 p.dtg_Year.Visibility=Visibility.Visible;
-                p.dtg_semesterEdit.IsHitTestVisible = false;
+                p.dtg_Edit.IsHitTestVisible = false;
             }
             else
             {
