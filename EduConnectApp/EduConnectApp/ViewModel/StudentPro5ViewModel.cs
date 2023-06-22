@@ -14,6 +14,8 @@ namespace EduConnectApp.ViewModel
 {
     public class StudentPro5ViewModel : BaseViewModel
     {
+        private bool _isPermitted = false;
+        public bool isPermitted { get => _isPermitted; set { _isPermitted = value; OnPropertyChanged(); } }
         private string _TenCha;
         public string TenCha { get => _TenCha; set { _TenCha = value; OnPropertyChanged(); } }
         private string _NgheCha;
@@ -59,6 +61,13 @@ namespace EduConnectApp.ViewModel
 
         public StudentPro5ViewModel(NavigationStore navigationStore)
         {
+            // Check if user isAdmin or GVCN
+            LOP lptemp = DataProvider.Ins.DB.LOPs.Where(x => x.MALOP == ClassViewModel.CurrentSelected.ClassID && x.DELETED == false).SingleOrDefault();
+            if (Const.KeyID == lptemp.GVCN || Const.IsAdmin == true)
+            {
+                isPermitted = true;
+            }
+
             //navigate
             navBack = new NavigationCommand<ClassListViewModel>(navigationStore, () => new ClassListViewModel(navigationStore));
             navEdit = new NavigationCommand<EditStudentPro5ViewModel>(navigationStore, () => new EditStudentPro5ViewModel(navigationStore));
