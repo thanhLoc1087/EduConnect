@@ -23,33 +23,32 @@ namespace EduConnectApp.Commands
             _navigationStore.CurrentViewModel = _createViewModel();
         }
     }
+
     public class NavigationCommandWithCondition<TViewModel> : CommandBase
-    where TViewModel : BaseViewModel
+     where TViewModel : BaseViewModel
     {
-        private readonly Predicate<TViewModel> _canExecute;
         private readonly NavigationStore _navigationStore;
         private readonly Func<TViewModel> _createViewModel;
-        public NavigationCommandWithCondition(Predicate<TViewModel> canExecute, NavigationStore navigationStore, Func<TViewModel> createViewModel)
+        private readonly Predicate<TViewModel> _condition;
+
+        public NavigationCommandWithCondition(Predicate<TViewModel> condition, NavigationStore navigationStore, Func<TViewModel> createViewModel)
         {
             _navigationStore = navigationStore;
             _createViewModel = createViewModel;
-            _canExecute = canExecute;
-        }
-        public override bool CanExecute(object parameter)
-        {
-            try
-            {
-                return _canExecute == null ? true : _canExecute((TViewModel)parameter);
-            }
-            catch
-            {
-                return true;
-            }
-        }
-        public override void Execute(object parameter)
-        {
-            _navigationStore.CurrentViewModel = _createViewModel();
+            _condition = condition;
         }
 
+        public override void Execute(object parameter)
+        {
+            TViewModel viewModel = _createViewModel();
+
+            if (_condition(viewModel))
+            {
+                _navigationStore.CurrentViewModel = viewModel;
+            }
+        }
     }
+
+
+
 }

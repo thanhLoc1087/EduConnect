@@ -20,6 +20,8 @@ namespace EduConnectApp.ViewModel
 
     public class ClassListViewModel :BaseViewModel
     {
+        private bool _isPermitted = false;
+        public bool isPermitted { get => _isPermitted; set { _isPermitted = value; OnPropertyChanged(); } }
         public struct Student
         {
             public int ID { get; set; }
@@ -97,7 +99,12 @@ namespace EduConnectApp.ViewModel
         public ClassListViewModel(NavigationStore navigationStore) {
             ClassViewModel.AvailableClass classSelected = ClassViewModel.CurrentSelected;
 
-            
+            // Check if user isAdmin or GVCN
+            LOP lptemp = DataProvider.Ins.DB.LOPs.Where(x => x.MALOP == classSelected.ClassID && x.DELETED == false).SingleOrDefault();
+            if (Const.KeyID == lptemp.GVCN || Const.IsAdmin == true)
+            {
+                isPermitted = true;
+            }
 
             //navigate
             navClassList = new NavigationCommand<ClassListViewModel>(navigationStore, () => new ClassListViewModel(navigationStore));
