@@ -46,9 +46,9 @@
         <StackPanel Grid.Row="3">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Left" Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25" FontWeight="Bold" Margin="50 0 0 0">Mật khẩu</TextBlock>
-                <Button DockPanel.Dock="Right" Background="Transparent" Padding="0" HorizontalAlignment="Right" Margin="0 0 50 0" BorderBrush="Transparent">
+                <!--<Button DockPanel.Dock="Right" Background="Transparent" Padding="0" HorizontalAlignment="Right" Margin="0 0 50 0" BorderBrush="Transparent">
                     <TextBlock Foreground="{StaticResource Yale Blue}" Opacity="0.7" FontSize="25">Quên mật khẩu?</TextBlock>
-                </Button>
+                </Button>-->
             </DockPanel>
             <PasswordBox
                 Margin="50 10"
