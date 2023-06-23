@@ -218,7 +218,7 @@ namespace EduConnectApp.ViewModel
                         }
                         if (double.Parse(sc.score[i]) > 10 || double.Parse(sc.score[i]) < 0)
                         {
-                            MessageBox.Show("Vui lòng nhập điểm hợp lệ2.", "Confirmation");
+                            MessageBox.Show("Vui lòng nhập điểm hợp lệ.", "Confirmation");
                             return;
 
                         }
