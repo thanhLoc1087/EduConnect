@@ -78,11 +78,11 @@ namespace EduConnectApp.ViewModel
                         Role = "GIÁO VIÊN";
                     }
                     Ava = Const.AVA;
-                    if (Ava != null)
-                    {
-                        //string str = Const._localLink + Const.AVA.Remove(0, 2);
-                        p.ava.ImageSource = (ImageSource)new ImageSourceConverter().ConvertFromString(Ava);
-                    }
+                    //if (Ava != null)
+                    //{
+                    //    //string str = Const._localLink + Const.AVA.Remove(0, 2);
+                    //    p.ava.ImageSource = (ImageSource)new ImageSourceConverter().ConvertFromString(Ava);
+                    //}
                     p.Show();
                 }
                 else 
@@ -140,11 +140,11 @@ namespace EduConnectApp.ViewModel
                             Role = "GIÁO VIÊN";
                         }
                         Ava = Const.AVA;
-                        if (Ava != null)
-                        {
-                            //string str = Const._localLink + Const.AVA.Remove(0, 2);
-                            p.ava.ImageSource = (ImageSource)new ImageSourceConverter().ConvertFromString(Ava);
-                        }
+                        //if (Ava != null)
+                        //{
+                        //    //string str = Const._localLink + Const.AVA.Remove(0, 2);
+                        //    p.ava.ImageSource = (ImageSource)new ImageSourceConverter().ConvertFromString(Ava);
+                        //}
                         p.Show();
                     }
                     else

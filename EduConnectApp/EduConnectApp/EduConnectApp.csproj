@@ -498,6 +498,22 @@
     <Resource Include="imgs\SemesterLine2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="imgs\avt1.png" />
+    <Resource Include="imgs\avt10.png" />
+    <Resource Include="imgs\avt11.png" />
+    <Resource Include="imgs\avt12.png" />
+    <Resource Include="imgs\avt13.png" />
+    <Resource Include="imgs\avt14.png" />
+    <Resource Include="imgs\avt15.png" />
+    <Resource Include="imgs\avt16.png" />
+    <Resource Include="imgs\avt2.png" />
+    <Resource Include="imgs\avt3.png" />
+    <Resource Include="imgs\avt4.png" />
+    <Resource Include="imgs\avt5.png" />
+    <Resource Include="imgs\avt6.png" />
+    <Resource Include="imgs\avt7.png" />
+    <Resource Include="imgs\avt8.png" />
+    <Resource Include="imgs\avt9.png" />
     <Content Include="Model\EduConnect.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EduConnect.edmx</DependentUpon>

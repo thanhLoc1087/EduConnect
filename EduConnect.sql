@@ -15,6 +15,7 @@ CREATE TABLE ADMIN (
 	MAAD INT IDENTITY NOT NULL PRIMARY KEY,
 	TENAD NVARCHAR(255),
 	MALOGIN INT FOREIGN KEY REFERENCES LOGIN(ID),
+	AVA varchar(100),
 )
 
 
@@ -33,6 +34,7 @@ CREATE TABLE HOCSINH (
 	DIACHI NVARCHAR(255),
 	NIENKHOA VARCHAR(20),
 	MALOGIN INT FOREIGN KEY REFERENCES LOGIN(ID),
+	AVA varchar(100),
 )
 
 CREATE TABLE PHUHUYNH (
@@ -63,6 +65,7 @@ CREATE TABLE GIAOVIEN (
 	GIOITINH BIT,
 	MALOGIN INT FOREIGN KEY REFERENCES LOGIN(ID),
 	MATO INT FOREIGN KEY REFERENCES TO1(MATO),
+	AVA varchar(100),
 )
 
 ALTER TABLE TO1 ADD CONSTRAINT FK_TO FOREIGN KEY (TOTRUONG) REFERENCES GIAOVIEN(MAGV)
@@ -190,32 +193,32 @@ INSERT INTO LOGIN VALUES ('student20', 'student20')
 
 SELECT * FROM LOGIN
 
-INSERT INTO ADMIN VALUES (N'Nguyễn Quang Hưng', 1)
-INSERT INTO ADMIN VALUES (N'Trần Ngọc Lan', 2)
-INSERT INTO ADMIN VALUES (N'Lê Vũ Thu Thảo', 3)
+INSERT INTO ADMIN VALUES (N'Nguyễn Quang Hưng', 1, '../imgs/avt1.png')
+INSERT INTO ADMIN VALUES (N'Trần Ngọc Lan', 2, '../imgs/avt2.png')
+INSERT INTO ADMIN VALUES (N'Lê Vũ Thu Thảo', 3, '../imgs/avt3.png')
 
 SELECT * FROM ADMIN
 
-INSERT INTO HOCSINH VALUES (N'Nguyễn Bình An','5/10/2007',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0911526845',NULL,NULL,N'Hẻm 47/10 Nơ Trang Long, quận Bình Thạnh, TP HCM', '2022-2025', '14')
-INSERT INTO HOCSINH VALUES (N'Đỗ Duy Dũng','17/7/2007',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0935782642',NULL,NULL,N'Hẻm 17/6 D5, quận Bình Thạnh, TP HCM', '2022-2025', '15')
-INSERT INTO HOCSINH VALUES (N'Nguyễn Thị Minh Trang','9/8/2007',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0236158634',NULL,NULL,N'132 Nguyễn Gia Trí, quận Bình Thạnh, TPHCM', '2022-2025', '16')
-INSERT INTO HOCSINH VALUES (N'Lê Nguyễn Bảo Trâm','21/12/2007',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0905863493',NULL,NULL,N'Hẻm 77/16 Phan Văn Trị, quận Gò Vấp, TP HCM', '2022-2025', '17')
-INSERT INTO HOCSINH VALUES (N'Lương Đoan Thục','10/2/2007',N'TP HCM',1,N'Kinh ',N'Thiên Chúa Giáo',N'Không','0932529352',NULL,NULL,N'120 QL13, quận Bình Thạnh, TP HCM', '2022-2025', '18')
-INSERT INTO HOCSINH VALUES (N'Trần Thị Thanh Nhi','19/1/2007',N'Bình Dương',1,N'Kinh ',N'Không',N'Không','0894863463',NULL,NULL,N'Hẻm 90/15 Nguyễn Thượng Hiền, quận 3, TP HCM', '2022-2025', '19')
-INSERT INTO HOCSINH VALUES (N'Từ Trung Quân','18/3/2007',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0364266846',NULL,NULL,N'Hẻm 150/56 Nguyễn Hữu Cảnh, quận Bình Thạnh, TP HCM', '2022-2025', '20')
-INSERT INTO HOCSINH VALUES (N'Phan Thị Phương Thanh','25/4/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0905872364',NULL,NULL,N'116 Võ Văn Ngân, Thành phố Thủ Đức, TP HCM', '2021-2024', '21')
-INSERT INTO HOCSINH VALUES (N'Trần Thanh Nhàn','29/4/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0374654239',NULL,NULL,N'Hẻm 345/4 Xô Viết Nghệ Tĩnh, quận Bình Thạnh, TP HCM', '2021-2024', '22')
-INSERT INTO HOCSINH VALUES (N'Đào Anh Thư','1/8/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0932687264',NULL,NULL,N'90 Phạm Ngũ Lão, quận Gò Vấp, TP HCM', '2021-2024', '23')
-INSERT INTO HOCSINH VALUES (N'Trần Lê Bảo Châu','15/2/2006',N'TP HCM',1,N'Kinh ',N'Thiên Chúa Giáo',N'Không','0911893184',NULL,NULL,N'Hẻm 123/20 Lê Đức Thọ, quận Gò Vấp, TP HCM', '2021-2024', '24')
-INSERT INTO HOCSINH VALUES (N'Nguyễn Thị Minh Thư','21/9/2006',N'Đồng Nai',1,N'Tày',N'Không',N'Dân tộc thiểu số','0236972462',NULL,NULL,N'90 Lê Văn Sỹ, quận 3, TP HCM', '2021-2024', '25')
-INSERT INTO HOCSINH VALUES (N'Lê Huỳnh Bảo Châu','25/10/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0932579614',NULL,NULL,N'Hẻm 225/6 Nguyễn Công Trứ, quận Bình Thạnh, TPHCM', '2021-2024', '26')
-INSERT INTO HOCSINH VALUES (N'Huỳnh Thị Khánh Đoan','8/1/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0905659163',NULL,NULL,N'90 Kha Vạn Cân, TP Thủ Đức, TP HCM', '2021-2024', '27')
-INSERT INTO HOCSINH VALUES (N'Tạ Thị Khánh Huyền','5/7/2005',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0964569264',NULL,NULL,N'Hẻm 88/16 Nguyễn Duy Trinh, quận 2, TP HCM', '2020-2023', '28')
-INSERT INTO HOCSINH VALUES (N'Nguyễn Thanh Chương','19/5/2005',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0264631896',NULL,NULL,N'Hẻm 100/6 Nguyễn Xí, quận Bình Thạnh, TP HCM', '2020-2023', '29')
-INSERT INTO HOCSINH VALUES (N'Lê Thanh Minh','17/6/2005',N'Long An',0,N'Hoa ',N'Không',N'Dân tộc thiểu số','0911896348',NULL,NULL,N'Hẻm 378/16 Điện Biên Phủ, quận 3, TP HCM', '2020-2023', '30')
-INSERT INTO HOCSINH VALUES (N'Nguyễn Công Thành','25/6/2005',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0905865387',NULL,NULL,N'94 Thông Nhất, Thành phố Thủ Đức, TP HCM', '2020-2023', '31')
-INSERT INTO HOCSINH VALUES (N'Trần Lê Hoàng Nguyên','16/7/2005',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0932649366',NULL,NULL,N'Hẻm 145/17 Võ Thị Sáu, quận 3, TP HCM', '2020-2023', '32')
-INSERT INTO HOCSINH VALUES (N'Nguyễn Song Hoàng','20/11/2005',N'Tiền Giang',0,N'Kinh ',N'Không',N'Không','0919569883',NULL,NULL,N'Hẻm 200/7 Đinh Bộ Lĩnh, quận Bình Thạnh, TP HCM', '2020-2023', '33')
+INSERT INTO HOCSINH VALUES (N'Nguyễn Bình An','5/10/2007',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0911526845',NULL,NULL,N'Hẻm 47/10 Nơ Trang Long, quận Bình Thạnh, TP HCM', '2022-2025', '14', '../imgs/avt4.png')
+INSERT INTO HOCSINH VALUES (N'Đỗ Duy Dũng','17/7/2007',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0935782642',NULL,NULL,N'Hẻm 17/6 D5, quận Bình Thạnh, TP HCM', '2022-2025', '15', '../imgs/avt5.png')
+INSERT INTO HOCSINH VALUES (N'Nguyễn Thị Minh Trang','9/8/2007',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0236158634',NULL,NULL,N'132 Nguyễn Gia Trí, quận Bình Thạnh, TPHCM', '2022-2025', '16', '../imgs/avt6.png')
+INSERT INTO HOCSINH VALUES (N'Lê Nguyễn Bảo Trâm','21/12/2007',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0905863493',NULL,NULL,N'Hẻm 77/16 Phan Văn Trị, quận Gò Vấp, TP HCM', '2022-2025', '17', '../imgs/avt7.png')
+INSERT INTO HOCSINH VALUES (N'Lương Đoan Thục','10/2/2007',N'TP HCM',1,N'Kinh ',N'Thiên Chúa Giáo',N'Không','0932529352',NULL,NULL,N'120 QL13, quận Bình Thạnh, TP HCM', '2022-2025', '18', '../imgs/avt8.png')
+INSERT INTO HOCSINH VALUES (N'Trần Thị Thanh Nhi','19/1/2007',N'Bình Dương',1,N'Kinh ',N'Không',N'Không','0894863463',NULL,NULL,N'Hẻm 90/15 Nguyễn Thượng Hiền, quận 3, TP HCM', '2022-2025', '19', '../imgs/avt9.png')
+INSERT INTO HOCSINH VALUES (N'Từ Trung Quân','18/3/2007',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0364266846',NULL,NULL,N'Hẻm 150/56 Nguyễn Hữu Cảnh, quận Bình Thạnh, TP HCM', '2022-2025', '20', '../imgs/avt10.png')
+INSERT INTO HOCSINH VALUES (N'Phan Thị Phương Thanh','25/4/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0905872364',NULL,NULL,N'116 Võ Văn Ngân, Thành phố Thủ Đức, TP HCM', '2021-2024', '21', '../imgs/avt11.png')
+INSERT INTO HOCSINH VALUES (N'Trần Thanh Nhàn','29/4/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0374654239',NULL,NULL,N'Hẻm 345/4 Xô Viết Nghệ Tĩnh, quận Bình Thạnh, TP HCM', '2021-2024', '22', '../imgs/avt12.png')
+INSERT INTO HOCSINH VALUES (N'Đào Anh Thư','1/8/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0932687264',NULL,NULL,N'90 Phạm Ngũ Lão, quận Gò Vấp, TP HCM', '2021-2024', '23', '../imgs/avt13.png')
+INSERT INTO HOCSINH VALUES (N'Trần Lê Bảo Châu','15/2/2006',N'TP HCM',1,N'Kinh ',N'Thiên Chúa Giáo',N'Không','0911893184',NULL,NULL,N'Hẻm 123/20 Lê Đức Thọ, quận Gò Vấp, TP HCM', '2021-2024', '24', '../imgs/avt14.png')
+INSERT INTO HOCSINH VALUES (N'Nguyễn Thị Minh Thư','21/9/2006',N'Đồng Nai',1,N'Tày',N'Không',N'Dân tộc thiểu số','0236972462',NULL,NULL,N'90 Lê Văn Sỹ, quận 3, TP HCM', '2021-2024', '25', '../imgs/avt15.png')
+INSERT INTO HOCSINH VALUES (N'Lê Huỳnh Bảo Châu','25/10/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0932579614',NULL,NULL,N'Hẻm 225/6 Nguyễn Công Trứ, quận Bình Thạnh, TPHCM', '2021-2024', '26', '../imgs/avt16.png')
+INSERT INTO HOCSINH VALUES (N'Huỳnh Thị Khánh Đoan','8/1/2006',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0905659163',NULL,NULL,N'90 Kha Vạn Cân, TP Thủ Đức, TP HCM', '2021-2024', '27', '../imgs/avt1.png')
+INSERT INTO HOCSINH VALUES (N'Tạ Thị Khánh Huyền','5/7/2005',N'TP HCM',1,N'Kinh ',N'Không',N'Không','0964569264',NULL,NULL,N'Hẻm 88/16 Nguyễn Duy Trinh, quận 2, TP HCM', '2020-2023', '28', '../imgs/avt2.png')
+INSERT INTO HOCSINH VALUES (N'Nguyễn Thanh Chương','19/5/2005',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0264631896',NULL,NULL,N'Hẻm 100/6 Nguyễn Xí, quận Bình Thạnh, TP HCM', '2020-2023', '29', '../imgs/avt3.png')
+INSERT INTO HOCSINH VALUES (N'Lê Thanh Minh','17/6/2005',N'Long An',0,N'Hoa ',N'Không',N'Dân tộc thiểu số','0911896348',NULL,NULL,N'Hẻm 378/16 Điện Biên Phủ, quận 3, TP HCM', '2020-2023', '30', '../imgs/avt4.png')
+INSERT INTO HOCSINH VALUES (N'Nguyễn Công Thành','25/6/2005',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0905865387',NULL,NULL,N'94 Thông Nhất, Thành phố Thủ Đức, TP HCM', '2020-2023', '31', '../imgs/avt5.png')
+INSERT INTO HOCSINH VALUES (N'Trần Lê Hoàng Nguyên','16/7/2005',N'TP HCM',0,N'Kinh ',N'Không',N'Không','0932649366',NULL,NULL,N'Hẻm 145/17 Võ Thị Sáu, quận 3, TP HCM', '2020-2023', '32', '../imgs/avt6.png')
+INSERT INTO HOCSINH VALUES (N'Nguyễn Song Hoàng','20/11/2005',N'Tiền Giang',0,N'Kinh ',N'Không',N'Không','0919569883',NULL,NULL,N'Hẻm 200/7 Đinh Bộ Lĩnh, quận Bình Thạnh, TP HCM', '2020-2023', '33', '../imgs/avt7.png')
 
 SELECT * FROM HOCSINH
 
@@ -257,17 +260,17 @@ SELECT * FROM TO1
 
 ALTER TABLE TO1 CHECK CONSTRAINT FK_TO
 
-INSERT INTO GIAOVIEN VALUES (N'Nguyễn Văn Hải','hainv@gmail.com','0935895564',N'Hẻm 56/14 Đỗ Xuân Hợp, quận 9, TP HCM','10/12/1970',0,4,1)
-INSERT INTO GIAOVIEN VALUES (N'Võ Tiến','tienv@gmail.com','0905897462',N'94 Phan Văn Trị, quận Gò Vấp, TP HCM','18/7/1972',0,5,2)
-INSERT INTO GIAOVIEN VALUES (N'Trần Bảo Sơn','sontb@gmail.com','0236598972',N'Hẻm 94/14 Trần Quốc Thảo, quận 3, TP HCM','9/1/1980',0,6,3)
-INSERT INTO GIAOVIEN VALUES (N'Đỗ Thị Ngọc Vân','vandtn@gmail.com','0911584893',N'105 Nguyễn Tri Phương, quận 10, TP HCM','10/11/1983',1,7,4)
-INSERT INTO GIAOVIEN VALUES (N'Lê Minh Nhật','nhatlm@gmail.com','0935897561',N'Hẻm 54/2 Nguyễn Đình Chiểu, quận 3, TP HCM','15/6/1979',0,8,6)
-INSERT INTO GIAOVIEN VALUES (N'Nguyễn Lê Quỳnh Trang','trangnlq@gmail.com','0932490959',N'56 Bạch Đằng, quận Bình Thạnh, TP HCM','19/9/1992',1,9,7)
-INSERT INTO GIAOVIEN VALUES (N'Lê Ngọc Bảo','baoln@gmail.com','0903589706',N'259 QL13, quận Bình Thạnh, TP HCM','20/8/1989',0,10,7)
-INSERT INTO GIAOVIEN VALUES (N'Đoàn Khánh Ngọc','ngocdk@gmail.com','0904498775',N'Hẻm 19/3 Lê Văn Sỹ, quận 3, TP HCM','10/3/1985',1,11,5)
-INSERT INTO GIAOVIEN VALUES (N'Võ Nguyễn Hoài Thanh','thanhvnh@gmail.com','0905950165',N'94 Nơ Trang Long, quận Bình Thạnh, TP HCM','5/4/1994',1,12,1)
-INSERT INTO GIAOVIEN VALUES (N'Nguyễn Trần Hùng','hungnt@gmail.com','0932890873',N'105 Đinh Bộ Lĩnh, quận Bình Thạnh, TP HCM','17/2/1990',0,13,8)
-INSERT INTO GIAOVIEN VALUES (N'Trần Mạnh Cường','cuongtm@gmail.com','0935498764',N'Hẻm 60/12 Nguyễn Thông, quận 3, TP HCM','19/5/1979',0,14,8)
+INSERT INTO GIAOVIEN VALUES (N'Nguyễn Văn Hải','hainv@gmail.com','0935895564',N'Hẻm 56/14 Đỗ Xuân Hợp, quận 9, TP HCM','10/12/1970',0,4,1, '../imgs/avt8.png')
+INSERT INTO GIAOVIEN VALUES (N'Võ Tiến','tienv@gmail.com','0905897462',N'94 Phan Văn Trị, quận Gò Vấp, TP HCM','18/7/1972',0,5,2, '../imgs/avt9.png')
+INSERT INTO GIAOVIEN VALUES (N'Trần Bảo Sơn','sontb@gmail.com','0236598972',N'Hẻm 94/14 Trần Quốc Thảo, quận 3, TP HCM','9/1/1980',0,6,3, '../imgs/avt10.png')
+INSERT INTO GIAOVIEN VALUES (N'Đỗ Thị Ngọc Vân','vandtn@gmail.com','0911584893',N'105 Nguyễn Tri Phương, quận 10, TP HCM','10/11/1983',1,7,4, '../imgs/avt11.png')
+INSERT INTO GIAOVIEN VALUES (N'Lê Minh Nhật','nhatlm@gmail.com','0935897561',N'Hẻm 54/2 Nguyễn Đình Chiểu, quận 3, TP HCM','15/6/1979',0,8,6, '../imgs/avt12.png')
+INSERT INTO GIAOVIEN VALUES (N'Nguyễn Lê Quỳnh Trang','trangnlq@gmail.com','0932490959',N'56 Bạch Đằng, quận Bình Thạnh, TP HCM','19/9/1992',1,9,7, '../imgs/avt13.png')
+INSERT INTO GIAOVIEN VALUES (N'Lê Ngọc Bảo','baoln@gmail.com','0903589706',N'259 QL13, quận Bình Thạnh, TP HCM','20/8/1989',0,10,7, '../imgs/avt14.png')
+INSERT INTO GIAOVIEN VALUES (N'Đoàn Khánh Ngọc','ngocdk@gmail.com','0904498775',N'Hẻm 19/3 Lê Văn Sỹ, quận 3, TP HCM','10/3/1985',1,11,5, '../imgs/avt15.png')
+INSERT INTO GIAOVIEN VALUES (N'Võ Nguyễn Hoài Thanh','thanhvnh@gmail.com','0905950165',N'94 Nơ Trang Long, quận Bình Thạnh, TP HCM','5/4/1994',1,12,1, '../imgs/avt16png')
+INSERT INTO GIAOVIEN VALUES (N'Nguyễn Trần Hùng','hungnt@gmail.com','0932890873',N'105 Đinh Bộ Lĩnh, quận Bình Thạnh, TP HCM','17/2/1990',0,13,8, '../imgs/avt14.png')
+INSERT INTO GIAOVIEN VALUES (N'Trần Mạnh Cường','cuongtm@gmail.com','0935498764',N'Hẻm 60/12 Nguyễn Thông, quận 3, TP HCM','19/5/1979',0,14,8, '../imgs/avt15.png')
 
 SELECT * FROM GIAOVIEN
 
@@ -1779,7 +1782,7 @@ SET DELETED = 0
 UPDATE KHOI
 SET DELETED = 0
 
-
+select * from login
 ----học kỳ chỉ mang các giá trị 1, 2, 3
 --ALTER TABLE THI ADD CONSTRAINT CK_THI_HOCKY CHECK (HOCKY IN (1,2,3))
 --ALTER TABLE GIANGDAY ADD CONSTRAINT CK_GIANGDAY_HOCKY CHECK (HOCKY IN (1,2,3))
@@ -1795,16 +1798,6 @@ SET DELETED = 0
 
 
 
-ALTER TABLE ADMIN
-ADD AVA varchar(100);
-
-
-ALTER TABLE GIAOVIEN
-ADD AVA varchar(100);
-
-
-ALTER TABLE HOCSINH
-ADD AVA varchar(100);
 
 
 
