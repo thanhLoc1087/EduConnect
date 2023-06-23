@@ -167,7 +167,7 @@ namespace EduConnectApp.ViewModel
             if (p.rdBtn_Grade.IsChecked== true) { p.txtbl_Tabname.Text = "ĐIỂM"; }
             if (p.rdBtn_Statistic.IsChecked== true) { p.txtbl_Tabname.Text = "THỐNG KÊ"; }
             if (p.rdBtn_Contact.IsChecked== true) { p.txtbl_Tabname.Text = "LIÊN LẠC"; }
-            if (p.rdBtn_Setting.IsChecked== true) { p.txtbl_Tabname.Text = "CÀI ĐẶT"; }
+            //if (p.rdBtn_Setting.IsChecked== true) { p.txtbl_Tabname.Text = "CÀI ĐẶT"; }
         }
 
         void _UpdateTabPro5(MainWindow p)
@@ -178,7 +178,7 @@ namespace EduConnectApp.ViewModel
             p.rdBtn_Grade.IsChecked= false;
             p.rdBtn_Statistic.IsChecked= false;
             p.rdBtn_Contact.IsChecked= false;
-            p.rdBtn_Setting.IsChecked= false;
+            //p.rdBtn_Setting.IsChecked= false;
         }
 
         void _UpdateSpn(StackPanel p)

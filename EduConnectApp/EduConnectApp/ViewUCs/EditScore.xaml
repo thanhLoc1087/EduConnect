@@ -31,17 +31,15 @@
 
             <TextBlock Style="{DynamicResource txtbl_TilleTab}" Text="KẾT QUẢ HỌC TẬP" />
 
-            <StackPanel Grid.Row="1" >
-                <StackPanel  VerticalAlignment="Top" Orientation="Horizontal" Margin="10 0">
+            <StackPanel Grid.Row="1" VerticalAlignment="Center">
                     <TextBlock Style="{StaticResource txtbl_SchoolYear}" TextDecorations="None" Text="{Binding schoolYear}" Margin="0 0 0 0"></TextBlock>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource txtbl_Infovalue}" Text=" - HỌC KỲ " FontSize="16"></TextBlock>
                         <TextBlock Style="{StaticResource txtbl_Infovalue}" Text="{Binding semester}" FontSize="16"></TextBlock>
-                    </StackPanel>
                 </StackPanel>
 
                 <!--Cbb hoc ky-->
-                <ComboBox  x:Name="cbb_Semester" SelectedIndex="{Binding semester}"  HorizontalAlignment="Left"
+                <!--<ComboBox  x:Name="cbb_Semester" SelectedIndex="{Binding semester}"  HorizontalAlignment="Left"
                         Width="139" Margin="10 5 0 0" Height="39" Padding="20 0"
                                      FontSize="16"
                                   BorderBrush="{DynamicResource Yale Blue}"
@@ -57,7 +55,7 @@
                             <i:InvokeCommandAction Command="{Binding changeScoreTb}" CommandParameter="{Binding ElementName=EditScoreUC}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                </ComboBox>
+                </ComboBox>-->
             </StackPanel>
 
             <TextBlock Grid.Column="1" Style="{StaticResource txtbl_SchoolYear}" Text="{Binding studentName}" TextDecorations="None" FontSize="22" HorizontalAlignment="Right" Margin="0 0 20 0" VerticalAlignment="Bottom" ></TextBlock>
@@ -81,7 +79,7 @@
 
             <DataGrid Background="White" x:Name="dtg_Scoretable"  AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource dtg_Header}"  ItemsSource="{Binding scoreTableList}">
                 <DataGrid.Columns >
-                    <DataGridTextColumn Header="Môn" Width="*"  ElementStyle="{DynamicResource txt_value}" Binding="{Binding subject}"/>
+                    <DataGridTextColumn IsReadOnly="True" Header="Môn" Width="*"  ElementStyle="{DynamicResource txt_value}" Binding="{Binding subject}"/>
                     <DataGridTemplateColumn Header="Miệng"  IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -111,7 +109,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Thi"  IsReadOnly="True" >
+                    <DataGridTemplateColumn Header="Thi"  IsReadOnly="True"  Width=".5*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox  BorderBrush="{DynamicResource Green Blue}" Foreground="{DynamicResource Green Blue}" Margin="0 0 5 0" Text="{Binding score[6], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
@@ -139,8 +137,19 @@
         </Border>
 
 
+        <!--Button-->
         <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 10 10">
-            <Border Style="{DynamicResource brd_BackBtn}">
+            <Border Style="{DynamicResource brd_SaveBtn}" >
+                <Button Style="{DynamicResource SaveBtn3}"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=dtg_Scoretable}"></i:InvokeCommandAction>
+                            <!--<i:InvokeCommandAction Command="{Binding navBack}"></i:InvokeCommandAction>-->                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </Button>
+            </Border>
+            <Border Style="{DynamicResource brd_BackBtn}"  Margin="10 0 0 0">
                 <Button Style="{DynamicResource BackBtn3}"  >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
@@ -150,19 +159,9 @@
 
                 </Button>
             </Border>
-            <Border Style="{DynamicResource brd_SaveBtn}"  Margin="10 0 0 0">
-                <Button Style="{DynamicResource SaveBtn3}"  >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=dtg_Scoretable}"></i:InvokeCommandAction>
-                            <i:InvokeCommandAction Command="{Binding navBack}"></i:InvokeCommandAction>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-
-                </Button>
-            </Border>
         </StackPanel>
 
+        <!--Tongket-->
         <Border Grid.Row="1" Grid.Column="1" Margin="10 10 10 10" Background="White" BorderThickness="1" CornerRadius="15">
             <Border.Effect>
                 <DropShadowEffect Opacity="0.25"/>
@@ -213,7 +212,7 @@
             </StackPanel>
         </Border>
 
-        
+
 
     </Grid>
 </UserControl>

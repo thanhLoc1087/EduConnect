@@ -69,7 +69,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ComboBox>
-                    
+
                     <!--cbb sub-->
                     <ComboBox SelectedIndex="1" x:Name="cbb_Subject"   HorizontalAlignment="Left"
                         Width="139" Margin="10 0" Height="39" Padding="15 0"
@@ -219,7 +219,7 @@
                 <!--Opearator Edit-->
                 <!--operator Edit-->
                 <Grid Grid.Column="1" Margin="0 10 0 10" >
-                    <DataGrid x:Name="dtg_Edit" RowHeight="50" VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False"  ColumnHeaderStyle="{DynamicResource dtg_Header}" ItemsSource="{Binding MyFilterListSemester}" GridLinesVisibility="None"   >
+                    <DataGrid x:Name="dtg_Edit" RowHeight="50" VerticalScrollBarVisibility="Disabled" Background="Transparent" IsReadOnly="True" AutoGenerateColumns="False"   ItemsSource="{Binding MyFilterListSemester}" GridLinesVisibility="None"   >
                         <DataGrid.Columns >
                             <DataGridTemplateColumn Header="" IsReadOnly="True" Selector.IsSelected="False" Width="*" >
                                 <DataGridTemplateColumn.CellTemplate >

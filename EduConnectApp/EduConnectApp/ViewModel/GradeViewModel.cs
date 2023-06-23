@@ -89,7 +89,7 @@ namespace EduConnectApp.ViewModel
                 navInputscore = new NavigationCommand<InputScoreViewModel>(navigationStore, () => new InputScoreViewModel(navigationStore));
 
                 Detail = new RelayCommand<DataGrid>((p) => { return p.SelectedItem == null ? false : true; }, (p) => _Detail(p));
-                getDetail = new RelayCommand<GradeUC>((p) => { return p.dtg_Input1.SelectedItem == null|| p.dtg_Input2.SelectedItem==null ? false : true; }, (p) => _GetDetail(p));
+                getDetail = new RelayCommand<GradeUC>((p) => { return p.dtg_Input1.SelectedItem == null && p.dtg_Input2.SelectedItem==null ? false : true; }, (p) => _GetDetail(p));
 
                 //ListDTB
                 ClassList = new ObservableCollection<LOP>(DataProvider.Ins.DB.LOPs.Where(x => x.DELETED == false));
@@ -163,7 +163,7 @@ namespace EduConnectApp.ViewModel
                 }
                 else
                 {
-                    p.dtg_HomeRoomList = p.dtg_Input1;
+                    p.dtg_HomeRoomList.SelectedIndex = p.dtg_Input1.SelectedIndex;
                     _Detail(p.dtg_HomeRoomList);
                 }
 

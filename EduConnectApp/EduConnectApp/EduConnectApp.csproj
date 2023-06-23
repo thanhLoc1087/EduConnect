@@ -204,6 +204,7 @@
     <Compile Include="ViewModel\InputScoreViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ResetPwViewModel.cs" />
     <Compile Include="ViewModel\ScoreDetailViewModel.cs" />
     <Compile Include="ViewModel\SemesterScoreViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
@@ -233,6 +234,9 @@
     </Compile>
     <Compile Include="ViewUCs\InputScore.xaml.cs">
       <DependentUpon>InputScore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUCs\ResetPwUC.xaml.cs">
+      <DependentUpon>ResetPwUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewUCs\ScoreDetail.xaml.cs">
       <DependentUpon>ScoreDetail.xaml</DependentUpon>
@@ -355,6 +359,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewUCs\InputScore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewUCs\ResetPwUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
