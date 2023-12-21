@@ -1,0 +1,2 @@
+D:\UITSe\HK5\SE113\EduConnect\EduConnectApp\EduConnectTest\obj\Debug\EduConnectTest.csproj.AssemblyReference.cache
+D:\UITSe\HK5\SE113\EduConnect\EduConnectApp\EduConnectTest\obj\Debug\EduConnectTest.csproj.CoreCompileInputs.cache

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnectApp", "EduConnectApp\EduConnectApp.csproj", "{3B320451-5A68-4188-B688-0FC96A5A9CAB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduConnectUnitTests", "C:\Users\ADMIN\Downloads\EduConnect _NUnutTest\EduConnect _NUnutTest\AverageScore\EduConnectUnitTests.csproj", "{54C2489B-D805-4728-94F1-BA5C498D8318}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3B320451-5A68-4188-B688-0FC96A5A9CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B320451-5A68-4188-B688-0FC96A5A9CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B320451-5A68-4188-B688-0FC96A5A9CAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C2489B-D805-4728-94F1-BA5C498D8318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C2489B-D805-4728-94F1-BA5C498D8318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C2489B-D805-4728-94F1-BA5C498D8318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C2489B-D805-4728-94F1-BA5C498D8318}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
